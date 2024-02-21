@@ -130,6 +130,7 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                   Container(
                                     margin: EdgeInsets.only(left: 1.0),
                                     child: Icon(
+                                      color: Colors.grey,
                                       Icons.person,
                                       size: 20,
                                     ),
@@ -170,6 +171,7 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                   Container(
                                     margin: EdgeInsets.only(left: 1.0),
                                     child: Icon(
+                                      color: Colors.grey,
                                       Icons.mail,
                                       size: 20,
                                     ),
@@ -210,6 +212,7 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                   Container(
                                     margin: EdgeInsets.only(left: 1.0),
                                     child: Icon(
+                                      color: Colors.grey,
                                       Icons.phone,
                                       size: 20,
                                     ),
@@ -250,6 +253,7 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                   Container(
                                     margin: EdgeInsets.only(left: 1.0),
                                     child: Icon(
+                                      color: Colors.grey,
                                       Icons.school,
                                       size: 20,
                                     ),

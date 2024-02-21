@@ -1,3 +1,4 @@
+import 'package:careacademy/Login/OTP.dart';
 import 'package:careacademy/Login/SignIn.dart';
 import 'package:careacademy/Login/SignUp.dart';
 import 'package:careacademy/Splach.dart';
@@ -7,7 +8,7 @@ void main() {
   runApp(
       MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: SignIn(),
+        home: OTP(),
       )
   );
 }

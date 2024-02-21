@@ -91,7 +91,7 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(6.0),
                     child: Align(
                       alignment: Alignment.center,
                       child: Container(
@@ -136,7 +136,7 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                                     child: Icon(
                                       color: Colors.grey,
                                       Icons.phone,
-                                      size: 20,
+                                      size: 17.59,
                                     ),
                                   ),
                                 ],

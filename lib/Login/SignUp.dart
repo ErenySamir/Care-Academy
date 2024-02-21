@@ -54,6 +54,7 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                   Align(
                     alignment: Alignment.topRight,
                     child: Container(
+
                       padding: EdgeInsets.only(right: 8.0, top: 120.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
@@ -62,7 +63,8 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                             'مرحباً بك',
                             textAlign: TextAlign.start,
                             style: TextStyle(
-                              fontSize: 18.0,
+                              fontSize: 12.0,
+
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -84,6 +86,7 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                       animation: animationController,
                       builder: (context, child) {
                         return Transform.scale(
+
                           scale: animation.value,
                           child: Image.asset('assets/images/logo.png'),
                         );
@@ -132,7 +135,7 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                     child: Icon(
                                       color: Colors.grey,
                                       Icons.person,
-                                      size: 20,
+                                      size: 17.59,
                                     ),
                                   ),
                                 ],
@@ -173,7 +176,7 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                     child: Icon(
                                       color: Colors.grey,
                                       Icons.mail,
-                                      size: 20,
+                                      size: 17.59,
                                     ),
                                   ),
                                 ],
@@ -214,7 +217,7 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                     child: Icon(
                                       color: Colors.grey,
                                       Icons.phone,
-                                      size: 20,
+                                      size: 17.59,
                                     ),
                                   ),
                                 ],
@@ -255,7 +258,7 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                     child: Icon(
                                       color: Colors.grey,
                                       Icons.school,
-                                      size: 20,
+                                      size: 17.59,
                                     ),
                                   ),
                                 ],
@@ -308,12 +311,10 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                         fontWeight: FontWeight.normal,
                                       ),
                                     ),
-
                                   ],
                                 ),
                               ),
                             ),
-
                           ],
                         ),
                       ),

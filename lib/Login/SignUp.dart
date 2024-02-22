@@ -275,7 +275,7 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                     padding: const EdgeInsets.only(top: 28.0),
                                     child: ElevatedButton(
                                       style: ElevatedButton.styleFrom(
-                                        backgroundColor: Colors.blue.shade300,
+                                        backgroundColor: Color(0xFF008DC9), // Background color
                                       ),
                                       onPressed: () {},
                                       child: Text(
@@ -299,7 +299,7 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                         fontSize: 18.0,
-                                        color: Colors.blue,
+                                        color: Color(0xFF008DC9), // Background color
                                         fontWeight: FontWeight.normal,
                                       ),
                                     ),

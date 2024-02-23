@@ -46,6 +46,7 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
       home: Scaffold(
           backgroundColor: CupertinoColors.white,
           body: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
             child: Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
@@ -54,8 +55,10 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                   Align(
                     alignment: Alignment.topRight,
                     child: Container(
-
-                      padding: EdgeInsets.only(right: 8.0, top: 120.0),
+                      width: 265.75,
+                      height: 94.75,
+                      margin: EdgeInsets.only(top: 140.43, left: 76.95),
+                      padding: EdgeInsets.all(8.37),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: <Widget>[
@@ -63,13 +66,13 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                             'مرحباً بك',
                             textAlign: TextAlign.start,
                             style: TextStyle(
-                              fontSize: 12.0,
-
+                              fontSize: 27.0,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
+                          SizedBox(height: 8.37),
                           Text(
-                            'في منصة الأستاذ مايكل عاطف👋 ',
+                            'في منصة الأستاذ مايكل عاطف👋',
                             textAlign: TextAlign.start,
                             style: TextStyle(
                               fontSize: 15.0,
@@ -80,28 +83,35 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                       ),
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.topCenter,
-                    child: AnimatedBuilder(
-                      animation: animationController,
-                      builder: (context, child) {
-                        return Transform.scale(
-
-                          scale: animation.value,
-                          child: Image.asset('assets/images/logo.png'),
-                        );
-                      },
+                  Padding(
+                    padding: const EdgeInsets.only(top: 54.0),
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: Container(
+                        width: 142,
+                        height: 74.72,
+                        child: AnimatedBuilder(
+                          animation: animationController,
+                          builder: (context, child) {
+                            return Transform.scale(
+                              scale: animation.value,
+                              child: Image.asset('assets/images/logo.png'),
+                            );
+                          },
+                        ),
+                      ),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: EdgeInsets.only(top: 250, left: 21.46),
                     child: Align(
                       alignment: Alignment.center,
                       child: Container(
+                        width: 317.08,
+                        height: 690.95,
                         margin: EdgeInsets.symmetric(horizontal: 6.0),
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.end,
                           children: <Widget>[
                             Container(
                               alignment: Alignment.centerRight,
@@ -115,27 +125,32 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                               ),
                             ),
                             Container(
-                              color: Colors.blue.shade50,
-                              alignment: Alignment.centerRight,
+                              color: Color(0xFFF6F4FE),
+                              alignment: Alignment.centerRight, // Align the container to the right
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   Expanded(
                                     flex: 1,
                                     child: Container(
-                                      child: TextField(
+                                      child: const TextField(
+                                        textAlign: TextAlign.right, // Align the text field content to the right
                                         decoration: InputDecoration(
                                           hintText: 'أسم الطالب',
+                                          hintStyle: TextStyle(
+                                          ),
+                                          border: InputBorder.none, // Remove the default border
                                         ),
                                       ),
+
                                     ),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.only(left: 1.0),
+                                    margin: EdgeInsets.only(left: 20.0), // Adjust margin from right
                                     child: Icon(
                                       color: Colors.grey,
-                                      Icons.person,
-                                      size: 17.59,
+                                      Icons.person_outline_outlined,
+                                      size: 21,
                                     ),
                                   ),
                                 ],
@@ -156,27 +171,32 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                               ),
                             ),
                             Container(
-                              color: Colors.blue.shade50,
-                              alignment: Alignment.centerLeft,
+                              color: Color(0xFFF6F4FE),
+                              alignment: Alignment.centerRight, // Align the container to the right
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   Expanded(
                                     flex: 1,
                                     child: Container(
-                                      child: TextField(
+                                      child: const TextField(
+                                        textAlign: TextAlign.right, // Align the text field content to the right
                                         decoration: InputDecoration(
-                                          hintText: 'أالبريد الألكترونى',
+                                          hintText: 'البريد الألكترونى',
+                                          hintStyle: TextStyle(
+                                          ),
+                                          border: InputBorder.none, // Remove the default border
                                         ),
                                       ),
+
                                     ),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.only(left: 1.0),
+                                    margin: EdgeInsets.only(left: 20.0), // Adjust margin from right
                                     child: Icon(
                                       color: Colors.grey,
-                                      Icons.mail,
-                                      size: 17.59,
+                                      Icons.mail_outline,
+                                      size: 21,
                                     ),
                                   ),
                                 ],
@@ -197,27 +217,32 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                               ),
                             ),
                             Container(
-                              color: Colors.blue.shade50,
-                              alignment: Alignment.centerLeft,
+                              color: Color(0xFFF6F4FE),
+                              alignment: Alignment.centerRight, // Align the container to the right
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   Expanded(
                                     flex: 1,
                                     child: Container(
-                                      child: TextField(
+                                      child: const TextField(
+                                        textAlign: TextAlign.right, // Align the text field content to the right
                                         decoration: InputDecoration(
                                           hintText: 'رقم التليفون',
+                                          hintStyle: TextStyle(
+                                          ),
+                                          border: InputBorder.none, // Remove the default border
                                         ),
                                       ),
+
                                     ),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.only(left: 1.0),
+                                    margin: EdgeInsets.only(left: 20.0), // Adjust margin from right
                                     child: Icon(
                                       color: Colors.grey,
                                       Icons.phone,
-                                      size: 17.59,
+                                      size: 21,
                                     ),
                                   ),
                                 ],
@@ -238,88 +263,102 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                               ),
                             ),
                             Container(
-                              color: Colors.blue.shade50,
+                              color: Color(0xFFF6F4FE),
                               alignment: Alignment.centerLeft,
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  Expanded(
-                                    flex: 1,
-                                    child: Container(
+                                     Container(
                                       child: DropdownButton<String>(
-                                        hint: Text('الصف الدراسى'),
+                                        hint: Text(' الصف الدراسى '),
                                         items: [],
                                         onChanged: (Object? value) {},
                                       ),
                                     ),
-                                  ),
                                   Container(
-                                    margin: EdgeInsets.only(left: 1.0),
+                                    margin: EdgeInsets.only(left: 20.0),
                                     child: Icon(
                                       color: Colors.grey,
                                       Icons.school,
-                                      size: 17.59,
+                                      size: 21,
                                     ),
                                   ),
                                 ],
                               ),
                             ),
-                            Align(
-                              alignment: Alignment.bottomCenter,
-                              child: Container(
+                           Align(
                                 alignment: Alignment.bottomCenter,
-                                child: SizedBox(
-                                  width: 315,
-                                  height: 70,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(top: 28.0),
-                                    child: ElevatedButton(
-                                      style: ElevatedButton.styleFrom(
-                                        backgroundColor: Color(0xFF008DC9), // Background color
-                                      ),
-                                      onPressed: () {},
-                                      child: Text(
-                                        'أنشاء حساب',
-                                        style: TextStyle(color: Colors.white),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 20,right: 12.56
+                                  ),
+                                  child: Container(
+
+                                    alignment: Alignment.bottomCenter,
+                                    child: SizedBox(
+                                      width: 318,
+                                      height: 56.12,
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(top: 28.0),
+                                        child: ElevatedButton(
+                                          style: ElevatedButton.styleFrom(
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(20.0),
+                                            ),
+                                            backgroundColor: Color(0xFF008DC9), // Background color
+                                          ),
+                                          onPressed: () {},
+                                          child: Text(
+                                            'أنشاء حساب',
+                                            style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                            Align(
-                              alignment: Alignment.topRight,
-                              child: Container(
-                                padding: EdgeInsets.only(right: 8.0, top: 10.0),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
-                                    Text(
-                                      ' تسجيل الدخول',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        fontSize: 18.0,
-                                        color: Color(0xFF008DC9), // Background color
-                                        fontWeight: FontWeight.normal,
-                                      ),
+
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Align(
+                                  alignment: Alignment.topRight,
+                                  child: Container(
+                                    padding: EdgeInsets.only(right: 8.0, top: 10.0),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: <Widget>[
+                                        Text(
+                                          ' تسجيل الدخول',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            fontSize: 12.9,
+                                            color: Color(0xFF008DC9), // Background color
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                        ),
+                                        Text(
+                                          ' هل لديك حساب ؟',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            fontSize: 15.0,
+                                            color: Colors.grey,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    Text(
-                                      ' هل لديك حساب ؟',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        fontSize: 15.0,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                    ),
-                                  ],
+                                  ),
                                 ),
-                              ),
+                              ],
                             ),
                           ],
+
+                        ),
                         ),
                       ),
-                    ),
-                  ),
+                  )
+
                 ],
               ),
             ),

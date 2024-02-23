@@ -46,6 +46,7 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
       home: Scaffold(
           backgroundColor: CupertinoColors.white,
           body: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
             child: Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
@@ -54,7 +55,10 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                   Align(
                     alignment: Alignment.topRight,
                     child: Container(
-                      padding: EdgeInsets.only(right: 8.0, top: 120.0),
+                      width: 265.75,
+                      height: 94.75,
+                      margin: EdgeInsets.only(top: 140.43, left: 76.95),
+                      padding: EdgeInsets.all(8.37),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: <Widget>[
@@ -62,12 +66,13 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                             'مرحباً بك',
                             textAlign: TextAlign.start,
                             style: TextStyle(
-                              fontSize: 18.0,
+                              fontSize: 27.0,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
+                          SizedBox(height: 8.37),
                           Text(
-                            'في منصة الأستاذ مايكل عاطف👋 ',
+                            'في منصة الأستاذ مايكل عاطف👋',
                             textAlign: TextAlign.start,
                             style: TextStyle(
                               fontSize: 15.0,
@@ -78,16 +83,23 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                       ),
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.topCenter,
-                    child: AnimatedBuilder(
-                      animation: animationController,
-                      builder: (context, child) {
-                        return Transform.scale(
-                          scale: animation.value,
-                          child: Image.asset('assets/images/logo.png'),
-                        );
-                      },
+                  Padding(
+                    padding: const EdgeInsets.only(top: 54.0),
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: Container(
+                        width: 142,
+                        height: 74.72,
+                        child: AnimatedBuilder(
+                          animation: animationController,
+                          builder: (context, child) {
+                            return Transform.scale(
+                              scale: animation.value,
+                              child: Image.asset('assets/images/logo.png'),
+                            );
+                          },
+                        ),
+                      ),
                     ),
                   ),
                   Padding(
@@ -103,63 +115,71 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                             Container(
                               alignment: Alignment.centerRight,
 
-                              child: Container(
-                                alignment: Alignment.centerRight,
-                                child: Text(
-                                  'رقم التليفون',
-                                  textAlign: TextAlign.right,
-                                  style: TextStyle(
-                                    fontSize: 15.0,
-                                    fontWeight: FontWeight.bold,
+                              child:  Container(
+                                  alignment: Alignment.centerRight,
+                                  child: Text(
+                                    'رقم التليفون',
+                                    textAlign: TextAlign.right,
+                                    style: TextStyle(
+                                      fontSize: 15.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                            Container(
-                              color: Colors.blue.shade50,
-                              alignment: Alignment.centerLeft,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Expanded(
-                                    flex: 1,
-                                    child: Container(
-                                      child: TextField(
-                                        decoration: InputDecoration(
-                                          hintText: 'رقم التليفون',
+                          Container(
+                            color: Color(0xFFF6F4FE),
+                            alignment: Alignment.centerRight, // Align the container to the right
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    child: const TextField(
+                                      textAlign: TextAlign.right, // Align the text field content to the right
+                                      decoration: InputDecoration(
+                                        hintText: 'رقم التليفون',
+                                        hintStyle: TextStyle(
                                         ),
+                                        border: InputBorder.none, // Remove the default border
                                       ),
                                     ),
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.only(left: 1.0),
-                                    child: Icon(
-                                      color: Colors.grey,
-                                      Icons.phone,
-                                      size: 17.59,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
 
-                            Align(
-                              alignment: Alignment.bottomCenter,
-                              child: Container(
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(left: 20.0), // Adjust margin from right
+                                  child: Icon(
+                                    color: Colors.grey,
+                                    Icons.phone,
+                                    size: 21,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                            Padding(
+                              padding: const EdgeInsets.only(top: 38.0),
+                              child: Align(
                                 alignment: Alignment.bottomCenter,
-                                child: SizedBox(
-                                  width: 315,
-                                  height: 70,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(top: 28.0),
-                                    child: ElevatedButton(
-                                      style: ElevatedButton.styleFrom(
-                                        backgroundColor: Color(0xFF008DC9), // Background color
-                                      ),
-                                      onPressed: () {},
-                                      child: Text(
-                                        ' تسجيل دخول',
-                                        style: TextStyle(color: Colors.white),
+                                child: Container(
+                                  alignment: Alignment.bottomCenter,
+                                  child: SizedBox(
+                                    width: 318,
+                                    height: 70,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(top: 28.0),
+                                      child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: Color(0xFF008DC9), // Background color
+                                        ),
+                                        onPressed: () {},
+                                        child: Text(
+                                          ' تسجيل دخول',
+                                          style: TextStyle(color: Colors.white),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -177,7 +197,7 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                                       'أنشاء حساب',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                        fontSize: 18.0,
+                                        fontSize: 12.96,
                                         color: Color(0xFF008DC9), // Background color
                                         fontWeight: FontWeight.normal,
                                       ),
@@ -186,7 +206,8 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                                       ' هل لديك حساب ؟',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                        fontSize: 15.0,
+                                        fontSize: 12.96,
+                                        color: Colors.grey,
                                         fontWeight: FontWeight.normal,
                                       ),
                                     ),

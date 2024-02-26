@@ -37,8 +37,7 @@ class AboutState extends State<About>{
     ))),
 
       ),
-      body: SingleChildScrollView(
-        child: ListView(
+      body:  ListView(
           children: [
             SizedBox(height: 30), // Added space before the image
             Center(
@@ -63,7 +62,7 @@ class AboutState extends State<About>{
             ),
           ],
         ),
-      ),
+
       bottomNavigationBar: Container(
         // width: 359,
         // height: 66.22,

@@ -1,3 +1,4 @@
+import 'package:careacademy/Screens/Home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -176,6 +177,7 @@ class OTPState extends State<OTP> {
                         ' 23 ثانية',
                         textAlign: TextAlign.center,
                         style: TextStyle(
+                          fontFamily: 'Cairo',
                           fontSize: 12.32,
                           color: Color(0xFF008DC9),
                           fontWeight: FontWeight.normal,
@@ -186,6 +188,7 @@ class OTPState extends State<OTP> {
                         'لم يتبق سوى ',
                         textAlign: TextAlign.center,
                         style: TextStyle(
+                          fontFamily: 'Cairo',
                           fontSize: 12.32,
                           color: Colors.black,
                           fontWeight: FontWeight.normal,
@@ -209,10 +212,15 @@ class OTPState extends State<OTP> {
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xFF008DC9), // Background color
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Home()),
+                          );
+                        },
                         child: Text(
                           'تأكيــــــد',
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: Colors.white,fontFamily: 'Cairo',),
                         ),
                       ),
                     ),

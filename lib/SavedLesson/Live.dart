@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../HomeWork/lessons.dart';
+import '../Screens/Home.dart';
+import '../Screens/profile.dart';
+
 class Live extends StatefulWidget {
   @override
   State<Live> createState() {
@@ -13,43 +17,28 @@ class LiveState extends State<Live> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold( appBar: AppBar(
+      leading: GestureDetector(
+        onTap: () {
+          Navigator.of(context).pop(); // Navigate back to the previous page
+        },
+        child: Image.asset(
+          'assets/images/chevron-right.png', // Replace with your image asset path
+          width: 24, // Adjust the width of the image
+          height: 24, // Adjust the height of the image
+        ),
+      ),
+      title: Center(child: Text("بث مباشر",style: TextStyle( fontFamily: 'Cairo',
+        fontSize: 22,
+        fontWeight: FontWeight.bold,))),
+
+    ),
       backgroundColor: CupertinoColors.white,
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center, // Center the column vertically
           children: <Widget>[
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
-              height: 60.0,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
 
-                  Container(
-                    child: IconButton(
-                      icon: Icon(Icons.navigate_before, color: Color(0xFF008DC9)),
-                      color: Colors.white,
-                      onPressed: () {},
-                    ),
-                  ),
-                  Expanded(
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        "بث مباشر",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 17,
-                          fontWeight: FontWeight.normal,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
       Stack(
         alignment: Alignment.center,
         children: [
@@ -219,85 +208,170 @@ class LiveState extends State<Live> {
             // transform: GradientRotation(-3.14159), // -180 degrees in radians
           ),
         ),
-        child: Expanded(
-          child: BottomNavigationBar(
-            backgroundColor: Colors.white,
-            currentIndex: currentIndexx,
-            onTap: (index) {
-              setState(() {
-                currentIndexx = index;
-              });
-            },
-            items: [
-              BottomNavigationBarItem(
-                icon: Column(
-                  children: [
-                    Icon(Icons.person_outlined, color: Colors.black, size: 25),
-                    SizedBox(height: 1),
-                    Text(
-                      "ملفى",
-                      style: TextStyle(
-                        fontWeight: FontWeight.normal,
-                        color: Colors.black,
-                        fontSize:10.90,
+
+        child: BottomNavigationBar(
+          backgroundColor: Colors.white,
+          currentIndex: currentIndexx,
+          onTap: (index) {
+            // setState(() {
+            //   currentIndexx = index;
+            // });
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: Column(
+                children: [
+                  Container(
+                    width: 25,
+                    height: 25,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                    ),
+                    child:InkWell(
+                      onTap: () {
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    profile()),
+                          );
+                        });
+                      },
+                      child: Image.asset(
+                        'assets/images/user.png',
                       ),
                     ),
-                  ],
-                ),
-                label: "", // Set an empty label to hide the default label
-                backgroundColor: Colors.white,
+                  ),
+                  SizedBox(height: 1),
+                  Text(
+                    "ملفى",
+                    style: TextStyle(
+                      fontFamily: 'Cairo',
+
+                      fontWeight: FontWeight.normal,
+                      color: Colors.black,
+                      fontSize:10.90,
+                    ),
+                  ),
+                ],
               ),
-              BottomNavigationBarItem(
-                icon: Column(
-                  children: [
-                    Icon(Icons.online_prediction, color: Colors.blueAccent, size: 25),
-                    SizedBox(height: 1),
-                    Text(
-                      "مباشر",
-                      style: TextStyle(color: Colors.black, fontSize: 10.90,
-                        fontWeight: FontWeight.normal,
+              label: "", // Set an empty label to hide the default label
+              backgroundColor: Colors.white,
+            ),
+            BottomNavigationBarItem(
+              icon: Column(
+                children: [
+                  Container(
+                    width: 25,
+                    height: 25,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                    ),
+                    child: InkWell(
+                        onTap: () {
+                          setState(() {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      Live()),
+                            );
+                          });
+                        },
+                        child: Icon(Icons.online_prediction, color: Colors.grey, size: 25)),),
+                  SizedBox(height: 1),
+                  Text(
+                    "مباشر",
+                    style: TextStyle(color: Colors.black, fontSize: 10.90,
+                      fontFamily: 'Cairo',
+
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                ],
+              ),
+              label: "",
+              backgroundColor: Colors.white,
+            ),
+            BottomNavigationBarItem(
+              icon: Column(
+                children: [
+                  Container(
+                    width: 25,
+                    height: 25,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                    ),
+                    child: InkWell(
+                      onTap: () {
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    Lessons()),
+                          );
+                        });
+                      },
+                      child: Icon(Icons.collections_bookmark_outlined,
+                          color: Colors.grey, size: 25),
+                    ),
+                  ),
+                  SizedBox(height: 1),
+                  Text(
+                    "الوحدات",
+                    style: TextStyle(color: Colors.black, fontSize: 10.90,
+                      fontFamily: 'Cairo',
+
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                ],
+              ),
+              label: "",
+              backgroundColor: Colors.white,
+            ),
+            BottomNavigationBarItem(
+              icon: Column(
+                children: [
+                  Container(
+                    width: 25,
+                    height: 25,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                    ),
+                    child: InkWell(
+                      onTap: () {
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    Home()),
+                          );
+                        });
+                      },
+                      child: Image.asset(
+                        'assets/images/HouseSimple.png',
                       ),
                     ),
-                  ],
-                ),
-                label: "",
-                backgroundColor: Colors.white,
-              ),
-              BottomNavigationBarItem(
-                icon: Column(
-                  children: [
-                    Icon(Icons.collections_bookmark_outlined,
-                        color: Colors.black, size: 25),
-                    SizedBox(height: 1),
-                    Text(
-                      "الوحدات",
-                      style: TextStyle(color: Colors.black, fontSize: 10.90,
-                        fontWeight: FontWeight.normal,
-                      ),
+                  ),
+                  SizedBox(height: 1),
+                  Text(
+                    "الرئيسية",
+                    style: TextStyle(color: Colors.black, fontSize: 10.90,
+                      fontFamily: 'Cairo',
+
+                      fontWeight: FontWeight.normal,
                     ),
-                  ],
-                ),
-                label: "",
-                backgroundColor: Colors.white,
+                  ),
+                ],
               ),
-              BottomNavigationBarItem(
-                icon: Column(
-                  children: [
-                    Icon(Icons.home_outlined, color: Colors.black, size: 25),
-                    SizedBox(height: 1),
-                    Text(
-                      "الرئيسية",
-                      style: TextStyle(color: Colors.black, fontSize: 10.90,
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
-                  ],
-                ),
-                label: "",
-                backgroundColor: Colors.white,
-              ),
-            ],
-          ),
+              label: "",
+              backgroundColor: Colors.white,
+            ),
+          ],
         ),
       ),
     );

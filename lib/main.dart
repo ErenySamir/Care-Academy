@@ -1,6 +1,7 @@
 
+import 'package:careacademy/Screens/Home.dart';
+import 'package:careacademy/Splach.dart';
 import 'package:flutter/material.dart';
-import 'Screens/firstpage.dart';
 import 'SavedLesson/Live.dart';
 
 void main() {
@@ -10,5 +11,5 @@ void main() {
   //       home: Live(),
   //     )
   // );
-  runApp(MaterialApp(debugShowCheckedModeBanner: false,home: firstpage(),));
+  runApp(MaterialApp(debugShowCheckedModeBanner: false,home: Home(),));
 }

@@ -1,3 +1,4 @@
+import 'package:careacademy/Login/SignUp.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 class Splash extends StatefulWidget {
@@ -21,6 +22,10 @@ class SplashState extends State<Splash>
       duration: Duration(seconds: 2), // Adjust the duration as needed
     );
     Future.delayed(Duration(seconds: 2), () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => SignUp()),
+      );
 
     });
 
@@ -64,7 +69,7 @@ class SplashState extends State<Splash>
                   builder: (context, child) {
                     return Transform.scale(
                       scale: animation.value,
-                      child: Image.asset('assets/images/logo.png'),
+                      child: Image.asset('assets/images/Logo.png'),
                     );
                   },
                 ),

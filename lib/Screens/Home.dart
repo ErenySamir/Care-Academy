@@ -1,5 +1,9 @@
+import 'package:careacademy/SavedLesson/Saved.dart';
+import 'package:careacademy/Screens/profile.dart';
 import 'package:flutter/material.dart';
 
+import '../HomeWork/lessons.dart';
+import '../SavedLesson/Live.dart';
 import 'menu.dart';
 
 // Define a model class for sections
@@ -11,7 +15,16 @@ class Section {
   Section({required this.name, required this.subtitle, required this.imageurl});
 }
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
+  @override
+  State<Home> createState() {
+return HomeState();
+  }
+
+}
+class HomeState extends State<Home>{
+  int currentIndexx = 0;
+
   // Dummy list of sections
   List<Section> sections = [
     Section(name: 'الفلزات والافلزات', subtitle: 'دروس 7', imageurl: 'assets/images/Security.jpg'),
@@ -418,7 +431,7 @@ class Home extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "مشاهدة المزيد",
+                    "مشاهدة المزيد  ",
                     style: TextStyle(fontSize: 20,  color: Color(0xFF008DC9),fontFamily: 'Cairo',),
                   ),
                   Text(
@@ -428,80 +441,380 @@ class Home extends StatelessWidget {
 
                 ],
               ),
-
+SizedBox(height: 16,),
+//IIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
               SizedBox(
-                height: 290, // Set a fixed height for the SingleChildScrollView
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: sections3.map((section) {
-                      return Container(
-                        margin: EdgeInsets.all(8),
-                        width: 200, // Adjusted width
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.white,
-                          boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.5), spreadRadius: 3, blurRadius: 7, offset: Offset(0, 3)),], // Add shadow
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Expanded( // Make the image take its size
-                              child: Image.asset(
-                                section.imageurl,
-                                width: double.infinity, // Take all available width
-                                fit: BoxFit.cover, // Adjust the image content
-                              ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center, // Center the row horizontally
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end, // Center the row horizontally
+                      children: <Widget>[
+                        Container(
+                          width: 180.12,
+                          height: 217.71,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20),
                             ),
-                            SizedBox(height: 8),
-                            Column(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 2,
+                                blurRadius: 5,
+                                offset: Offset(0, 3),
+                              ),
+                            ],),
+                          child: TextButton(
+                            onPressed: () {},
+                            child: Column(
                               crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Text(
-                                  section.name,
-                                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black,fontFamily: 'Cairo',),
+                              children: <Widget>[
+                                SizedBox(width: 10),
+                                Container(
+                                  width: 154.67,
+                                  height: 114.32,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.rectangle,
+                                  ),
+                                  child: Image.asset(
+                                    'assets/images/save.png',
+                                  ),
                                 ),
-                                SizedBox(height: 8),
                                 Text(
-                                  section.subtitle,
-                                  style: TextStyle(fontSize: 14, color: Colors.black,fontFamily: 'Cairo',),
-                                  textAlign: TextAlign.end, // Align text from right to left
+                                  "الفيزياء الحديثة",
+                                  style: TextStyle(
+                                    fontFamily: 'Cairo',
+
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
-                                SizedBox(height: 8),
+                                Text(
+                                  "ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ...",
+                                  style: TextStyle(
+                                    fontFamily: 'Cairo',
+
+                                    color: Colors.black,
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween, // Align row to the start and end
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     Row(
                                       children: [
-
-                                        // Add space between icon and number
                                         Text(
-                                          '100', // Replace with the actual number of views
-                                          style: TextStyle(fontSize: 14, color: Colors.black,fontFamily: 'Cairo',),
-                                        ), SizedBox(width: 4),
-                                        Icon(Icons.remove_red_eye, color: Color(0xFF008DC9)), // Video icon
+                                          "52647",
+                                          style: TextStyle(color: Colors.black, fontSize: 9,
+                                            fontFamily: 'Cairo',
+
+                                          ),
+                                        ),
+                                        Icon(Icons.remove_red_eye_sharp,
+                                            color: Colors.blueAccent, size: 11.7),
+                                        SizedBox(height: 2),
                                       ],
                                     ),
                                     Row(
                                       children: [
                                         Text(
-                                          '5', // Replace with the actual rating number
-                                          style: TextStyle(fontSize: 14, color: Colors.black,fontFamily: 'Cairo',),
+                                          "4.8",
+                                          style: TextStyle(color: Colors.black, fontSize: 9,
+                                            fontFamily: 'Cairo',
+                                          ),
                                         ),
-                                        SizedBox(width: 4), // Add space between number and icon
-                                        Icon(Icons.star, color: Color(0xFFFF9900)), // Star icon
-
+                                        Icon(Icons.star,
+                                            color: Colors.amber, size: 11.7),
+                                        SizedBox(height: 2),
                                       ],
                                     ),
                                   ],
-                                ),
+                                )
                               ],
                             ),
-                          ],
+                          ),
                         ),
-                      );
-                    }).toList(),
-                  ),
+                        SizedBox(width: 8),
+                        Container(
+                          width: 180.12,
+                          height: 217.71,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20),
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 2,
+                                blurRadius: 5,
+                                offset: Offset(0, 3),
+                              ),
+                            ],),
+                          child: TextButton(
+                            onPressed: () {},
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: <Widget>[
+                                SizedBox(width: 10),
+                                Container(
+                                  width: 154.67,
+                                  height: 114.32,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.rectangle,
+                                  ),
+                                  child: Image.asset(
+                                    'assets/images/save.png',
+                                  ),
+                                ),
+                                Text(
+                                  "الفيزياء الحديثة",
+                                  style: TextStyle(
+                                    fontFamily: 'Cairo',
+
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text(
+                                  "ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ....",
+                                  style: TextStyle(
+                                    fontFamily: 'Cairo',
+
+                                    color: Colors.black,
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "52647",
+                                          style: TextStyle(color: Colors.black, fontSize: 9,
+                                            fontFamily: 'Cairo',
+                                          ),
+                                        ),
+                                        Icon(Icons.remove_red_eye_sharp,
+                                            color: Colors.blueAccent, size: 11.7),
+                                        SizedBox(height:2),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "4.8",
+                                          style: TextStyle(color: Colors.black, fontSize: 9,
+                                            fontFamily: 'Cairo',
+                                          ),
+                                        ),
+                                        Icon(Icons.star,
+                                            color: Colors.amber, size: 11.7),
+                                        SizedBox(height: 2),
+                                      ],
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 8),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end, // Center the row horizontally
+                      children: <Widget>[
+                        Container(
+                          width: 180.12,
+                          height: 217.71,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20),
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 2,
+                                blurRadius: 5,
+                                offset: Offset(0, 3),
+                              ),
+                            ],),
+                          child: TextButton(
+                            onPressed: () {},
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: <Widget>[
+                                SizedBox(width: 10),
+                                Container(
+                                  width: 154.67,
+                                  height: 114.32,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.rectangle,
+                                  ),
+                                  child: Image.asset(
+                                    'assets/images/save.png',
+                                  ),
+                                ),
+                                Text(
+                                  "الفيزياء الحديثة",
+                                  style: TextStyle(
+                                    fontFamily: 'Cairo',
+
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text(
+                                  "ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ...",
+                                  style: TextStyle(
+                                    fontFamily: 'Cairo',
+
+                                    color: Colors.black,
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "52647",
+                                          style: TextStyle(color: Colors.black, fontSize: 9,
+                                            fontFamily: 'Cairo',
+
+                                          ),
+                                        ),
+                                        Icon(Icons.remove_red_eye_sharp,
+                                            color: Colors.blueAccent, size: 11.7),
+                                        SizedBox(height: 2),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "4.8",
+                                          style: TextStyle(color: Colors.black, fontSize: 9,
+                                            fontFamily: 'Cairo',
+                                          ),
+                                        ),
+                                        Icon(Icons.star,
+                                            color: Colors.amber, size: 11.7),
+                                        SizedBox(height: 2),
+                                      ],
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 8),
+                        Container(
+                          width: 180.12,
+                          height: 217.71,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20),
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 2,
+                                blurRadius: 5,
+                                offset: Offset(0, 3),
+                              ),
+                            ],),
+                          child: TextButton(
+                            onPressed: () {},
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: <Widget>[
+                                SizedBox(width: 10),
+                                Container(
+                                  width: 154.67,
+                                  height: 114.32,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.rectangle,
+                                  ),
+                                  child: Image.asset(
+                                    'assets/images/save.png',
+                                  ),
+                                ),
+                                Text(
+                                  "الفيزياء الحديثة",
+                                  style: TextStyle(
+                                    fontFamily: 'Cairo',
+
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text(
+                                  "ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ....",
+                                  style: TextStyle(
+                                    fontFamily: 'Cairo',
+
+                                    color: Colors.black,
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "52647",
+                                          style: TextStyle(color: Colors.black, fontSize: 9,
+                                            fontFamily: 'Cairo',
+                                          ),
+                                        ),
+                                        Icon(Icons.remove_red_eye_sharp,
+                                            color: Colors.blueAccent, size: 11.7),
+                                        SizedBox(height:2),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "4.8",
+                                          style: TextStyle(color: Colors.black, fontSize: 9,
+                                            fontFamily: 'Cairo',
+                                          ),
+                                        ),
+                                        Icon(Icons.star,
+                                            color: Colors.amber, size: 11.7),
+                                        SizedBox(height: 2),
+                                      ],
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
 
@@ -509,6 +822,199 @@ class Home extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: Container(
+        // width: 359,
+        // height: 66.22,
+        // margin: EdgeInsets.only(top: 33.78, left: 35.5),
+        // padding: EdgeInsets.fromLTRB(24.38, 12.61, 24.38, 12.61),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 2,
+              blurRadius: 5,
+              offset: Offset(0, 3),
+            ),
+          ],
+          gradient: LinearGradient(
+            begin: Alignment.bottomLeft,
+            end: Alignment.topRight,
+            colors: [Colors.blueAccent, Colors.white],
+            // transform: GradientRotation(-3.14159), // -180 degrees in radians
+          ),
+        ),
+
+        child: BottomNavigationBar(
+          backgroundColor: Colors.white,
+          currentIndex: currentIndexx,
+          onTap: (index) {
+            // setState(() {
+            //   currentIndexx = index;
+            // });
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: Column(
+                children: [
+                  Container(
+                    width: 25,
+                    height: 25,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                    ),
+                    child:InkWell(
+                      onTap: () {
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    profile()),
+                          );
+                        });
+                      },
+                      child: Image.asset(
+                        'assets/images/user.png',
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 1),
+                  Text(
+                    "ملفى",
+                    style: TextStyle(
+                      fontFamily: 'Cairo',
+
+                      fontWeight: FontWeight.normal,
+                      color: Colors.black,
+                      fontSize:10.90,
+                    ),
+                  ),
+                ],
+              ),
+              label: "", // Set an empty label to hide the default label
+              backgroundColor: Colors.white,
+            ),
+            BottomNavigationBarItem(
+              icon: Column(
+                children: [
+                  Container(
+                    width: 25,
+                    height: 25,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                    ),
+                    child: InkWell(
+                        onTap: () {
+                          setState(() {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      Live()),
+                            );
+                          });
+                        },
+                        child: Icon(Icons.online_prediction, color: Colors.grey, size: 25)),),
+                  SizedBox(height: 1),
+                  Text(
+                    "مباشر",
+                    style: TextStyle(color: Colors.black, fontSize: 10.90,
+                      fontFamily: 'Cairo',
+
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                ],
+              ),
+              label: "",
+              backgroundColor: Colors.white,
+            ),
+            BottomNavigationBarItem(
+              icon: Column(
+                children: [
+                  Container(
+                    width: 25,
+                    height: 25,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                    ),
+                    child: InkWell(
+                      onTap: () {
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    Lessons()),
+                          );
+                        });
+                      },
+                      child: Icon(Icons.collections_bookmark_outlined,
+                          color: Colors.grey, size: 25),
+                    ),
+                  ),
+                  SizedBox(height: 1),
+                  Text(
+                    "الوحدات",
+                    style: TextStyle(color: Colors.black, fontSize: 10.90,
+                      fontFamily: 'Cairo',
+
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                ],
+              ),
+              label: "",
+              backgroundColor: Colors.white,
+            ),
+            BottomNavigationBarItem(
+              icon: Column(
+                children: [
+                  Container(
+                    width: 25,
+                    height: 25,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                    ),
+                    child: InkWell(
+                      onTap: () {
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    Home()),
+                          );
+                        });
+                      },
+                      child: Image.asset(
+                        'assets/images/HouseSimple.png',
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 1),
+                  Text(
+                    "الرئيسية",
+                    style: TextStyle(color: Colors.black, fontSize: 10.90,
+                      fontFamily: 'Cairo',
+
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                ],
+              ),
+              label: "",
+              backgroundColor: Colors.white,
+            ),
+          ],
+        ),
+      ),
+
     );
   }
 }

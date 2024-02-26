@@ -1,3 +1,4 @@
+import 'package:careacademy/Login/OTP.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -66,6 +67,7 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                             'مرحباً بك',
                             textAlign: TextAlign.start,
                             style: TextStyle(
+                              fontFamily: 'Cairo',
                               fontSize: 27.0,
                               fontWeight: FontWeight.bold,
                             ),
@@ -75,6 +77,7 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                             'في منصة الأستاذ مايكل عاطف👋',
                             textAlign: TextAlign.start,
                             style: TextStyle(
+                              fontFamily: 'Cairo',
                               fontSize: 15.0,
                               fontWeight: FontWeight.normal,
                             ),
@@ -95,7 +98,7 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                           builder: (context, child) {
                             return Transform.scale(
                               scale: animation.value,
-                              child: Image.asset('assets/images/logo.png'),
+                              child: Image.asset('assets/images/Logo.png'),
                             );
                           },
                         ),
@@ -121,6 +124,7 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                                     'رقم التليفون',
                                     textAlign: TextAlign.right,
                                     style: TextStyle(
+                                      fontFamily: 'Cairo',
                                       fontSize: 15.0,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -141,6 +145,7 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                                       decoration: InputDecoration(
                                         hintText: 'رقم التليفون',
                                         hintStyle: TextStyle(
+                                          fontFamily: 'Cairo',
                                         ),
                                         border: InputBorder.none, // Remove the default border
                                       ),
@@ -175,10 +180,15 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                                         style: ElevatedButton.styleFrom(
                                           backgroundColor: Color(0xFF008DC9), // Background color
                                         ),
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(builder: (context) => OTP()),
+                                          );
+                                        },
                                         child: Text(
                                           ' تسجيل دخول',
-                                          style: TextStyle(color: Colors.white),
+                                          style: TextStyle(color: Colors.white,fontFamily: 'Cairo',),
                                         ),
                                       ),
                                     ),
@@ -197,6 +207,7 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                                       'أنشاء حساب',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
+                                        fontFamily: 'Cairo',
                                         fontSize: 12.96,
                                         color: Color(0xFF008DC9), // Background color
                                         fontWeight: FontWeight.normal,
@@ -206,6 +217,7 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                                       ' هل لديك حساب ؟',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
+                                        fontFamily: 'Cairo',
                                         fontSize: 12.96,
                                         color: Colors.grey,
                                         fontWeight: FontWeight.normal,

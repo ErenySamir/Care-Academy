@@ -23,15 +23,24 @@ class LessonsState extends State<Lessons> {
         onTap: () {
           Navigator.of(context).pop(); // Navigate back to the previous page
         },
-        child: Image.asset(
-          'assets/images/chevron-right.png', // Replace with your image asset path
-          width: 24, // Adjust the width of the image
-          height: 24, // Adjust the height of the image
+        child: Padding(
+          padding: const EdgeInsets.only(top: 28.0),
+          child: Image.asset(
+            'assets/images/chevron-right.png', // Replace with your image asset path
+            width: 24, // Adjust the width of the image
+            height: 24, // Adjust the height of the image
+          ),
         ),
       ),
-      title: Center(child: Text("الواحدات",style: TextStyle( fontFamily: 'Cairo',
-        fontSize: 22,
-        fontWeight: FontWeight.bold,))),
+      title: Padding(
+            padding: const EdgeInsets.only(top: 28.0,right: 44),
+            child: Center(
+              child: Text("الوحدات",
+                  style: TextStyle( fontFamily: 'Cairo',
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,)),
+            ),
+          ),
 
     ),
       backgroundColor: Colors.white,
@@ -50,313 +59,19 @@ class LessonsState extends State<Lessons> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center, // Center the row horizontally
                     children: <Widget>[
-                      Container(
-                        width: 155.08,
-                        height: 154.78,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            topRight: Radius.circular(20),
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 2,
-                              blurRadius: 5,
-                              offset: Offset(0, 3),
-                            ),
-                          ],),
-                        child: TextButton(
-                          onPressed: () {},
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: <Widget>[
-                              SizedBox(width: 10),
-                              Container(
-                                width: 30.27,
-                                height: 37.11,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.rectangle,
-                                ),
-                                child: Image.asset(
-                                  'assets/images/Security.jpg',
-                                ),
-                              ),
-                              Text(
-                                "الفيزياء النظرية",
-                                style: TextStyle(
-                                  fontFamily: 'Cairo',
-
-                                  color: Colors.black,
-                                  fontSize: 16.5,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                              ),
-                              Text(
-                                " 7 دروس   ",
-                                style: TextStyle(
-                                  fontFamily: 'Cairo',
-
-                                  color: Colors.black,
-                                  fontSize: 16.05,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(width: 8),
-                      Container(
-                        width: 155.08,
-                        height: 154.78,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            topRight: Radius.circular(20),
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 2,
-                              blurRadius: 5,
-                              offset: Offset(0, 3),
-                            ),
-                          ],),
-                        child: TextButton(
-                            onPressed: () {},
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: <Widget>[
-                                SizedBox(width: 10),
-                                Container(
-                                  width: 30.27,
-                                  height: 37.11,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.rectangle,
-                                  ),
-                                  child: Image.asset(
-                                    'assets/images/Security.jpg',
-                                  ),
-                                ),
-                                Text(
-                                  "الفلزات و الافلزات",
-                                  style: TextStyle(
-                                    fontFamily: 'Cairo',
-
-                                    color: Colors.black,
-                                    fontSize: 16.5,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                ),
-                                Text(
-                                  " دروس   7",
-                                  style: TextStyle(
-                                    fontFamily: 'Cairo',
-
-                                    color: Colors.black,
-                                    fontSize: 16.05,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                ),
-                              ],
-                            )                            ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center, // Center the row horizontally
-                    children: <Widget>[
-                      Container(
-                        width: 155.08,
-                        height: 154.78,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            topRight: Radius.circular(20),
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 2,
-                              blurRadius: 5,
-                              offset: Offset(0, 3),
-                            ),
-                          ],),
-                        child: TextButton(
-                          onPressed: () {},
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: <Widget>[
-                              SizedBox(width: 10),
-                              Container(
-                                width: 30.27,
-                                height: 37.11,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.rectangle,
-                                ),
-                                child: Image.asset(
-                                  'assets/images/Security.jpg',
-                                ),
-                              ),
-                              Text(
-                                "الفلزات و الافلزات",
-                                style: TextStyle(
-                                  fontFamily: 'Cairo',
-
-                                  color: Colors.black,
-                                  fontSize: 16.5,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                              ),
-                              Text(
-                                " دروس   7",
-                                style: TextStyle(
-                                  fontFamily: 'Cairo',
-
-                                  color: Colors.black,
-                                  fontSize: 16.05,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(width: 8),
-                      Container(
-                        width: 155.08,
-                        height: 154.78,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            topRight: Radius.circular(20),
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 2,
-                              blurRadius: 5,
-                              offset: Offset(0, 3),
-                            ),
-                          ],),
-                        child: TextButton(
-                            onPressed: () {},
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: <Widget>[
-                                SizedBox(width: 10),
-                                Container(
-                                  width: 30.27,
-                                  height: 37.11,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.rectangle,
-                                  ),
-                                  child: Image.asset(
-                                    'assets/images/Security.jpg',
-                                  ),
-                                ),
-                                Text(
-                                  "             المعادلات",
-                                  style: TextStyle(
-                                    fontFamily: 'Cairo',
-
-                                    color: Colors.black,
-                                    fontSize: 16.5,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                ),
-                                Text(
-                                  " دروس   7",
-                                  style: TextStyle(
-                                    fontFamily: 'Cairo',
-
-                                    color: Colors.black,
-                                    fontSize: 16.05,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                ),
-                              ],
-                            )                            ),
-                      ),
-                    ],
-                  ),
-
-                  SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center, // Center the row horizontally
-                    children: <Widget>[
-                      Container(
-                        width: 155.08,
-                        height: 154.78,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            topRight: Radius.circular(20),
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 2,
-                              blurRadius: 5,
-                              offset: Offset(0, 3),
-                            ),
-                          ],),
-                        child: TextButton(
-                          onPressed: () {},
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: <Widget>[
-                              SizedBox(width: 10),
-                              Container(
-                                width: 30.27,
-                                height: 37.11,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.rectangle,
-                                ),
-                                child: Image.asset(
-                                  'assets/images/Security.jpg',
-                                ),                                    ),
-                              Text(
-                                "الفلزات و الافلزات",
-                                style: TextStyle(
-                                  fontFamily: 'Cairo',
-
-                                  color: Colors.black,
-                                  fontSize: 16.5,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                              ),
-                              Text(
-                                " دروس   7",
-                                style: TextStyle(
-                                  fontFamily: 'Cairo',
-
-                                  color: Colors.black,
-                                  fontSize: 16.05,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(width: 8),
-                      Container(
-                        width: 155.08,
-                        height: 154.78,
+                      Padding(
+                        padding: const EdgeInsets.only(top: 15.0),
+                        child: Container(
+                          width: 155.08,
+                          height: 154.78,
                           decoration: BoxDecoration(
                             color: Colors.white,
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(20),
-                              topRight: Radius.circular(20),
-                            ),
+                            borderRadius: BorderRadius.circular(20),
+
+                            // borderRadius: BorderRadius.only(
+                            //   topLeft: Radius.circular(20),
+                            //   topRight: Radius.circular(20),
+                            // ),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.grey.withOpacity(0.5),
@@ -365,12 +80,12 @@ class LessonsState extends State<Lessons> {
                                 offset: Offset(0, 3),
                               ),
                             ],),
-                        child: TextButton(
+                          child: TextButton(
                             onPressed: () {},
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: <Widget>[
-                                SizedBox(width: 10),
+                                SizedBox(width: 10,height: 10,),
                                 Container(
                                   width: 30.27,
                                   height: 37.11,
@@ -379,7 +94,144 @@ class LessonsState extends State<Lessons> {
                                   ),
                                   child: Image.asset(
                                     'assets/images/Security.jpg',
-                                  ),                                    ),
+                                  ),
+                                ),
+                                Text(
+                                  "الفيزياء النظرية",
+                                  style: TextStyle(
+                                    fontFamily: 'Cairo',
+
+                                    color: Colors.black,
+                                    fontSize: 16.5,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 18.0),
+                                  child: Text(
+                                    "7 دروس",
+                                    style: TextStyle(
+                                      fontFamily: 'Cairo',
+
+                                      color: Colors.black,
+                                      fontSize: 16.05,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 8),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 15.0),
+                        child: Container(
+                          width: 155.08,
+                          height: 154.78,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+
+                            // borderRadius: BorderRadius.only(
+                            //   topLeft: Radius.circular(20),
+                            //   topRight: Radius.circular(20),
+                            // ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 2,
+                                blurRadius: 5,
+                                offset: Offset(0, 3),
+                              ),
+                            ],),
+                          child: TextButton(
+                              onPressed: () {},
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: <Widget>[
+                                  SizedBox(width: 10,height: 10,),
+                                  Container(
+                                    width: 30.27,
+                                    height: 37.11,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.rectangle,
+                                    ),
+                                    child: Image.asset(
+                                      'assets/images/Security.jpg',
+                                    ),
+                                  ),
+                                  Text(
+                                    "الفلزات و الافلزات",
+                                    style: TextStyle(
+                                      fontFamily: 'Cairo',
+
+                                      color: Colors.black,
+                                      fontSize: 16.5,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 18.0),
+                                    child: Text(
+                                      " دروس   7",
+                                      style: TextStyle(
+                                        fontFamily: 'Cairo',
+
+                                        color: Colors.black,
+                                        fontSize: 16.05,
+                                        fontWeight: FontWeight.normal,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )                            ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center, // Center the row horizontally
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(top: 15.0),
+                        child: Container(
+                          width: 155.08,
+                          height: 154.78,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+
+                            // borderRadius: BorderRadius.only(
+                            //   topLeft: Radius.circular(20),
+                            //   topRight: Radius.circular(20),
+                            // ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 2,
+                                blurRadius: 5,
+                                offset: Offset(0, 3),
+                              ),
+                            ],),
+                          child: TextButton(
+                            onPressed: () {},
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: <Widget>[
+                                SizedBox(width: 10,height: 10,),
+                                Container(
+                                  width: 30.27,
+                                  height: 37.11,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.rectangle,
+                                  ),
+                                  child: Image.asset(
+                                    'assets/images/Security.jpg',
+                                  ),
+                                ),
                                 Text(
                                   "الفلزات و الافلزات",
                                   style: TextStyle(
@@ -387,23 +239,229 @@ class LessonsState extends State<Lessons> {
 
                                     color: Colors.black,
                                     fontSize: 16.5,
-                                    fontWeight: FontWeight.normal,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 18.0),
+                                  child: Text(
+                                    "7 دروس",
+                                    style: TextStyle(
+                                      fontFamily: 'Cairo',
+
+                                      color: Colors.black,
+                                      fontSize: 16.05,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 8),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 15.0),
+                        child: Container(
+                          width: 155.08,
+                          height: 154.78,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+
+                            // borderRadius: BorderRadius.only(
+                            //   topLeft: Radius.circular(20),
+                            //   topRight: Radius.circular(20),
+                            // ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 2,
+                                blurRadius: 5,
+                                offset: Offset(0, 3),
+                              ),
+                            ],),
+                          child: TextButton(
+                              onPressed: () {},
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: <Widget>[
+                                  SizedBox(width: 10,height: 10,),
+                                  Container(
+                                    width: 30.27,
+                                    height: 37.11,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.rectangle,
+                                    ),
+                                    child: Image.asset(
+                                      'assets/images/Security.jpg',
+                                    ),
+                                  ),
+                                  Text(
+                                    "المعادلات ",
+                                    style: TextStyle(
+                                      fontFamily: 'Cairo',
+
+                                      color: Colors.black,
+                                      fontSize: 16.5,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 18.0),
+                                    child: Text(
+                                      " دروس   7",
+                                      style: TextStyle(
+                                        fontFamily: 'Cairo',
+
+                                        color: Colors.black,
+                                        fontSize: 16.05,
+                                        fontWeight: FontWeight.normal,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )                            ),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center, // Center the row horizontally
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(top: 15.0),
+                        child: Container(
+                          width: 155.08,
+                          height: 154.78,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+
+                            // borderRadius: BorderRadius.only(
+                            //   topLeft: Radius.circular(20),
+                            //   topRight: Radius.circular(20),
+                            // ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 2,
+                                blurRadius: 5,
+                                offset: Offset(0, 3),
+                              ),
+                            ],),
+                          child: TextButton(
+                            onPressed: () {},
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: <Widget>[
+                                SizedBox(width: 10,height: 10,),
+                                Container(
+                                  width: 30.27,
+                                  height: 37.11,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.rectangle,
+                                  ),
+                                  child: Image.asset(
+                                    'assets/images/Security.jpg',
                                   ),
                                 ),
                                 Text(
-                                  "7 دروس",
+                                  "الفلزات و الافلزات",
                                   style: TextStyle(
                                     fontFamily: 'Cairo',
 
                                     color: Colors.black,
-                                    fontSize: 16.05,
-                                    fontWeight: FontWeight.normal,
+                                    fontSize: 16.5,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 18.0),
+                                  child: Text(
+                                    "7 دروس",
+                                    style: TextStyle(
+                                      fontFamily: 'Cairo',
+
+                                      color: Colors.black,
+                                      fontSize: 16.05,
+                                      fontWeight: FontWeight.normal,
+                                    ),
                                   ),
                                 ),
                               ],
-                            )                            ),
+                            ),
+                          ),
+                        ),
                       ),
+                      SizedBox(width: 8),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 15.0),
+                        child: Container(
+                          width: 155.08,
+                          height: 154.78,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
 
+                            // borderRadius: BorderRadius.only(
+                            //   topLeft: Radius.circular(20),
+                            //   topRight: Radius.circular(20),
+                            // ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 2,
+                                blurRadius: 5,
+                                offset: Offset(0, 3),
+                              ),
+                            ],),
+                          child: TextButton(
+                              onPressed: () {},
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: <Widget>[
+                                  SizedBox(width: 10,height: 10,),
+                                  Container(
+                                    width: 30.27,
+                                    height: 37.11,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.rectangle,
+                                    ),
+                                    child: Image.asset(
+                                      'assets/images/Security.jpg',
+                                    ),
+                                  ),
+                                  Text(
+                                    "الفلزات و الافلزات",
+                                    style: TextStyle(
+                                      fontFamily: 'Cairo',
+
+                                      color: Colors.black,
+                                      fontSize: 16.5,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 18.0),
+                                    child: Text(
+                                      " دروس   7",
+                                      style: TextStyle(
+                                        fontFamily: 'Cairo',
+
+                                        color: Colors.black,
+                                        fontSize: 16.05,
+                                        fontWeight: FontWeight.normal,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )                            ),
+                        ),
+                      ),
                     ],
                   ),
                 ],

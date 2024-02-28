@@ -1,6 +1,7 @@
 import 'package:careacademy/SavedLesson/Saved.dart';
 import 'package:careacademy/Screens/profile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../HomeWork/lessons.dart';
 import '../SavedLesson/Live.dart';
@@ -47,7 +48,13 @@ class HomeState extends State<Home>{
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WillPopScope(
+        onWillPop: () async {
+      // Exit the application when back button is pressed
+      SystemNavigator.pop();
+      return true;
+    },
+    child: Scaffold(
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(10),
@@ -202,7 +209,7 @@ class HomeState extends State<Home>{
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: sections.map((section) {
                       return Container(
                         margin: EdgeInsets.all(8),
@@ -266,10 +273,19 @@ class HomeState extends State<Home>{
                         margin: EdgeInsets.all(8),
                         width: 200, // Adjusted width
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
                           color: Colors.white,
-                          boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.5), spreadRadius: 3, blurRadius: 7, offset: Offset(0, 3)),], // Add shadow
-                        ),
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20),
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 2,
+                              blurRadius: 5,
+                              offset: Offset(0, 3),
+                            ),
+                          ],),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
@@ -359,10 +375,19 @@ class HomeState extends State<Home>{
                         margin: EdgeInsets.all(8),
                         width: 200, // Adjusted width
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
                           color: Colors.white,
-                          boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.5), spreadRadius: 3, blurRadius: 7, offset: Offset(0, 3)),], // Add shadow
-                        ),
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20),
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 2,
+                              blurRadius: 5,
+                              offset: Offset(0, 3),
+                            ),
+                          ],),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
@@ -474,8 +499,8 @@ SizedBox(height: 16,),
                               children: <Widget>[
                                 SizedBox(width: 10),
                                 Container(
-                                  width: 154.67,
-                                  height: 114.32,
+                                  width: 30.27,
+                                  height: 37.11,
                                   decoration: BoxDecoration(
                                     shape: BoxShape.rectangle,
                                   ),
@@ -1014,7 +1039,7 @@ SizedBox(height: 16,),
           ],
         ),
       ),
-
+    )
     );
   }
 }

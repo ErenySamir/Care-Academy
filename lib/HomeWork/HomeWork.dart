@@ -18,301 +18,348 @@ class HomeWorkState extends State<HomeWork> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold( appBar: AppBar(
+    return Scaffold(
+      appBar: AppBar(
       leading: GestureDetector(
         onTap: () {
           Navigator.of(context).pop(); // Navigate back to the previous page
         },
-        child: Image.asset(
-          'assets/images/chevron-right.png', // Replace with your image asset path
-          width: 24, // Adjust the width of the image
-          height: 24, // Adjust the height of the image
+        child: Padding(
+          padding: const EdgeInsets.only(top: 20.0),
+          child: Image.asset(
+            'assets/images/chevron-right.png', // Replace with your image asset path
+            width: 24, // Adjust the width of the image
+            height: 24, // Adjust the height of the image
+          ),
         ),
       ),
-      title: Center(child: Text("الواجبات",style: TextStyle( fontFamily: 'Cairo',
-        fontSize: 22,
-        fontWeight: FontWeight.bold,))),
+      title: Center(child: Padding(
+        padding: const EdgeInsets.only(top: 20.0),
+        child: Text("الواجبات",
+            style: TextStyle( fontFamily: 'Cairo',
+          fontSize: 22,
+          fontWeight: FontWeight.bold,)),
+      )),
 
     ),
       backgroundColor: CupertinoColors.white,
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: <Widget>[
+      // body: SingleChildScrollView(
+      //   child: Padding(
+      //     padding: const EdgeInsets.only(right: 8.0),
+      //     child: Center(
+      //       child: Column(
+      //         crossAxisAlignment: CrossAxisAlignment.center,
+      //         children: <Widget>[
 
-            SingleChildScrollView(
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          const SizedBox(height: 20),
-                          Container(
-                            width: 323,
-                            height: 70,
-                            padding: const EdgeInsets.all(14),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                topRight: Radius.circular(20),
+    body:  SingleChildScrollView(
+        child: Center(
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.only(right: 30.0,left: 30),
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Container(
+                          width: 350,
+                          height: 70,
+                          padding: const EdgeInsets.all(14),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20),
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 2,
+                                blurRadius: 5,
+                                offset: Offset(0, 3),
                               ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.5),
-                                  spreadRadius: 2,
-                                  blurRadius: 5,
-                                  offset: Offset(0, 3),
-                                ),
-                              ],),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                Icon(
-                                  Icons.check_circle_outline,
-                                  color: Colors.green,
-                                  size: 20.0,
-                                ),
-                                SizedBox(width: 10),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      Text(
-                                        "واجب الفيزياء الحديثة ",
-                                        style: TextStyle(
-                                          fontFamily: 'Cairo',
-
-                                          color: Colors.black,
-                                          fontSize: 15.13,
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                            ],
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Icon(
+                                Icons.check_circle_outline,
+                                color: Colors.green,
+                                size: 20.0,
+                              ),
+                              SizedBox(width: 10),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: <Widget>[
+                                    Text(
+                                      "واجب الفيزياء الحديثة",
+                                      style: TextStyle(
+                                        fontFamily: 'Cairo',
+                                        color: Colors.black,
+                                        fontSize: 15.13,
+                                        fontWeight: FontWeight.bold,
                                       ),
-                                      Text(
-                                        "تاريخ انتهاء التسليم:25/2/2024",
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 4.0),
+                                      child: Text(
+                                        "تاريخ انتهاء التسليم: 25/2/2024",
                                         style: TextStyle(
                                           fontFamily: 'Cairo',
-
                                           color: Color(0xFF008DC9),
                                           fontSize: 9.61,
                                           fontWeight: FontWeight.normal,
                                         ),
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          const SizedBox(height: 20),
-                          Container(
-                            width: 323,
-                            height: 70,
-                            padding: const EdgeInsets.all(14),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                topRight: Radius.circular(20),
                               ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.5),
-                                  spreadRadius: 2,
-                                  blurRadius: 5,
-                                  offset: Offset(0, 3),
-                                ),
-                              ],),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                Icon(
-                                  Icons.radio_button_unchecked,
-                                  color: Colors.grey,
-                                  size: 20.0,
-                                ),
-                                SizedBox(width: 10),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      Text(
-                                        "واجب الفيزياء الحديثة ",
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.only(right: 30.0,left: 30),
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Container(
+                          width: 350,
+                          height: 70,
+                          padding: const EdgeInsets.all(14),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20),
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 2,
+                                blurRadius: 5,
+                                offset: Offset(0, 3),
+                              ),
+                            ],
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Icon(
+                                Icons.radio_button_unchecked,
+                                color: Colors.grey,
+                                size: 20.0,
+                              ),
+                              SizedBox(width: 10),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: <Widget>[
+                                    Align(
+                                      alignment: Alignment.centerRight,
+                                      child: Text(
+                                        "واجب الفيزياء الحديثة",
                                         style: TextStyle(
                                           fontFamily: 'Cairo',
-
                                           color: Colors.black,
                                           fontSize: 15.13,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
-                                      Text(
-                                        "تاريخ انتهاء التسليم:25/2/2024",
-                                        style: TextStyle(
-                                          fontFamily: 'Cairo',
-
-                                          color: Color(0xFF008DC9),
-                                          fontSize: 9.61,
-                                          fontWeight: FontWeight.normal,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 4.0),
+                                      child: Align(
+                                        alignment: Alignment.centerRight,
+                                        child: Text(
+                                          "تاريخ انتهاء التسليم: 25/2/2024",
+                                          style: TextStyle(
+                                            fontFamily: 'Cairo',
+                                            color: Color(0xFF008DC9),
+                                            fontSize: 9.61,
+                                            fontWeight: FontWeight.normal,
+                                          ),
                                         ),
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          const SizedBox(height: 20),
-                          Container(
-                            width: 323,
-                            height: 70,
-                            padding: const EdgeInsets.all(14),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                topRight: Radius.circular(20),
                               ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.5),
-                                  spreadRadius: 2,
-                                  blurRadius: 5,
-                                  offset: Offset(0, 3),
-                                ),
-                              ],),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                Icon(
-                                  Icons.radio_button_unchecked,
-                                  color: Colors.grey,
-                                  size: 20.0,
-                                ),
-                                SizedBox(width: 10),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      Text(
-                                        "واجب الفيزياء الحديثة ",
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+
+                SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.only(right: 30.0,left: 30),
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Container(
+                          width: 350,
+                          height: 70,
+                          padding: const EdgeInsets.all(14),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20),
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 2,
+                                blurRadius: 5,
+                                offset: Offset(0, 3),
+                              ),
+                            ],
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Icon(
+                                Icons.radio_button_unchecked,
+                                color: Colors.grey,
+                                size: 20.0,
+                              ),
+                              SizedBox(width: 10),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: <Widget>[
+                                    Align(
+                                      alignment: Alignment.centerRight,
+                                      child: Text(
+                                        "واجب الفيزياء الحديثة",
                                         style: TextStyle(
                                           fontFamily: 'Cairo',
-
                                           color: Colors.black,
                                           fontSize: 15.13,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
-                                      Text(
-                                        "تاريخ انتهاء التسليم:25/2/2024",
-                                        style: TextStyle(
-                                          color: Color(0xFF008DC9),
-                                          fontSize: 9.61,
-                                          fontWeight: FontWeight.normal,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 4.0),
+                                      child: Align(
+                                        alignment: Alignment.centerRight,
+                                        child: Text(
+                                          "تاريخ انتهاء التسليم: 25/2/2024",
+                                          style: TextStyle(
+                                            fontFamily: 'Cairo',
+                                            color: Color(0xFF008DC9),
+                                            fontSize: 9.61,
+                                            fontWeight: FontWeight.normal,
+                                          ),
                                         ),
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          const SizedBox(height: 20),
-                          Container(
-                            width: 323,
-                            height: 70,
-                            padding: const EdgeInsets.all(14),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                topRight: Radius.circular(20),
                               ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.5),
-                                  spreadRadius: 2,
-                                  blurRadius: 5,
-                                  offset: Offset(0, 3),
-                                ),
-                              ],),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                Icon(
-                                  Icons.radio_button_unchecked,
-                                  color: Colors.grey,
-                                  size: 20.0,
-                                ),
-                                SizedBox(width: 10),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      Text(
-                                        "واجب الفيزياء الحديثة ",
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.only(right: 30.0,left: 30),
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Container(
+                          width: 350,
+                          height: 70,
+                          padding: const EdgeInsets.all(14),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20),
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 2,
+                                blurRadius: 5,
+                                offset: Offset(0, 3),
+                              ),
+                            ],
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Icon(
+                                Icons.radio_button_unchecked,
+                                color: Colors.grey,
+                                size: 20.0,
+                              ),
+                              SizedBox(width: 10),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: <Widget>[
+                                    Align(
+                                      alignment: Alignment.centerRight,
+                                      child: Text(
+                                        "واجب الفيزياء الحديثة",
                                         style: TextStyle(
                                           fontFamily: 'Cairo',
-
                                           color: Colors.black,
                                           fontSize: 15.13,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
-                                      Text(
-                                        "تاريخ انتهاء التسليم:25/2/2024",
-                                        style: TextStyle(
-                                          color: Color(0xFF008DC9),
-                                          fontSize: 9.61,
-                                          fontWeight: FontWeight.normal,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 4.0),
+                                      child: Align(
+                                        alignment: Alignment.centerRight,
+                                        child: Text(
+                                          "تاريخ انتهاء التسليم: 25/2/2024",
+                                          style: TextStyle(
+                                            fontFamily: 'Cairo',
+                                            color: Color(0xFF008DC9),
+                                            fontSize: 9.61,
+                                            fontWeight: FontWeight.normal,
+                                          ),
                                         ),
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  ]),
-            )
-          ],
-        ),
-      ),
+                  ),
+                ),
+
+                                ]),
+                      ),
+              ),
+
       bottomNavigationBar: Container(
         // width: 359,
         // height: 66.22,
@@ -324,14 +371,14 @@ class HomeWorkState extends State<HomeWork> {
             topLeft: Radius.circular(20),
             topRight: Radius.circular(20),
           ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 2,
-              blurRadius: 5,
-              offset: Offset(0, 3),
-            ),
-          ],
+          // boxShadow: [
+          //   BoxShadow(
+          //     color: Colors.grey.withOpacity(0.5),
+          //     spreadRadius: 2,
+          //     blurRadius: 5,
+          //     offset: Offset(0, 3),
+          //   ),
+          // ],
           gradient: LinearGradient(
             begin: Alignment.bottomLeft,
             end: Alignment.topRight,
@@ -344,9 +391,9 @@ class HomeWorkState extends State<HomeWork> {
           backgroundColor: Colors.white,
           currentIndex: currentIndexx,
           onTap: (index) {
-            // setState(() {
-            //   currentIndexx = index;
-            // });
+            setState(() {
+              currentIndexx = index;
+            });
           },
           items: [
             BottomNavigationBarItem(
@@ -356,19 +403,8 @@ class HomeWorkState extends State<HomeWork> {
                     width: 25,
                     height: 25,
                     decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20),
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: Offset(0, 3),
-                        ),
-                      ],),
+                      shape: BoxShape.rectangle,
+                    ),
                     child:InkWell(
                       onTap: () {
                         setState(() {
@@ -390,7 +426,6 @@ class HomeWorkState extends State<HomeWork> {
                     "ملفى",
                     style: TextStyle(
                       fontFamily: 'Cairo',
-
                       fontWeight: FontWeight.normal,
                       color: Colors.black,
                       fontSize:10.90,
@@ -408,19 +443,8 @@ class HomeWorkState extends State<HomeWork> {
                     width: 25,
                     height: 25,
                     decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20),
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: Offset(0, 3),
-                        ),
-                      ],),
+                      shape: BoxShape.rectangle,
+                    ),
                     child: InkWell(
                         onTap: () {
                           setState(() {
@@ -454,19 +478,8 @@ class HomeWorkState extends State<HomeWork> {
                     width: 25,
                     height: 25,
                     decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20),
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: Offset(0, 3),
-                        ),
-                      ],),
+                      shape: BoxShape.rectangle,
+                    ),
                     child: InkWell(
                       onTap: () {
                         setState(() {
@@ -503,19 +516,8 @@ class HomeWorkState extends State<HomeWork> {
                     width: 25,
                     height: 25,
                     decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20),
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: Offset(0, 3),
-                        ),
-                      ],),
+                      shape: BoxShape.rectangle,
+                    ),
                     child: InkWell(
                       onTap: () {
                         setState(() {

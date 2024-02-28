@@ -58,31 +58,33 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                     child: Container(
                       width: 265.75,
                       height: 94.75,
-                      margin: EdgeInsets.only(top: 140.43, left: 76.95),
-                      padding: EdgeInsets.all(8.37),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: <Widget>[
-                          Text(
-                            'مرحباً بك',
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                              fontFamily: 'Cairo',
-                              fontSize: 27.0,
-                              fontWeight: FontWeight.bold,
+                      margin: EdgeInsets.only(top: 140.43, right: 28,bottom: 2),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: <Widget>[
+                            Text(
+                              'مرحباً بك',
+                              textAlign: TextAlign.start,
+                              style: TextStyle(
+                                fontFamily: 'Cairo',
+                                fontSize: 27.0,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                          SizedBox(height: 8.37),
-                          Text(
-                            'في منصة الأستاذ مايكل عاطف👋',
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                              fontFamily: 'Cairo',
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.normal,
+                            SizedBox(height: 8.37),
+                            Text(
+                              '👋في منصة الأستاذ مايكل عاطف',
+                              textAlign: TextAlign.start,
+                              style: TextStyle(
+                                fontFamily: 'Cairo',
+                                fontSize: 15.0,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -106,9 +108,9 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(6.0),
+                    padding: const EdgeInsets.only(top: 6.0),
                     child: Align(
-                      alignment: Alignment.center,
+                       alignment: Alignment.center,
                       child: Container(
                         margin: EdgeInsets.symmetric(horizontal: 6.0),
                         child: Column(
@@ -120,13 +122,16 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
 
                               child:  Container(
                                   alignment: Alignment.centerRight,
-                                  child: Text(
-                                    'رقم التليفون',
-                                    textAlign: TextAlign.right,
-                                    style: TextStyle(
-                                      fontFamily: 'Cairo',
-                                      fontSize: 15.0,
-                                      fontWeight: FontWeight.bold,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(right: 15.0,bottom: 15,top: 5),
+                                    child: Text(
+                                      'رقم التليفون',
+                                      textAlign: TextAlign.right,
+                                      style: TextStyle(
+                                        fontFamily: 'Cairo',
+                                        fontSize: 15.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -140,23 +145,27 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                                 Expanded(
                                   flex: 1,
                                   child: Container(
-                                    child: const TextField(
-                                      textAlign: TextAlign.right, // Align the text field content to the right
-                                      decoration: InputDecoration(
-                                        hintText: 'رقم التليفون',
-                                        hintStyle: TextStyle(
-                                          fontFamily: 'Cairo',
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(right: 15.0),
+                                      child: const TextField(
+                                        textAlign: TextAlign.right, // Align the text field content to the right
+                                        decoration: InputDecoration(
+                                          hintText: 'رقم التليفون',
+                                          hintStyle: TextStyle(
+                                            color: Colors.grey,
+                                            fontFamily: 'Cairo',
+                                          ),
+                                          border: InputBorder.none, // Remove the default border
                                         ),
-                                        border: InputBorder.none, // Remove the default border
                                       ),
                                     ),
 
                                   ),
                                 ),
                                 Container(
-                                  margin: EdgeInsets.only(left: 20.0), // Adjust margin from right
+                                  margin: EdgeInsets.only(right: 20.0), // Adjust margin from right
                                   child: Icon(
-                                    color: Colors.grey,
+                                    color: Colors.grey.shade400,
                                     Icons.phone,
                                     size: 21,
                                   ),
@@ -172,8 +181,8 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                                 child: Container(
                                   alignment: Alignment.bottomCenter,
                                   child: SizedBox(
-                                    width: 318,
-                                    height: 70,
+                                    width: 370,
+                                    height: 80,
                                     child: Padding(
                                       padding: const EdgeInsets.only(top: 28.0),
                                       child: ElevatedButton(
@@ -199,7 +208,9 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                             Align(
                               alignment: Alignment.topRight,
                               child: Container(
-                                padding: EdgeInsets.only(right: 8.0, top: 10.0),
+                                width: 322,
+                                height: 90.12,
+                                padding: EdgeInsets.only(right: 8.0, top: 15.0),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[

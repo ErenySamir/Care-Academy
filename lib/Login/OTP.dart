@@ -2,6 +2,8 @@ import 'package:careacademy/Screens/Home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'SignIn.dart';
+
 class OTP extends StatefulWidget {
   @override
   State<OTP> createState() {
@@ -19,32 +21,43 @@ class OTPState extends State<OTP> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
-                height: 60.0,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    IconButton(
-                      icon: Icon(Icons.navigate_before, color: Colors.black),
-                      color: Colors.white,
-                      onPressed: () {},
-                    ),
-                    Expanded(
-                      child: Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                          "رمز التحقيق",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 17,
-                            fontWeight: FontWeight.normal,
+              Padding(
+                padding: const EdgeInsets.only(top: 30.0),
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                  height: 60.0,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      IconButton(
+                        icon: Icon(Icons.navigate_before, color: Colors.black,size: 25.8,),
+                        color: Colors.white,
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    SignIn()),
+                          );
+                        },
+                      ),
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            "رمز التحقيق",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontFamily: 'Cairo',
+                              color: Colors.black,
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               Padding(
@@ -58,6 +71,7 @@ class OTPState extends State<OTP> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 16.15,
+                          fontFamily: 'Cairo',
                           fontWeight: FontWeight.normal,
                         ),
                       ),
@@ -65,6 +79,7 @@ class OTPState extends State<OTP> {
                         'الرقم +6223*******45',
                         textAlign: TextAlign.center,
                         style: TextStyle(
+                          fontFamily: 'Cairo',
                           color: Color(0xFF008DC9),
                           fontSize: 15.0,
                           fontWeight: FontWeight.normal,
@@ -76,10 +91,10 @@ class OTPState extends State<OTP> {
               ),
               SizedBox(height: 20.0),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 30.0,left: 25.5),
-                    child: Row(
+
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
@@ -92,7 +107,7 @@ class OTPState extends State<OTP> {
                               shape: BoxShape.rectangle,
                               border: Border.all(
                                 color:Color(0xFF008DC9),
-                                width: 2.0,
+                                width: 1.0,
                               ),
                             ),
                           ),
@@ -107,7 +122,7 @@ class OTPState extends State<OTP> {
                               shape: BoxShape.rectangle,
                               border: Border.all(
                                 color: Color(0xFF008DC9),
-                                width: 2.0,
+                                width: 1.0,
                               ),
                             ),
                           ),
@@ -122,7 +137,7 @@ class OTPState extends State<OTP> {
                               shape: BoxShape.rectangle,
                               border: Border.all(
                                 color: Color(0xFF008DC9),
-                                width: 2.0,
+                                width: 1.0,
                               ),
                             ),
                           ),
@@ -137,7 +152,7 @@ class OTPState extends State<OTP> {
                               shape: BoxShape.rectangle,
                               border: Border.all(
                                 color: Color(0xFF008DC9),
-                                width: 2.0,
+                                width: 1.0,
                               ),
                             ),
                           ),
@@ -156,14 +171,13 @@ class OTPState extends State<OTP> {
                               shape: BoxShape.rectangle,
                               border: Border.all(
                                 color: Color(0xFF008DC9),
-                                width: 2.0,
+                                width: 1.0,
                               ),
                             ),
                           ),
                         ),
                         )],
                     ),
-                  ),
                 ],
               ),
               Align(
@@ -201,26 +215,28 @@ class OTPState extends State<OTP> {
               ),
               Align(
                 alignment: Alignment.bottomCenter,
-                child: Container(
-                  alignment: Alignment.bottomCenter,
-                  child: SizedBox(
-                    width: 315,
-                    height: 70,
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 22.0),
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFF008DC9), // Background color
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => Home()),
-                          );
-                        },
-                        child: Text(
-                          'تأكيــــــد',
-                          style: TextStyle(color: Colors.white,fontFamily: 'Cairo',),
+                child: Center(
+                  child: Container(
+                    alignment: Alignment.bottomCenter,
+                    child: SizedBox(
+                      width: 315,
+                      height: 70,
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 22.0),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xFF008DC9), // Background color
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Home()),
+                            );
+                          },
+                          child: Text(
+                            'تأكيــــــد',
+                            style: TextStyle(color: Colors.white,fontFamily: 'Cairo',fontWeight: FontWeight.bold),
+                          ),
                         ),
                       ),
                     ),

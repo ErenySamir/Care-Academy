@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../HomeWork/lessons.dart';
 import '../SavedLesson/Live.dart';
-import 'classpage.dart';
+import 'menu.dart';
 
 class About extends StatefulWidget {
   @override
@@ -33,7 +33,7 @@ class AboutState extends State<About>{
         ),
         title: Center(child: Text("عن المنصة",style: TextStyle(
           fontFamily: 'Cairo',
-    fontSize: 22,
+          fontSize: 22,
     ))),
 
       ),
@@ -42,7 +42,7 @@ class AboutState extends State<About>{
             SizedBox(height: 30), // Added space before the image
             Center(
               child: Image.asset(
-                'assets/images/Logo.png',
+                'assets/images/logo2.png',
                 width: 200, // Take all available width
                 fit: BoxFit.fitWidth, // Adjust the image content
               ),
@@ -63,198 +63,166 @@ class AboutState extends State<About>{
           ],
         ),
 
-      bottomNavigationBar: Container(
-        // width: 359,
-        // height: 66.22,
-        // margin: EdgeInsets.only(top: 33.78, left: 35.5),
-        // padding: EdgeInsets.fromLTRB(24.38, 12.61, 24.38, 12.61),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20),
+        bottomNavigationBar: Container(
+          width: 359,
+          height: 66.22,
+          // margin: EdgeInsets.only(top: 33.78, left: 35.5),
+          // padding: EdgeInsets.fromLTRB(24.38, 12.61, 24.38, 12.61),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 3,
+                blurRadius: 7,
+                offset: Offset(0, 3),
+              ),
+            ], // Add shadow
           ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 2,
-              blurRadius: 5,
-              offset: Offset(0, 3),
-            ),
-          ],
-          gradient: LinearGradient(
-            begin: Alignment.bottomLeft,
-            end: Alignment.topRight,
-            colors: [Colors.blueAccent, Colors.white],
-            // transform: GradientRotation(-3.14159), // -180 degrees in radians
-          ),
-        ),
-
-        child: BottomNavigationBar(
-          backgroundColor: Colors.white,
-          currentIndex: currentIndexx,
-          onTap: (index) {
-            // setState(() {
-            //   currentIndexx = index;
-            // });
-          },
-          items: [
-            BottomNavigationBarItem(
-              icon: Column(
-                children: [
-                  Container(
-                    width: 25,
-                    height: 25,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                    ),
-                    child:InkWell(
-                      onTap: () {
-                        setState(() {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    profile()),
-                          );
-                        });
-                      },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            // Add space between icons
+            children: [
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => menu()),
+                    );
+                  });
+                },
+                child: Column(
+                  children: [
+                    Container(
+                      width: 25,
+                      height: 25,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                      ),
                       child: Image.asset(
                         'assets/images/user.png',
                       ),
                     ),
-                  ),
-                  SizedBox(height: 1),
-                  Text(
-                    "ملفى",
-                    style: TextStyle(
-                      fontFamily: 'Cairo',
-
-                      fontWeight: FontWeight.normal,
-                      color: Colors.black,
-                      fontSize:10.90,
+                    SizedBox(height: 1),
+                    Text(
+                      "ملفى",
+                      style: TextStyle(
+                        fontFamily: 'Cairo',
+                        fontWeight: FontWeight.normal,
+                        color: Colors.black,
+                        fontSize: 10.90,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-              label: "", // Set an empty label to hide the default label
-              backgroundColor: Colors.white,
-            ),
-            BottomNavigationBarItem(
-              icon: Column(
-                children: [
-                  Container(
-                    width: 25,
-                    height: 25,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Live()),
+                    );
+                  });
+                },
+                child: Column(
+                  children: [
+                    Container(
+                      width: 25,
+                      height: 25,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Image.asset(
+                        'assets/images/fluent_live-20-regular.png',
+                      ),
                     ),
-                    child: InkWell(
-                        onTap: () {
-                          setState(() {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      Live()),
-                            );
-                          });
-                        },
-                        child: Icon(Icons.online_prediction, color: Colors.grey, size: 25)),),
-                  SizedBox(height: 1),
-                  Text(
-                    "مباشر",
-                    style: TextStyle(color: Colors.black, fontSize: 10.90,
-                      fontFamily: 'Cairo',
-
-                      fontWeight: FontWeight.normal,
+                    SizedBox(height: 1),
+                    Text(
+                      "مباشر",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 10.90,
+                        fontFamily: 'Cairo',
+                        fontWeight: FontWeight.normal,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-              label: "",
-              backgroundColor: Colors.white,
-            ),
-            BottomNavigationBarItem(
-              icon: Column(
-                children: [
-                  Container(
-                    width: 25,
-                    height: 25,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Lessons()),
+                    );
+                  });
+                },
+                child: Column(
+                  children: [
+                    Container(
+                      width: 25,
+                      height: 25,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Image.asset(
+                        'assets/images/BookBookmark1.png',
+                      ),
                     ),
-                    child: InkWell(
-                      onTap: () {
-                        setState(() {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    Lessons()),
-                          );
-                        });
-                      },
-                      child: Icon(Icons.collections_bookmark_outlined,
-                          color: Colors.grey, size: 25),
+                    SizedBox(height: 1),
+                    Text(
+                      "الوحدات",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 10.90,
+                        fontFamily: 'Cairo',
+                        fontWeight: FontWeight.normal,
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 1),
-                  Text(
-                    "الوحدات",
-                    style: TextStyle(color: Colors.black, fontSize: 10.90,
-                      fontFamily: 'Cairo',
-
-                      fontWeight: FontWeight.normal,
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-              label: "",
-              backgroundColor: Colors.white,
-            ),
-            BottomNavigationBarItem(
-              icon: Column(
-                children: [
-                  Container(
-                    width: 25,
-                    height: 25,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                    ),
-                    child: InkWell(
-                      onTap: () {
-                        setState(() {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    Home()),
-                          );
-                        });
-                      },
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Home()),
+                    );
+                  });
+                },
+                child: Column(
+                  children: [
+                    Container(
+                      width: 25,
+                      height: 25,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                      ),
                       child: Image.asset(
                         'assets/images/HouseSimple.png',
                       ),
                     ),
-                  ),
-                  SizedBox(height: 1),
-                  Text(
-                    "الرئيسية",
-                    style: TextStyle(color: Colors.black, fontSize: 10.90,
-                      fontFamily: 'Cairo',
-
-                      fontWeight: FontWeight.normal,
+                    SizedBox(height: 1),
+                    Text(
+                      "الرئيسية",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 10.90,
+                        fontFamily: 'Cairo',
+                        fontWeight: FontWeight.normal,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-              label: "",
-              backgroundColor: Colors.white,
-            ),
-          ],
-        ),
-      ),
+            ],
+          ),
+        )
     );
 
 

@@ -20,29 +20,33 @@ class AboutState extends State<About>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.of(context).pop(); // Navigate back to the previous page
-          },
-          child: Image.asset(
-            'assets/images/chevron-right.png', // Replace with your image asset path
-            width: 24, // Adjust the width of the image
-            height: 24, // Adjust the height of the image
+        appBar: AppBar(
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.of(context).pop(); // Navigate back to the previous page
+            },
+            child: Image.asset(
+              'assets/images/chevron-right.png', // Replace with your image asset path
+              width: 24, // Adjust the width of the image
+              height: 24, // Adjust the height of the image
+            ),
           ),
+          title: Text(
+            "عن المنصة",
+            style: TextStyle(
+                fontSize: 22,
+                fontFamily: 'Cairo'
+            ),
+          ),
+          centerTitle: true, // Center the title horizontally
         ),
-        title: Center(child: Text("عن المنصة",style: TextStyle(
-          fontFamily: 'Cairo',
-          fontSize: 22,
-    ))),
 
-      ),
-      body:  ListView(
+        body:  ListView(
           children: [
             SizedBox(height: 30), // Added space before the image
             Center(
               child: Image.asset(
-                'assets/images/logo2.png',
+                'assets/images/Logo.png',
                 width: 200, // Take all available width
                 fit: BoxFit.fitWidth, // Adjust the image content
               ),
@@ -66,8 +70,6 @@ class AboutState extends State<About>{
         bottomNavigationBar: Container(
           width: 359,
           height: 66.22,
-          // margin: EdgeInsets.only(top: 33.78, left: 35.5),
-          // padding: EdgeInsets.fromLTRB(24.38, 12.61, 24.38, 12.61),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             color: Colors.white,
@@ -78,11 +80,10 @@ class AboutState extends State<About>{
                 blurRadius: 7,
                 offset: Offset(0, 3),
               ),
-            ], // Add shadow
+            ],
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            // Add space between icons
             children: [
               InkWell(
                 onTap: () {
@@ -93,29 +94,34 @@ class AboutState extends State<About>{
                     );
                   });
                 },
-                child: Column(
-                  children: [
-                    Container(
-                      width: 25,
-                      height: 25,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 5),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 25,
+                        height: 25,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.rectangle,
+                        ),
+                        child: Image.asset(
+                          'assets/images/user.png',
+                          color: Color(0xFF6C6A6A),
+
+                        ),
                       ),
-                      child: Image.asset(
-                        'assets/images/user.png',
+                      SizedBox(height: 3),
+                      Text(
+                        "ملفى",
+                        style: TextStyle(
+                          fontFamily: 'Cairo',
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black,
+                          fontSize: 10.90,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 1),
-                    Text(
-                      "ملفى",
-                      style: TextStyle(
-                        fontFamily: 'Cairo',
-                        fontWeight: FontWeight.normal,
-                        color: Colors.black,
-                        fontSize: 10.90,
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               InkWell(
@@ -127,29 +133,33 @@ class AboutState extends State<About>{
                     );
                   });
                 },
-                child: Column(
-                  children: [
-                    Container(
-                      width: 25,
-                      height: 25,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 5),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 25,
+                        height: 25,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.rectangle,
+                        ),
+                        child:Icon(Icons.online_prediction_outlined,
+                          // size: 22, // Adjust the size of the icon as needed
+                          color:Color(0xFF6C6A6A),
+                        ),
                       ),
-                      child: Image.asset(
-                        'assets/images/fluent_live-20-regular.png',
+                      SizedBox(height: 3),
+                      Text(
+                        "مباشر",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 10.90,
+                          fontFamily: 'Cairo',
+                          fontWeight: FontWeight.normal,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 1),
-                    Text(
-                      "مباشر",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 10.90,
-                        fontFamily: 'Cairo',
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               InkWell(
@@ -161,29 +171,33 @@ class AboutState extends State<About>{
                     );
                   });
                 },
-                child: Column(
-                  children: [
-                    Container(
-                      width: 25,
-                      height: 25,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 5),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 25,
+                        height: 25,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.rectangle,
+                        ),
+                        child: Icon(Icons.collections_bookmark_outlined,
+                          // size: 22, // Adjust the size of the icon as needed
+                          color:Color(0xFF6C6A6A),
+                        ),
                       ),
-                      child: Image.asset(
-                        'assets/images/BookBookmark1.png',
+                      SizedBox(height: 3),
+                      Text(
+                        "الوحدات",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 10.90,
+                          fontFamily: 'Cairo',
+                          fontWeight: FontWeight.normal,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 1),
-                    Text(
-                      "الوحدات",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 10.90,
-                        fontFamily: 'Cairo',
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               InkWell(
@@ -195,29 +209,32 @@ class AboutState extends State<About>{
                     );
                   });
                 },
-                child: Column(
-                  children: [
-                    Container(
-                      width: 25,
-                      height: 25,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 5),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 25,
+                        height: 25,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.rectangle,
+                        ),
+                        child: Image.asset(
+                          'assets/images/HouseSimple.png',
+                        ),
                       ),
-                      child: Image.asset(
-                        'assets/images/HouseSimple.png',
+                      SizedBox(height: 3),
+                      Text(
+                        "الرئيسية",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 10.90,
+                          fontFamily: 'Cairo',
+                          fontWeight: FontWeight.normal,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 1),
-                    Text(
-                      "الرئيسية",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 10.90,
-                        fontFamily: 'Cairo',
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ],

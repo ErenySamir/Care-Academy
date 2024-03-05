@@ -49,17 +49,17 @@ class OTPState extends State<OTP> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.only(top: 30.0),
+                padding: const EdgeInsets.only(top: 33.0),
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                  padding: EdgeInsets.symmetric(horizontal: 8.0),
                   height: 60.0,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       IconButton(
                         icon: Icon(
-                          Icons.navigate_before,
-                          color: Colors.black,
+                          Icons.arrow_back_ios,
+                          color: Colors.black87,
                           size: 25.8,
                         ),
                         color: Colors.white,
@@ -73,14 +73,17 @@ class OTPState extends State<OTP> {
                       Expanded(
                         child: Align(
                           alignment: Alignment.center,
-                          child: Text(
-                            "رمز التحقيق",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontFamily: 'Cairo',
-                              color: Colors.black,
-                              fontSize: 17,
-                              fontWeight: FontWeight.bold,
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 33.0),
+                            child: Text(
+                              "رمز التحقيق   ",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontFamily: 'Cairo',
+                                color: Colors.black,
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),
@@ -90,7 +93,7 @@ class OTPState extends State<OTP> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(38.0),
+                padding: const EdgeInsets.all(48.0),
                 child: Center(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -153,19 +156,27 @@ class OTPState extends State<OTP> {
                               ),
                               border: InputBorder.none,
                             ),
+                            // onTap: () {
+                            //   // Clear the text field when tapped
+                            //   _controller[0].clear();
+                            // },
                             onChanged: (value) {
                               if (value.length > 1) {
                                 // Remove all characters except the first digit
                                 value = value.substring(0, 1);
                                 // Clear the text field
                                 _controller[0].clear();
-
                               }
                               else  if (value.isNotEmpty ) {
                                 // Remove all characters except the first digit
                                 value = value.substring(0, 1);
                                 // Move the focus to the next input field
                                 FocusScope.of(context).nextFocus();
+                              }
+                              else if (value.isEmpty) {
+                                // Delete key pressed and text field is empty
+                                // Move focus to the previous input field if available
+                                FocusScope.of(context).previousFocus();
                               }
                             },
                             focusNode: _focusNodes[0],
@@ -200,13 +211,16 @@ class OTPState extends State<OTP> {
                               ),
                               border: InputBorder.none,
                             ),
+                            // onTap: () {
+                            //   // Clear the text field when tapped
+                            //   _controller[1].clear();
+                            // },
                             onChanged: (value) {
                               if (value.length > 1) {
                                 // Remove all characters except the first digit
                                 value = value.substring(0, 1);
                                 // Clear the text field
                                 _controller[1].clear();
-
                               }
                               else  if (value.isNotEmpty ) {
                                 // Remove all characters except the first digit
@@ -214,12 +228,18 @@ class OTPState extends State<OTP> {
                                 // Move the focus to the next input field
                                 FocusScope.of(context).nextFocus();
                               }
+                              else if (value.isEmpty) {
+                                // Delete key pressed and text field is empty
+                                // Move focus to the previous input field if available
+                                FocusScope.of(context).previousFocus();
+                              }
                             },
                             focusNode: _focusNodes[1],
                             controller: _controller[1], // Use a separate TextEditingController for each TextField
                           ),
                         ),
                       ),
+                      //******************************************************************
                       Padding(
                         padding: const EdgeInsets.all(5.0),
                         child: Container(
@@ -247,6 +267,10 @@ class OTPState extends State<OTP> {
                               ),
                               border: InputBorder.none,
                             ),
+                            // onTap: () {
+                            //   // Clear the text field when tapped
+                            //   _controller[2].clear();
+                            // },
                             onChanged: (value) {
                               if (value.length > 1) {
                                 // Remove all characters except the first digit
@@ -261,12 +285,19 @@ class OTPState extends State<OTP> {
                                 // Move the focus to the next input field
                                 FocusScope.of(context).nextFocus();
                               }
+                              else if (value.isEmpty) {
+                                // Delete key pressed and text field is empty
+                                // Move focus to the previous input field if available
+                                FocusScope.of(context).previousFocus();
+                              }
                             },
                             focusNode: _focusNodes[2],
                             controller: _controller[2], // Use a separate TextEditingController for each TextField
                           ),
                         ),
                       ),
+                      //******************************************************************
+
                       Padding(
                         padding: const EdgeInsets.all(5.0),
                         child: Container(
@@ -294,6 +325,10 @@ class OTPState extends State<OTP> {
                               ),
                               border: InputBorder.none,
                             ),
+                            // onTap: () {
+                            //   // Clear the text field when tapped
+                            //   _controller[3].clear();
+                            // },
                             onChanged: (value) {
                               if (value.length > 1) {
                                 // Remove all characters except the first digit
@@ -307,6 +342,11 @@ class OTPState extends State<OTP> {
                                 value = value.substring(0, 1);
                                 // Move the focus to the next input field
                                 FocusScope.of(context).nextFocus();
+                              }
+                              else if (value.isEmpty) {
+                                // Delete key pressed and text field is empty
+                                // Move focus to the previous input field if available
+                                FocusScope.of(context).previousFocus();
                               }
                             },
                             focusNode: _focusNodes[3],
@@ -341,6 +381,10 @@ class OTPState extends State<OTP> {
                               ),
                               border: InputBorder.none,
                             ),
+                            // onTap: () {
+                            //   // Clear the text field when tapped
+                            //   _controller[4].clear();
+                            // },
                             onChanged: (value) {
                               if (value.length > 1) {
                                 // Remove all characters except the first digit
@@ -354,6 +398,11 @@ class OTPState extends State<OTP> {
                                 value = value.substring(0, 1);
                                 // Move the focus to the next input field
                                 FocusScope.of(context).nextFocus();
+                              }
+                              else if (value.isEmpty) {
+                                // Delete key pressed and text field is empty
+                                // Move focus to the previous input field if available
+                                FocusScope.of(context).previousFocus();
                               }
                             },
                             focusNode: _focusNodes[4],

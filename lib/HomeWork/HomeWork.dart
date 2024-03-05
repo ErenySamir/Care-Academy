@@ -37,11 +37,11 @@ class HomeWorkState extends State<HomeWork> {
           title: Padding(
               padding: const EdgeInsets.only(top: 28.0, right: 44),
               child: Center(
-            child: Text("الواجبات",
-                style: TextStyle( fontFamily: 'Cairo',
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,)),
-          )),
+                child: Text("الواجبات",
+                    style: TextStyle( fontFamily: 'Cairo',
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,)),
+              )),
 
         ),
         backgroundColor: CupertinoColors.white,
@@ -82,7 +82,7 @@ class HomeWorkState extends State<HomeWork> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Icon(
-                            Icons.check_circle_outline,
+                            Icons.check_circle,
                             color: Colors.green,
                             size: 20.0,
                           ),
@@ -369,6 +369,8 @@ class HomeWorkState extends State<HomeWork> {
                         ),
                         child: Image.asset(
                           'assets/images/user.png',
+                          color: Color(0xFF6C6A6A),
+
                         ),
                       ),
                       SizedBox(height: 3),
@@ -404,8 +406,9 @@ class HomeWorkState extends State<HomeWork> {
                         decoration: BoxDecoration(
                           shape: BoxShape.rectangle,
                         ),
-                        child: Image.asset(
-                          'assets/images/fluent_live-20-regular.png',
+                        child:Icon(Icons.online_prediction_outlined,
+                          // size: 22, // Adjust the size of the icon as needed
+                          color:Color(0xFF6C6A6A),
                         ),
                       ),
                       SizedBox(height: 3),
@@ -441,8 +444,9 @@ class HomeWorkState extends State<HomeWork> {
                         decoration: BoxDecoration(
                           shape: BoxShape.rectangle,
                         ),
-                        child: Image.asset(
-                          'assets/images/BookBookmark1.png',
+                        child: Icon(Icons.collections_bookmark_outlined,
+                          // size: 22, // Adjust the size of the icon as needed
+                          color:Color(0xFF6C6A6A),
                         ),
                       ),
                       SizedBox(height: 3),

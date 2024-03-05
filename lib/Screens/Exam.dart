@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../HomeWork/lessons.dart';
 import '../SavedLesson/Live.dart';
+import '../widget/circle_progress_bar.dart';
 import 'Home.dart';
 import 'menu.dart';
 
@@ -18,8 +19,8 @@ class ExamState extends State<Exam>{
     {
       'title': 'أمتحان على الوحدة الأولى',
       'deadline': 'تاريخ انتهاء التسليم: 25/2/2024',
-      'Percentage': '96%',
-      'GPA':'ممتاز'
+      'Percentage': '100%',
+      'GPA':''
       ,
     },
     {
@@ -31,13 +32,13 @@ class ExamState extends State<Exam>{
     {
       'title': 'أمتحان على الوحدة الثالثة',
       'deadline': 'تاريخ انتهاء التسليم: 25/2/2024',
-      'Percentage': '',
+      'Percentage': '50%',
       'GPA':''
     },
     {
       'title': 'أمتحان على الوحدة الرابعة',
       'deadline': 'تاريخ انتهاء التسليم: 25/2/2024',
-      'Percentage': '',
+      'Percentage': '70%',
       'GPA':''
     },
     {
@@ -53,30 +54,28 @@ class ExamState extends State<Exam>{
     int currentIndexx = 0;
 
     return Scaffold(
-      appBar: AppBar(
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.of(context).pop(); // Navigate back to the previous page
-          },
-          child: Image.asset(
-            'assets/images/chevron-right.png', // Replace with your image asset path
-            width: 24, // Adjust the width of the image
-            height: 24, // Adjust the height of the image
-          ),
-        ),
-        title: Center(
-          child: Center(
-            child: Text(
-              "الامتحانات",
-              style: TextStyle(
-                fontSize: 22,
-                 fontFamily: 'Cairo'
-              ),
+        appBar: AppBar(
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.of(context).pop(); // Navigate back to the previous page
+            },
+            child: Image.asset(
+              'assets/images/chevron-right.png', // Replace with your image asset path
+              width: 24, // Adjust the width of the image
+              height: 24, // Adjust the height of the image
             ),
           ),
+          title: Text(
+            "الامتحانات",
+            style: TextStyle(
+                fontSize: 22,
+                fontFamily: 'Cairo'
+            ),
+          ),
+          centerTitle: true, // Center the title horizontally
         ),
-      ),
-      body:  ListView.builder(
+
+        body:  ListView.builder(
           itemCount: examsData.length,
           itemBuilder: (BuildContext context, int index) {
             return Container(
@@ -99,37 +98,21 @@ class ExamState extends State<Exam>{
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    width: 60, // Width of the circle
-                    height: 60, // Height of the circle
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.white, // Color of the circle
-                      border: Border.all(
-                        color: Colors.grey, // Color of the border
-                        width: 2, // Width of the border
-                      ),
-                    ),
+                    width: 40, // Width of the circle
+                    height: 40, // Height of the circle
+
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          examsData[index]['GPA'] ?? '',
-                          style: TextStyle(
-                            fontFamily: 'Cairo',
+                        CircularProgressBar(
+                          strokeWidth: 2,
+                          value: double.tryParse(examsData[index]['Percentage']?.replaceAll('%', '') ?? '0') ?? 0,
+                          gpa: examsData[index]['GPA'] ?? '', // Ensure that you provide a default value if GPA is null
+                        )
 
-                            color: Color(0xFF019147),
-                            fontSize: 15.13,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text(
-                    examsData[index]['Percentage'] ?? '', // Percentage text
-                          style: TextStyle(fontFamily: 'Cairo',
-                            fontSize: 15.13,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF019147), // Color of the percentage text
-                          ),
-                        ),
+
+
+
 
                       ],
                     ),
@@ -143,7 +126,6 @@ class ExamState extends State<Exam>{
                           examsData[index]['title'] ?? '',
                           style: TextStyle(
                             fontFamily: 'Cairo',
-
                             color: Colors.black,
                             fontSize: 15.13,
                             fontWeight: FontWeight.bold,
@@ -152,8 +134,9 @@ class ExamState extends State<Exam>{
                         Text(
                           examsData[index]['deadline'] ?? '',
                           style: TextStyle(
-                            fontSize: 12,
-                            color: Color(0xFF008DC9), fontFamily: 'Cairo'
+                              fontSize: 9.61,
+
+                              color: Color(0xFF008DC9), fontFamily: 'Cairo'
                           ),
                         ),
                       ],
@@ -164,12 +147,9 @@ class ExamState extends State<Exam>{
             );
           },
         ),
-
         bottomNavigationBar: Container(
           width: 359,
           height: 66.22,
-          // margin: EdgeInsets.only(top: 33.78, left: 35.5),
-          // padding: EdgeInsets.fromLTRB(24.38, 12.61, 24.38, 12.61),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             color: Colors.white,
@@ -180,11 +160,10 @@ class ExamState extends State<Exam>{
                 blurRadius: 7,
                 offset: Offset(0, 3),
               ),
-            ], // Add shadow
+            ],
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            // Add space between icons
             children: [
               InkWell(
                 onTap: () {
@@ -195,29 +174,34 @@ class ExamState extends State<Exam>{
                     );
                   });
                 },
-                child: Column(
-                  children: [
-                    Container(
-                      width: 25,
-                      height: 25,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 5),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 25,
+                        height: 25,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.rectangle,
+                        ),
+                        child: Image.asset(
+                          'assets/images/user.png',
+                          color: Color(0xFF6C6A6A),
+
+                        ),
                       ),
-                      child: Image.asset(
-                        'assets/images/user.png',
+                      SizedBox(height: 3),
+                      Text(
+                        "ملفى",
+                        style: TextStyle(
+                          fontFamily: 'Cairo',
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black,
+                          fontSize: 10.90,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 1),
-                    Text(
-                      "ملفى",
-                      style: TextStyle(
-                        fontFamily: 'Cairo',
-                        fontWeight: FontWeight.normal,
-                        color: Colors.black,
-                        fontSize: 10.90,
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               InkWell(
@@ -229,29 +213,33 @@ class ExamState extends State<Exam>{
                     );
                   });
                 },
-                child: Column(
-                  children: [
-                    Container(
-                      width: 25,
-                      height: 25,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 5),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 25,
+                        height: 25,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.rectangle,
+                        ),
+                        child:Icon(Icons.online_prediction_outlined,
+                          // size: 22, // Adjust the size of the icon as needed
+                          color:Color(0xFF6C6A6A),
+                        ),
                       ),
-                      child: Image.asset(
-                        'assets/images/fluent_live-20-regular.png',
+                      SizedBox(height: 3),
+                      Text(
+                        "مباشر",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 10.90,
+                          fontFamily: 'Cairo',
+                          fontWeight: FontWeight.normal,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 1),
-                    Text(
-                      "مباشر",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 10.90,
-                        fontFamily: 'Cairo',
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               InkWell(
@@ -263,29 +251,33 @@ class ExamState extends State<Exam>{
                     );
                   });
                 },
-                child: Column(
-                  children: [
-                    Container(
-                      width: 25,
-                      height: 25,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 5),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 25,
+                        height: 25,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.rectangle,
+                        ),
+                        child: Icon(Icons.collections_bookmark_outlined,
+                          // size: 22, // Adjust the size of the icon as needed
+                          color:Color(0xFF6C6A6A),
+                        ),
                       ),
-                      child: Image.asset(
-                        'assets/images/BookBookmark1.png',
+                      SizedBox(height: 3),
+                      Text(
+                        "الوحدات",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 10.90,
+                          fontFamily: 'Cairo',
+                          fontWeight: FontWeight.normal,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 1),
-                    Text(
-                      "الوحدات",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 10.90,
-                        fontFamily: 'Cairo',
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               InkWell(
@@ -297,34 +289,38 @@ class ExamState extends State<Exam>{
                     );
                   });
                 },
-                child: Column(
-                  children: [
-                    Container(
-                      width: 25,
-                      height: 25,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 5),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 25,
+                        height: 25,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.rectangle,
+                        ),
+                        child: Image.asset(
+                          'assets/images/HouseSimple.png',
+                        ),
                       ),
-                      child: Image.asset(
-                        'assets/images/HouseSimple.png',
+                      SizedBox(height: 3),
+                      Text(
+                        "الرئيسية",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 10.90,
+                          fontFamily: 'Cairo',
+                          fontWeight: FontWeight.normal,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 1),
-                    Text(
-                      "الرئيسية",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 10.90,
-                        fontFamily: 'Cairo',
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ],
           ),
         )
+
 
     );
   }

@@ -75,6 +75,7 @@ class LessonsState extends State<Lessons> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       // Center the row horizontally
                       children: <Widget>[
+                        SizedBox(width: 8),
                         Padding(
                           padding: const EdgeInsets.only(top: 15.0),
                           child: Container(
@@ -98,28 +99,26 @@ class LessonsState extends State<Lessons> {
                               ],
                             ),
                             child: TextButton(
-                              onPressed: () {},
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: <Widget>[
-                                  SizedBox(
-                                    width: 10,
-                                    height: 10,
-                                  ),
-                                  Container(
-                                    width: 30.27,
-                                    height: 37.11,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.rectangle,
+                                onPressed: () {},
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: <Widget>[
+                                    SizedBox(
+                                      width: 10,
+                                      height: 10,
                                     ),
-                                    child: Image.asset(
-                                      'assets/images/Security.jpg',
+                                    Container(
+                                      width: 30.27,
+                                      height: 37.11,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.rectangle,
+                                      ),
+                                      child: Image.asset(
+                                        'assets/images/Security.jpg',
+                                      ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 10.0),
-                                    child: Text(
-                                      "     الفيزياء النظرية",
+                                    Text(
+                                      "الفيزياء النظرية",
                                       style: TextStyle(
                                         fontFamily: 'Cairo',
                                         color: Colors.black,
@@ -127,23 +126,21 @@ class LessonsState extends State<Lessons> {
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 40.0),
-                                    child: Text(
-                                      "7   دروس",
-                                      textDirection: _getTextDirection(" 'دروس 7'"),
-                                      style: TextStyle(
-                                        fontFamily: 'Cairo',
-                                        color: Colors.grey.shade700,
-                                        fontSize: 16.05,
-                                        fontWeight: FontWeight.normal,
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 40.0),
+                                      child: Text(
+                                        "7   دروس",
+                                        textDirection: _getTextDirection(" 'دروس 7'"),
+                                        style: TextStyle(
+                                          fontFamily: 'Cairo',
+                                          color: Colors.grey.shade700,
+                                          fontSize: 16.05,
+                                          fontWeight: FontWeight.normal,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ),
+                                  ],
+                                )),
                           ),
                         ),
                         SizedBox(width: 8),
@@ -188,16 +185,13 @@ class LessonsState extends State<Lessons> {
                                         'assets/images/Security.jpg',
                                       ),
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 10.0),
-                                      child: Text(
-                                        "الفلزات و الافلزات",
-                                        style: TextStyle(
-                                          fontFamily: 'Cairo',
-                                          color: Colors.black,
-                                          fontSize: 16.5,
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                                    Text(
+                                      "الفلزات و الافلزات",
+                                      style: TextStyle(
+                                        fontFamily: 'Cairo',
+                                        color: Colors.black,
+                                        fontSize: 16.5,
+                                        fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                     Padding(
@@ -224,6 +218,7 @@ class LessonsState extends State<Lessons> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       // Center the row horizontally
                       children: <Widget>[
+                        SizedBox(width: 8),
                         Padding(
                           padding: const EdgeInsets.only(top: 15.0),
                           child: Container(
@@ -247,27 +242,25 @@ class LessonsState extends State<Lessons> {
                               ],
                             ),
                             child: TextButton(
-                              onPressed: () {},
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: <Widget>[
-                                  SizedBox(
-                                    width: 10,
-                                    height: 10,
-                                  ),
-                                  Container(
-                                    width: 30.27,
-                                    height: 37.11,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.rectangle,
+                                onPressed: () {},
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: <Widget>[
+                                    SizedBox(
+                                      width: 10,
+                                      height: 10,
                                     ),
-                                    child: Image.asset(
-                                      'assets/images/Security.jpg',
+                                    Container(
+                                      width: 30.27,
+                                      height: 37.11,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.rectangle,
+                                      ),
+                                      child: Image.asset(
+                                        'assets/images/Security.jpg',
+                                      ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 10.0),
-                                    child: Text(
+                                    Text(
                                       "الفلزات و الافلزات",
                                       style: TextStyle(
                                         fontFamily: 'Cairo',
@@ -276,23 +269,21 @@ class LessonsState extends State<Lessons> {
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 40.0),
-                                    child: Text(
-                                      "7   دروس",
-                                      textDirection: _getTextDirection(" 'دروس 7'"),
-                                      style: TextStyle(
-                                        fontFamily: 'Cairo',
-                                        color: Colors.grey.shade700,
-                                        fontSize: 16.05,
-                                        fontWeight: FontWeight.normal,
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 40.0),
+                                      child: Text(
+                                        "7   دروس",
+                                        textDirection: _getTextDirection(" 'دروس 7'"),
+                                        style: TextStyle(
+                                          fontFamily: 'Cairo',
+                                          color: Colors.grey.shade700,
+                                          fontSize: 16.05,
+                                          fontWeight: FontWeight.normal,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ),
+                                  ],
+                                )),
                           ),
                         ),
                         SizedBox(width: 8),
@@ -337,16 +328,13 @@ class LessonsState extends State<Lessons> {
                                         'assets/images/Security.jpg',
                                       ),
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 10.0),
-                                      child: Text(
-                                        "                المعادلات ",
-                                        style: TextStyle(
-                                          fontFamily: 'Cairo',
-                                          color: Colors.black,
-                                          fontSize: 16.5,
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                                    Text(
+                                      "                المعادلات ",
+                                      style: TextStyle(
+                                        fontFamily: 'Cairo',
+                                        color: Colors.black,
+                                        fontSize: 16.5,
+                                        fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                     Padding(
@@ -354,7 +342,6 @@ class LessonsState extends State<Lessons> {
                                       child: Text(
                                         "7   دروس",
                                         textDirection: _getTextDirection(" 'دروس 7'"),
-
                                         style: TextStyle(
                                           fontFamily: 'Cairo',
                                           color: Colors.grey.shade700,
@@ -374,6 +361,7 @@ class LessonsState extends State<Lessons> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       // Center the row horizontally
                       children: <Widget>[
+                        SizedBox(width: 8),
                         Padding(
                           padding: const EdgeInsets.only(top: 15.0),
                           child: Container(
@@ -397,27 +385,25 @@ class LessonsState extends State<Lessons> {
                               ],
                             ),
                             child: TextButton(
-                              onPressed: () {},
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: <Widget>[
-                                  SizedBox(
-                                    width: 10,
-                                    height: 10,
-                                  ),
-                                  Container(
-                                    width: 30.27,
-                                    height: 37.11,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.rectangle,
+                                onPressed: () {},
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: <Widget>[
+                                    SizedBox(
+                                      width: 10,
+                                      height: 10,
                                     ),
-                                    child: Image.asset(
-                                      'assets/images/Security.jpg',
+                                    Container(
+                                      width: 30.27,
+                                      height: 37.11,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.rectangle,
+                                      ),
+                                      child: Image.asset(
+                                        'assets/images/Security.jpg',
+                                      ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 10.0),
-                                    child: Text(
+                                    Text(
                                       "الفلزات و الافلزات",
                                       style: TextStyle(
                                         fontFamily: 'Cairo',
@@ -426,24 +412,21 @@ class LessonsState extends State<Lessons> {
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 40.0),
-                                    child: Text(
-                                      "7   دروس",
-                                      textDirection: _getTextDirection(" 'دروس 7'"),
-
-                                      style: TextStyle(
-                                        fontFamily: 'Cairo',
-                                        color: Colors.grey.shade700,
-                                        fontSize: 16.05,
-                                        fontWeight: FontWeight.normal,
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 40.0),
+                                      child: Text(
+                                        "7   دروس",
+                                        textDirection: _getTextDirection(" 'دروس 7'"),
+                                        style: TextStyle(
+                                          fontFamily: 'Cairo',
+                                          color: Colors.grey.shade700,
+                                          fontSize: 16.05,
+                                          fontWeight: FontWeight.normal,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ),
+                                  ],
+                                )),
                           ),
                         ),
                         SizedBox(width: 8),

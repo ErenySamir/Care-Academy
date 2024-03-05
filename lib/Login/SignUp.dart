@@ -55,7 +55,13 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WillPopScope(
+        onWillPop: () async {
+          // Exit the application when back button is pressed
+          SystemNavigator.pop();
+          return false;
+        },
+    child: Scaffold(
         resizeToAvoidBottomInset: false, // Avoids resizing the layout when the keyboard appears
         backgroundColor: CupertinoColors.white,
         body: LayoutBuilder(
@@ -365,44 +371,70 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                   ),
                                   alignment: Alignment.centerLeft,
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
+
+                                      SizedBox(width: 8.0),
                                       Expanded(
-                                        child: DropdownButtonFormField<String>(
-                                          value: selectedValue,
-                                          items: <String>[
-                                            'Grade 1',
-                                            'Grade 2',
-                                            'Grade 3',
-                                            'Grade 4',
-                                            'Grade 5'
-                                          ].map((String value) {
-                                            return DropdownMenuItem<String>(
-                                              child: Text(value),
-                                              value: value,
-                                            );
-                                          }).toList(),
-                                          onChanged: (String? newValue) {
-                                            setState(() {
-                                              selectedValue = newValue;
-                                            });
-                                          },
-                                          decoration: InputDecoration(
-                                            hintText: 'الصف الدراسي',
-                                            hintStyle: TextStyle(
-                                              fontFamily: 'Cairo',
-                                              color: Colors.grey,
+                                        child: Stack(
+                                          alignment: Alignment.center,
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(left: 2.0),
+                                              child: DropdownButtonFormField<String>(
+                                                icon: Icon(
+                                                  Icons.arrow_drop_down,
+                                                  size: 1,
+                                                  color: Color(0xFFF6F4FE), // <-- SEE HERE
+                                                ),
+                                                value: selectedValue,
+                                                items: <String>[
+                                                  'Grade 1',
+                                                  'Grade 2',
+                                                  'Grade 3',
+                                                  'Grade 4',
+                                                  'Grade 5'
+                                                ].map((String value) {
+                                                  return DropdownMenuItem<String>(
+                                                    child: Text(value),
+                                                    value: value,
+                                                  );
+                                                }).toList(),
+                                                onChanged: (String? newValue) {
+                                                  setState(() {
+                                                    selectedValue = newValue;
+                                                  });
+                                                },
+                                                decoration: InputDecoration(
+                                                  hintText: 'الصف الدراسي     ',
+                                                  hintStyle: TextStyle(
+                                                    fontFamily: 'Cairo',
+                                                    color: Colors.grey,
+                                                  ),
+                                                  isDense: true,
+                                                 // contentPadding: EdgeInsets.zero, // Remove left padding
+                                                  border: InputBorder.none, // Remove underline
+                                                  icon:  Padding(
+                                                    padding: const EdgeInsets.only(right: 128.0),
+                                                    child: Icon(
+                                                      Icons.keyboard_arrow_down_sharp,
+                                                      color: Colors.grey.shade900,
+                                                      size: 25,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
                                             ),
-                                            contentPadding:
-                                                EdgeInsets.only(left: 210.0),
-                                          ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(left: 260.0),
+                                              child: Icon(
+                                                Icons.school_outlined,
+                                                color: Colors.grey.shade400,
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
-                                      Icon(
-                                        Icons.school,
-                                        color: Colors.grey.shade400,
-                                      ),
-                                      SizedBox(width: 8.0),
                                     ],
                                   ),
                                 ),
@@ -518,6 +550,6 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
 
         ],
       );}),
-    );
+    ) );
   }
 }

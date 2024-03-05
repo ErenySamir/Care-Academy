@@ -19,6 +19,17 @@ class SavedState extends State<Saved> {
 
   @override
   Widget build(BuildContext context) {
+    TextDirection _getTextDirection(String text) {
+      // Determine the text direction based on text content
+      if (text.contains(RegExp(
+          r'[\u0600-\u06FF\u0750-\u077F\u0590-\u05FF\uFE70-\uFEFF\uFB50-\uFDFF\u2000-\u206F\u202A-\u202E\u2070-\u209F\u20A0-\u20CF\u2100-\u214F\u2150-\u218F]'))) {
+        // RTL language detected
+        return TextDirection.rtl;
+      } else {
+        // LTR language detected
+        return TextDirection.ltr;
+      }
+    }
     return Scaffold(
         appBar: AppBar(
           leading: GestureDetector(
@@ -38,18 +49,24 @@ class SavedState extends State<Saved> {
             (
               child: Padding(
                 padding: const EdgeInsets.only(top: 20.0),
-                child: Text("المشاهده لاحقاً",style: TextStyle( fontFamily: 'Cairo',
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,)),
+                child: Center(
+                  child: Text("المشاهده لاحقاً        ",
+                      style: TextStyle(
+                        fontFamily: 'Cairo',
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,)),
+                ),
               )),
 
         ),
         backgroundColor: CupertinoColors.white,
-        body: SingleChildScrollView(
+        body: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+
+        return SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center, // Center the column vertically
             children: <Widget>[
-
               SizedBox(width: 8.0),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center, // Center the row horizontally
@@ -59,16 +76,17 @@ class SavedState extends State<Saved> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center, // Center the row horizontally
                       children: <Widget>[
+                        SizedBox(width: 8),
                         Container(
-                          width: 180.12,
+                          width: constraints.maxWidth/2.1,
                           height: 217.71,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
                             color: Colors.white,
-                            // borderRadius: BorderRadius.only(
-                            // topLeft: Radius.circular(20),
-                            // topRight: Radius.circular(20),
+                            borderRadius: BorderRadius.circular(20),
 
+                            // borderRadius: BorderRadius.only(
+                            //   topLeft: Radius.circular(20),
+                            //   topRight: Radius.circular(20),
                             // ),
                             boxShadow: [
                               BoxShadow(
@@ -83,9 +101,9 @@ class SavedState extends State<Saved> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: <Widget>[
-                                SizedBox(width: 10),
+                                SizedBox(height: 10),
                                 Container(
-                                  width: 154.67,
+                                  width: constraints.maxWidth/2.1,
                                   height: 114.32,
                                   decoration: BoxDecoration(
                                     shape: BoxShape.rectangle,
@@ -95,6 +113,8 @@ class SavedState extends State<Saved> {
                                   ),
                                 ),
                                 Text(
+                                  textAlign: TextAlign.end,
+
                                   "الفيزياء الحديثة",
                                   style: TextStyle(
                                     fontFamily: 'Cairo',
@@ -105,7 +125,8 @@ class SavedState extends State<Saved> {
                                   ),
                                 ),
                                 Text(
-                                  "ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ...",
+                                  "ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ....",
+                                  textDirection: _getTextDirection(" ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ...."),
                                   style: TextStyle(
                                     fontFamily: 'Cairo',
 
@@ -123,7 +144,6 @@ class SavedState extends State<Saved> {
                                           "52647",
                                           style: TextStyle(color: Colors.black, fontSize: 9,
                                             fontFamily: 'Cairo',
-
                                           ),
                                         ),
                                         Icon(Icons.remove_red_eye_sharp,
@@ -152,7 +172,7 @@ class SavedState extends State<Saved> {
                         ),
                         SizedBox(width: 8),
                         Container(
-                          width: 180.12,
+                          width: constraints.maxWidth/2.1,
                           height: 217.71,
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -177,7 +197,7 @@ class SavedState extends State<Saved> {
                               children: <Widget>[
                                 SizedBox(height: 10),
                                 Container(
-                                  width: 154.67,
+                                  width: constraints.maxWidth/2.1,
                                   height: 114.32,
                                   decoration: BoxDecoration(
                                     shape: BoxShape.rectangle,
@@ -198,6 +218,7 @@ class SavedState extends State<Saved> {
                                 ),
                                 Text(
                                   "ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ....",
+                                  textDirection: _getTextDirection(" ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ...."),
                                   style: TextStyle(
                                     fontFamily: 'Cairo',
 
@@ -252,7 +273,7 @@ class SavedState extends State<Saved> {
                       mainAxisAlignment: MainAxisAlignment.center, // Center the row horizontally
                       children: <Widget>[
                         Container(
-                          width: 180.12,
+                          width: constraints.maxWidth/2.1,
                           height: 217.71,
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -277,7 +298,7 @@ class SavedState extends State<Saved> {
                               children: <Widget>[
                                 SizedBox(height: 10),
                                 Container(
-                                  width: 154.67,
+                                  width: constraints.maxWidth/2.1,
                                   height: 114.32,
                                   decoration: BoxDecoration(
                                     shape: BoxShape.rectangle,
@@ -297,6 +318,7 @@ class SavedState extends State<Saved> {
                                 ),
                                 Text(
                                   "ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ....",
+                                  textDirection: _getTextDirection(" ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ...."),
                                   style: TextStyle(
                                     fontFamily: 'Cairo',
 
@@ -342,7 +364,7 @@ class SavedState extends State<Saved> {
                         ),
                         SizedBox(width: 8),
                         Container(
-                          width: 180.12,
+                          width: constraints.maxWidth/2.1,
                           height: 217.71,
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -367,7 +389,7 @@ class SavedState extends State<Saved> {
                               children: <Widget>[
                                 SizedBox(height: 10),
                                 Container(
-                                  width: 154.67,
+                                  width: constraints.maxWidth/2.1,
                                   height: 114.32,
                                   decoration: BoxDecoration(
                                     shape: BoxShape.rectangle,
@@ -390,6 +412,7 @@ class SavedState extends State<Saved> {
                                 ),
                                 Text(
                                   "ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ....",
+                                  textDirection: _getTextDirection(" ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ...."),
                                   style: TextStyle(
                                     fontFamily: 'Cairo',
 
@@ -439,8 +462,8 @@ class SavedState extends State<Saved> {
                 ],
               ),
             ],
-          ),
-        ),
+          ));
+        }),
 
         bottomNavigationBar: Container(
           width: 359,

@@ -120,7 +120,7 @@ class LiveState extends State<Live> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 4.0, left: 18, right: 18),
+                  padding: EdgeInsets.only(top: 1.0, left: 18, right: 18),
                   child: Align(
                     child: Container(
                       width: 490.67,
@@ -145,12 +145,12 @@ class LiveState extends State<Live> {
                 Align(
                   alignment: Alignment.centerRight,
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 10.0),
+                    padding: const EdgeInsets.only(top: 2.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Container(
-                          padding: const EdgeInsets.only(top: 20.0, right: 2,left: 20),
+                          padding: const EdgeInsets.only(top: 2.0, right: 2,left: 20),
                           child: SizedBox(
                             width: 105,
                             height: 20,
@@ -164,6 +164,7 @@ class LiveState extends State<Live> {
                               onPressed: () {},
                               child: Text(
                                 "الفيزياء الحديثة",
+                                textAlign: TextAlign.end,
                                 style: TextStyle(
                                   fontFamily: 'Cairo',
                                   color: Colors.white,
@@ -176,7 +177,7 @@ class LiveState extends State<Live> {
                         ),
                         SizedBox(width: 5), // Add spacing between the buttons
                         Container(
-                          padding: const EdgeInsets.only(top: 20.0,right: 30),
+                          padding: const EdgeInsets.only(top: 2.0,right: 30),
                           child: SizedBox(
                             width: 105,
                             height: 20,
@@ -190,6 +191,7 @@ class LiveState extends State<Live> {
                               onPressed: () {},
                               child: Text(
                                 "الفيزياء الحديثة",
+                                textAlign: TextAlign.end,
                                 style: TextStyle(
                                   fontFamily: 'Cairo',
                                   color: Colors.white,
@@ -321,6 +323,8 @@ class LiveState extends State<Live> {
                         ),
                         child: Image.asset(
                           'assets/images/user.png',
+                          color: Color(0xFF6C6A6A),
+
                         ),
                       ),
                       SizedBox(height: 3),
@@ -356,8 +360,9 @@ class LiveState extends State<Live> {
                         decoration: BoxDecoration(
                           shape: BoxShape.rectangle,
                         ),
-                        child: Image.asset(
-                          'assets/images/fluent_live-20-regular.png',
+                        child:Icon(Icons.online_prediction_outlined,
+                          // size: 22, // Adjust the size of the icon as needed
+                          color:Color(0xFF6C6A6A),
                         ),
                       ),
                       SizedBox(height: 3),
@@ -393,8 +398,9 @@ class LiveState extends State<Live> {
                         decoration: BoxDecoration(
                           shape: BoxShape.rectangle,
                         ),
-                        child: Image.asset(
-                          'assets/images/BookBookmark1.png',
+                        child: Icon(Icons.collections_bookmark_outlined,
+                          // size: 22, // Adjust the size of the icon as needed
+                          color:Color(0xFF6C6A6A),
                         ),
                       ),
                       SizedBox(height: 3),

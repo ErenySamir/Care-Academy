@@ -18,25 +18,26 @@ class profileState extends State<profile>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.of(context).pop(); // Navigate back to the previous page
-          },
-          child: Image.asset(
-            'assets/images/chevron-right.png', // Replace with your image asset path
-            width: 24, // Adjust the width of the image
-            height: 24, // Adjust the height of the image
+        appBar: AppBar(
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.of(context).pop(); // Navigate back to the previous page
+            },
+            child: Image.asset(
+              'assets/images/chevron-right.png', // Replace with your image asset path
+              width: 24, // Adjust the width of the image
+              height: 24, // Adjust the height of the image
+            ),
           ),
+          title: Text(
+            "ملفى",
+            style: TextStyle(
+                fontSize: 22,
+                fontFamily: 'Cairo'
+            ),
+          ),
+          centerTitle: true, // Center the title horizontally
         ),
-        title: Center(child: Center(
-          child: Text("ملفى",style: TextStyle( fontFamily: 'Cairo',
-              fontSize: 22,
-              //fontWeight: FontWeight.bold,
-          )),
-        )),
-
-      ),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
@@ -52,8 +53,7 @@ class profileState extends State<profile>{
                   'يارا عماد',
                   style: TextStyle(
                     fontSize: 18,
-                    fontWeight: FontWeight.bold, fontFamily: 'Cairo',color: Color(0xFF6C6A6A
-                  )
+                    fontWeight: FontWeight.bold, fontFamily: 'Cairo',color: Color(0xFF6C6A6A)
                   ),
                 ),
               ),
@@ -61,6 +61,7 @@ class profileState extends State<profile>{
                 child: Text(
                   'الصف الثالث الثانوى',
                   style: TextStyle(
+                    color: Color(0xFF6C6A6A),
                     fontSize: 18,
                       fontFamily: 'Cairo'
                   ),
@@ -80,16 +81,29 @@ class profileState extends State<profile>{
                     Text(
                       'اسم الطالب', // Arabic name, replace with your text
                       style: TextStyle(
+                          color: Color(0xFFC3C1C1),
+
                         fontSize: 20,
                        fontFamily: 'Cairo'
                       ),
                     ),
                     SizedBox(width: 10), // Add some space between the image and text
-                    Icon(
-                      Icons.person,
-                      size: 20,
-                      color: Colors.grey, // You can adjust the color as needed
-                    ),
+                    Container(
+                      height: 21,
+                      width: 21,
+                      margin: EdgeInsets.only(right: 20.0),
+                      child: ColorFiltered(
+                        colorFilter: ColorFilter.mode(
+                          Colors.grey.shade300,
+                          BlendMode.modulate,
+                        ),
+                        child: Image.asset(
+                          'assets/images/user.png',
+                          color: Color(0xFFD9D9D9),
+
+                        ),
+                      ),
+                    )
                   ],
                 ),
               ),
@@ -108,15 +122,21 @@ class profileState extends State<profile>{
                     Text(
                       'البريد الالكترونى', // Arabic name, replace with your text
                       style: TextStyle(
+                          color: Color(0xFFC3C1C1),
+
                         fontSize: 20,
                          fontFamily: 'Cairo'
                       ),
                     ),
                     SizedBox(width: 10), // Add some space between the image and text
-                    Icon(
-                      Icons.email,
-                      size: 20,
-                      color: Colors.grey, // You can adjust the color as needed
+                    Container(
+                      margin: EdgeInsets.only(right: 20.0),
+                      // Adjust margin from right
+                      child: Icon(
+                        color: Colors.grey.shade400,
+                        Icons.mail_outline,
+                        size: 21,
+                      ),
                     ),
                   ],
                 ),
@@ -132,65 +152,77 @@ class profileState extends State<profile>{
                 padding: EdgeInsets.all(16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center, // Align icon and text in the same line
                   children: [
                     Text(
                       'رقم التليفون', // Arabic name, replace with your text
                       style: TextStyle(
                         fontSize: 20,
-                         fontFamily: 'Cairo'
+                        color: Color(0xFFC3C1C1),
+                        fontFamily: 'Cairo',
                       ),
                     ),
-                    SizedBox(width: 10), // Add some space between the image and text
-                    Icon(
-                      Icons.phone,
-                      size: 20,
-                      color: Colors.grey, // You can adjust the color as needed
+                    SizedBox(width: 10), // Add some space between the text and icon
+                    Container(
+                      margin: EdgeInsets.only(right: 20.0),
+                      // Adjust margin from right
+                      child: Icon(
+                        Icons.phone,
+                        color: Colors.grey.shade400,
+                        size: 21,
+                      ),
                     ),
                   ],
                 ),
               ),
 
+
               SizedBox(height: 10),
               Container(
-                color: Color(0xFFF6F4FE),
+                decoration: BoxDecoration(
+                  color: Color(0xFFF6F4FE),
+                  borderRadius: BorderRadius.circular(15),
+                ),
                 padding: EdgeInsets.all(16),
                 child: Stack(
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          'الصف الدراسى', // Arabic name, replace with your text
+                          'الصف الدراسى',
                           style: TextStyle(
                             fontSize: 20,
-                           fontFamily: 'Cairo'
+                            color: Color(0xFFC3C1C1),
+                            fontFamily: 'Cairo',
                           ),
                         ),
-                        SizedBox(width: 10), // Add some space between the text and next CircleAvatar
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(0), // Adjust the border radius as needed
+                        SizedBox(width: 10),
+                        Container(
+                          margin: EdgeInsets.only(right: 20.0),
                           child: Icon(
                             Icons.school_outlined,
-                            size: 30, // Adjust the size of the icon as needed
-                            color: Colors.grey, // Adjust the color of the icon as needed
+                            color: Colors.grey.shade400,
+                            size: 21,
                           ),
-                        )
-
+                        ),
                       ],
                     ),
-                        Icon(
-                          Icons.arrow_drop_down_outlined,
-                          size: 40,
-                          color: Color(0xFF011A51), // You can adjust the color as needed
-                        ),
-
-
-
+                    Positioned(
+                      left: 0,
+                      child: Icon(
+                        Icons.keyboard_arrow_down,
+                        size: 21,
+                        color: Color(0xFF011A51),
+                      ),
+                    ),
                   ],
                 ),
               ),
+
+
+
             ],
           ),
         ),
@@ -198,8 +230,6 @@ class profileState extends State<profile>{
         bottomNavigationBar: Container(
           width: 359,
           height: 66.22,
-          // margin: EdgeInsets.only(top: 33.78, left: 35.5),
-          // padding: EdgeInsets.fromLTRB(24.38, 12.61, 24.38, 12.61),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             color: Colors.white,
@@ -210,11 +240,10 @@ class profileState extends State<profile>{
                 blurRadius: 7,
                 offset: Offset(0, 3),
               ),
-            ], // Add shadow
+            ],
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            // Add space between icons
             children: [
               InkWell(
                 onTap: () {
@@ -225,29 +254,34 @@ class profileState extends State<profile>{
                     );
                   });
                 },
-                child: Column(
-                  children: [
-                    Container(
-                      width: 25,
-                      height: 25,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 5),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 25,
+                        height: 25,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.rectangle,
+                        ),
+                        child: Image.asset(
+                          'assets/images/user.png',
+                          color: Color(0xFF6C6A6A),
+
+                        ),
                       ),
-                      child: Image.asset(
-                        'assets/images/user.png',
+                      SizedBox(height: 3),
+                      Text(
+                        "ملفى",
+                        style: TextStyle(
+                          fontFamily: 'Cairo',
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black,
+                          fontSize: 10.90,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 1),
-                    Text(
-                      "ملفى",
-                      style: TextStyle(
-                        fontFamily: 'Cairo',
-                        fontWeight: FontWeight.normal,
-                        color: Colors.black,
-                        fontSize: 10.90,
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               InkWell(
@@ -259,29 +293,33 @@ class profileState extends State<profile>{
                     );
                   });
                 },
-                child: Column(
-                  children: [
-                    Container(
-                      width: 25,
-                      height: 25,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 5),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 25,
+                        height: 25,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.rectangle,
+                        ),
+                        child:Icon(Icons.online_prediction_outlined,
+                          // size: 22, // Adjust the size of the icon as needed
+                          color:Color(0xFF6C6A6A),
+                        ),
                       ),
-                      child: Image.asset(
-                        'assets/images/fluent_live-20-regular.png',
+                      SizedBox(height: 3),
+                      Text(
+                        "مباشر",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 10.90,
+                          fontFamily: 'Cairo',
+                          fontWeight: FontWeight.normal,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 1),
-                    Text(
-                      "مباشر",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 10.90,
-                        fontFamily: 'Cairo',
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               InkWell(
@@ -293,29 +331,33 @@ class profileState extends State<profile>{
                     );
                   });
                 },
-                child: Column(
-                  children: [
-                    Container(
-                      width: 25,
-                      height: 25,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 5),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 25,
+                        height: 25,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.rectangle,
+                        ),
+                        child: Icon(Icons.collections_bookmark_outlined,
+                          // size: 22, // Adjust the size of the icon as needed
+                          color:Color(0xFF6C6A6A),
+                        ),
                       ),
-                      child: Image.asset(
-                        'assets/images/BookBookmark1.png',
+                      SizedBox(height: 3),
+                      Text(
+                        "الوحدات",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 10.90,
+                          fontFamily: 'Cairo',
+                          fontWeight: FontWeight.normal,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 1),
-                    Text(
-                      "الوحدات",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 10.90,
-                        fontFamily: 'Cairo',
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               InkWell(
@@ -327,29 +369,32 @@ class profileState extends State<profile>{
                     );
                   });
                 },
-                child: Column(
-                  children: [
-                    Container(
-                      width: 25,
-                      height: 25,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 5),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 25,
+                        height: 25,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.rectangle,
+                        ),
+                        child: Image.asset(
+                          'assets/images/HouseSimple.png',
+                        ),
                       ),
-                      child: Image.asset(
-                        'assets/images/HouseSimple.png',
+                      SizedBox(height: 3),
+                      Text(
+                        "الرئيسية",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 10.90,
+                          fontFamily: 'Cairo',
+                          fontWeight: FontWeight.normal,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 1),
-                    Text(
-                      "الرئيسية",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 10.90,
-                        fontFamily: 'Cairo',
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ],

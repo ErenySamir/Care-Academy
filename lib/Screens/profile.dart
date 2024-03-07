@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../HomeWork/lessons.dart';
 import '../SavedLesson/Live.dart';
@@ -14,6 +15,7 @@ class profile extends StatefulWidget {
 }
 class profileState extends State<profile>{
   int currentIndexx = 0;
+  String? selectedValue;
 
   @override
   Widget build(BuildContext context) {
@@ -68,156 +70,268 @@ class profileState extends State<profile>{
                 ),
               ),
               SizedBox(height: 28,),
-              Container(
-                decoration: BoxDecoration(
-                  color: Color(0xFFF6F4FE),
-                  borderRadius: BorderRadius.circular(15), // Adjust the radius as needed
-                ),
-                padding: EdgeInsets.all(16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'اسم الطالب', // Arabic name, replace with your text
-                      style: TextStyle(
-                          color: Color(0xFFC3C1C1),
-
-                        fontSize: 20,
-                       fontFamily: 'Cairo'
-                      ),
-                    ),
-                    SizedBox(width: 10), // Add some space between the image and text
-                    Container(
-                      height: 21,
-                      width: 21,
-                      margin: EdgeInsets.only(right: 20.0),
-                      child: ColorFiltered(
-                        colorFilter: ColorFilter.mode(
-                          Colors.grey.shade300,
-                          BlendMode.modulate,
-                        ),
-                        child: Image.asset(
-                          'assets/images/user.png',
-                          color: Color(0xFFD9D9D9),
-
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
+              
               SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.only(top: 18.0),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Container(
+                    // width: 337.08,
+                    // height: 590.95,
+                    margin: EdgeInsets.symmetric(horizontal: 6.0),
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 18.0, left: 18),
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: <Widget>[
 
-              Container(
-                decoration: BoxDecoration(
-                  color: Color(0xFFF6F4FE),
-                  borderRadius: BorderRadius.circular(15), // Adjust the radius as needed
-                ),
-                padding: EdgeInsets.all(16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'البريد الالكترونى', // Arabic name, replace with your text
-                      style: TextStyle(
-                          color: Color(0xFFC3C1C1),
+                            Container(
+                              // width: 317,
+                              // height: 52.82,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.0),
+                                shape: BoxShape.rectangle,
+                                color: Color(0xFFF6F4FE),
+                              ),
+                              alignment: Alignment.centerRight,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Expanded(
+                                    flex: 1,
+                                    child: Container(
+                                      child: Padding(
+                                        padding:
+                                        const EdgeInsets.only(right: 15.0),
+                                        child: TextField(
+                                          keyboardType: TextInputType.text,
+                                          textAlign: TextAlign.right,
+                                          decoration: InputDecoration(
+                                            hintText: 'أسم الطالب',
+                                            hintStyle: TextStyle(
+                                              fontFamily: 'Cairo',
+                                              color: Colors.grey,
+                                            ),
+                                            border: InputBorder.none,
+                                          ),
+                                          onChanged: (value) {
+                                            // if (value.isNotEmpty) {
+                                            //   FocusScope.of(context).nextFocus();
+                                            // }
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    height: 21,
+                                    width: 21,
+                                    margin: EdgeInsets.only(right: 20.0),
+                                    child: ColorFiltered(
+                                      colorFilter: ColorFilter.mode(
+                                        Colors.grey.shade300,
+                                        BlendMode.modulate,
+                                      ),
+                                      child: Image.asset(
+                                        'assets/images/name.png',
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 5,),
+                            Container(
+                              height: 52.82,
 
-                        fontSize: 20,
-                         fontFamily: 'Cairo'
-                      ),
-                    ),
-                    SizedBox(width: 10), // Add some space between the image and text
-                    Container(
-                      margin: EdgeInsets.only(right: 20.0),
-                      // Adjust margin from right
-                      child: Icon(
-                        color: Colors.grey.shade400,
-                        Icons.mail_outline,
-                        size: 21,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.0),
+                                shape: BoxShape.rectangle,
+                                color: Color(0xFFF6F4FE),
+                              ),
 
-              SizedBox(height: 10),
+                              alignment: Alignment.centerRight,
+                              // Align the container to the right
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Expanded(
+                                    flex: 1,
+                                    child: Container(
+                                      child: Padding(
+                                        padding:
+                                        const EdgeInsets.only(right: 15.0),
+                                        child: TextField(
+                                          keyboardType:
+                                          TextInputType.emailAddress,
+                                          textAlign: TextAlign.right,
+                                          decoration: InputDecoration(
+                                            hintText: 'البريد الألكترونى',
+                                            hintStyle: TextStyle(
+                                              fontFamily: 'Cairo',
+                                              color: Colors.grey,
+                                            ),
+                                            border: InputBorder.none,
+                                          ),
+                                          onChanged: (value) {
+                                            // if (value.isNotEmpty) {
+                                            //   FocusScope.of(context).nextFocus();
+                                            // }
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(right: 20.0),
+                                    // Adjust margin from right
+                                    child: Icon(
+                                      color: Colors.grey.shade400,
+                                      Icons.mail_outline,
+                                      size: 21,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 5,),
 
-              Container(
-                decoration: BoxDecoration(
-                  color: Color(0xFFF6F4FE),
-                  borderRadius: BorderRadius.circular(15), // Adjust the radius as needed
-                ),
-                padding: EdgeInsets.all(16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.center, // Align icon and text in the same line
-                  children: [
-                    Text(
-                      'رقم التليفون', // Arabic name, replace with your text
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Color(0xFFC3C1C1),
-                        fontFamily: 'Cairo',
-                      ),
-                    ),
-                    SizedBox(width: 10), // Add some space between the text and icon
-                    Container(
-                      margin: EdgeInsets.only(right: 20.0),
-                      // Adjust margin from right
-                      child: Icon(
-                        Icons.phone,
-                        color: Colors.grey.shade400,
-                        size: 21,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+                            Container(
+                              height: 52.82,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.0),
+                                shape: BoxShape.rectangle,
+                                color: Color(0xFFF6F4FE),
+                              ),
+                              alignment: Alignment.centerRight,
+                              // Align the container to the right
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Expanded(
+                                    flex: 1,
+                                    child: Container(
+                                      child: Padding(
+                                        padding:
+                                        const EdgeInsets.only(right: 15.0),
+                                        child: TextField(
+                                          inputFormatters: [
+                                            LengthLimitingTextInputFormatter(12),
+                                          ],
+                                          keyboardType: TextInputType.number,
+                                          textAlign: TextAlign.right,
+                                          decoration: InputDecoration(
+                                            hintText: 'رقم التليفون',
+                                            hintStyle: TextStyle(
+                                              fontFamily: 'Cairo',
+                                              color: Colors.grey,
+                                            ),
+                                            border: InputBorder.none,
+                                          ),
+                                          onChanged: (value) {
+                                            // if (value.isNotEmpty) {
+                                            //   FocusScope.of(context).nextFocus();
+                                            // }
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(right: 20.0),
+                                    // Adjust margin from right
+                                    child: Icon(
+                                      color: Colors.grey.shade400,
+                                      Icons.phone,
+                                      size: 21,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 5,),
 
+                            Container(
+                              height: 52.82,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.0),
+                                shape: BoxShape.rectangle,
+                                color: Color(0xFFF6F4FE),
+                              ),
+                              alignment: Alignment.centerLeft,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
 
-              SizedBox(height: 10),
-              Container(
-                decoration: BoxDecoration(
-                  color: Color(0xFFF6F4FE),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                padding: EdgeInsets.all(16),
-                child: Stack(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          'الصف الدراسى',
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Color(0xFFC3C1C1),
-                            fontFamily: 'Cairo',
-                          ),
-                        ),
-                        SizedBox(width: 10),
-                        Container(
-                          margin: EdgeInsets.only(right: 20.0),
-                          child: Icon(
-                            Icons.school_outlined,
-                            color: Colors.grey.shade400,
-                            size: 21,
-                          ),
-                        ),
-                      ],
+                                  SizedBox(width: 8.0),
+                                  Expanded(
+                                    child: Stack(
+                                      alignment: Alignment.center,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(left: 2.0),
+                                          child: DropdownButtonFormField<String>(
+                                            icon: Icon(
+                                              Icons.arrow_drop_down,
+                                              size: 1,
+                                              color: Color(0xFFF6F4FE), // <-- SEE HERE
+                                            ),
+                                            value: selectedValue,
+                                            items: <String>[
+                                              'Grade 1',
+                                              'Grade 2',
+                                              'Grade 3',
+                                              'Grade 4',
+                                              'Grade 5'
+                                            ].map((String value) {
+                                              return DropdownMenuItem<String>(
+                                                child: Text(value),
+                                                value: value,
+                                              );
+                                            }).toList(),
+                                            onChanged: (String? newValue) {
+                                              setState(() {
+                                                selectedValue = newValue;
+                                              });
+                                            },
+                                            decoration: InputDecoration(
+                                              hintText: 'الصف الدراسي     ',
+                                              hintStyle: TextStyle(
+                                                fontFamily: 'Cairo',
+                                                color: Colors.grey,
+                                              ),
+                                              isDense: true,
+                                              // contentPadding: EdgeInsets.zero, // Remove left padding
+                                              border: InputBorder.none, // Remove underline
+                                              icon:  Padding(
+                                                padding: const EdgeInsets.only(right: 128.0),
+                                                child: Icon(
+                                                  Icons.keyboard_arrow_down_sharp,
+                                                  color: Colors.grey.shade900,
+                                                  size: 25,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(left: 260.0),
+                                          child: Icon(
+                                            Icons.school_outlined,
+                                            color: Colors.grey.shade400,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+
+                          ]),
                     ),
-                    Positioned(
-                      left: 0,
-                      child: Icon(
-                        Icons.keyboard_arrow_down,
-                        size: 21,
-                        color: Color(0xFF011A51),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
 
@@ -231,7 +345,11 @@ class profileState extends State<profile>{
           width: 359,
           height: 66.22,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
+
             color: Colors.white,
             boxShadow: [
               BoxShadow(

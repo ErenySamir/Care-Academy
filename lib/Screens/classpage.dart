@@ -96,23 +96,23 @@ class _ClassPageState extends State<ClassPage> {
                 child: Stack(
                   children: [
                     GestureDetector(
-                      onTap: () {
-                        if (isPlaying) {
-                          controller.pause();
-                        } else {
-                          controller.play();
-                        }
-                        setState(() {
-                          isPlaying = !isPlaying;
-                        });
-                      },
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(20.0), // Adjust the value as needed
-                        child: AspectRatio(
-                          aspectRatio: controller.value.aspectRatio,
-                          child: VideoPlayer(controller),
-                        ),
-                      )
+                        onTap: () {
+                          if (isPlaying) {
+                            controller.pause();
+                          } else {
+                            controller.play();
+                          }
+                          setState(() {
+                            isPlaying = !isPlaying;
+                          });
+                        },
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20.0), // Adjust the value as needed
+                          child: AspectRatio(
+                            aspectRatio: controller.value.aspectRatio,
+                            child: VideoPlayer(controller),
+                          ),
+                        )
 
                     ),
                     if (!isPlaying)
@@ -171,14 +171,16 @@ class _ClassPageState extends State<ClassPage> {
                     ),
                     SizedBox(width: 8),
                     Expanded(
+
                       child: Text(
                         "الفيزياء الحديثة",
+                        textAlign: TextAlign.end,
                         style: TextStyle(
-                          fontSize: 21,
-                           fontWeight: FontWeight.w700,
+                          fontFamily: 'Cairo',
+                          color: Colors.black,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 20.12,
                         ),
-                        textAlign: TextAlign.right,
-                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
                   ],
@@ -251,7 +253,7 @@ class _ClassPageState extends State<ClassPage> {
                   ],
                 ),
               ),
-               SizedBox(height: 5),
+              SizedBox(height: 5),
               Padding(
                 // padding: const EdgeInsets.all(8.0),
                 padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 0),
@@ -263,10 +265,10 @@ class _ClassPageState extends State<ClassPage> {
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: Text(
-                        "مقدمة الدرس",
+                        "مقدمة الوحده",
                         style: TextStyle(
                           fontSize: 14,
-                           fontWeight: FontWeight.w700,
+                          fontWeight: FontWeight.w700,
                           color: Color(0xFF181A20),
                           fontFamily: 'Cairo',
                         ),
@@ -276,93 +278,99 @@ class _ClassPageState extends State<ClassPage> {
                 ),
               ),
               // SizedBox(height: 1,),
-              SizedBox(
-                height: 120,
-                child: ListView.builder(
-                  itemCount: 1,
-                  itemBuilder: (BuildContext context, int index) {
-                    v section = videoss[0];
-                    return GestureDetector(child: Container(
-                      margin: EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 2,
-                            blurRadius: 5,
-                            offset: Offset(0, 3),
-                          ),
-                        ],
-                      ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            flex: 1,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                /////////////////////////////////
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              Container(
+                height: 120, // Adjust this value to change the height of the content
 
-                                  children: [
-                                    GestureDetector(
-                                      onTap: () {
-                                        // Implement save functionality here
-                                      },
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Icon(Icons.bookmark_border_outlined,
-                                          size: 25, // Adjust the size of the icon as needed
-                                          color:Color(0xFF6C6A6A),
+                child: Column(
+                  children: videoss.map((section) {
+                    return GestureDetector(
+                      child: Container(
+                        margin: EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 2,
+                              blurRadius: 5,
+                              offset: Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  /////////////////////////////////
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          // Implement save functionality here
+                                        },
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Icon(
+                                            Icons.bookmark_border_outlined,
+                                            size: 25, // Adjust the size of the icon as needed
+                                            color: Color(0xFF6C6A6A),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    SizedBox(width: 10),
-                                    // Adding some space between the image and text
-                                    Text(
-                                      section.name,
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                         fontWeight: FontWeight.w400,
-                                        color: Color(0xFF3F3F3F),
-                                        fontFamily: 'Cairo',
+                                      SizedBox(width: 10),
+                                      // Adding some space between the image and text
+                                      Text(
+                                        section.name,
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400,
+                                          color: Color(0xFF3F3F3F),
+                                          fontFamily: 'Cairo',
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-
-                                SizedBox(height: 8),
-                                Text(
-                                  section.subtitle,
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.black,
-                                    fontFamily: 'Cairo',
+                                    ],
                                   ),
-                                  textAlign: TextAlign.end,
-                                ),
-                                SizedBox(height: 8),
-                              ],
+
+                                  SizedBox(height: 8),
+                                  Text(
+                                    section.subtitle,
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.black,
+                                      fontFamily: 'Cairo',
+                                    ),
+                                    textAlign: TextAlign.end,
+                                  ),
+                                  SizedBox(height: 8),
+                                ],
+                              ),
                             ),
-                          ),
-                          SizedBox(width: 8),
-                          Expanded(
-                            flex: 1,
-                            child: VideoWidget(videoUrl: section.vurl),
-                          ),
-                          // SizedBox(width: 8),
-                        ],
+                            SizedBox(width: 8),
+                            SizedBox(
+                              width: 130,
+                              height: 100,
+                              // Adjust this value to change the width of the video
+                              child: VideoWidget(
+                                videoUrl: section.vurl,
+                              ),
+                            ),
+                            // SizedBox(width: 8),
+                          ],
+                        ),
                       ),
-                    ),);
-                  },
+                    );
+                  }).toList(),
                 ),
               ),
-               SizedBox(height: 5,),
+              SizedBox(height: 5,),
               Padding(
+                // padding: const EdgeInsets.all(8.0),
                 padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 0),
 
                 child: Row(
@@ -375,7 +383,6 @@ class _ClassPageState extends State<ClassPage> {
                         "دروس ذات صلة",
                         style: TextStyle(
                           fontSize: 14,
-
                           fontWeight: FontWeight.w700,
                           color: Color(0xFF181A20),
                           fontFamily: 'Cairo',
@@ -385,94 +392,280 @@ class _ClassPageState extends State<ClassPage> {
                   ],
                 ),
               ),
-              SizedBox(height: 1,),
+              Container(
+                height: 120, // Adjust this value to change the height of the content
 
-              SizedBox(
-                height: 120,
-                child: ListView.builder(
-                  itemCount: 1,
-                  itemBuilder: (BuildContext context, int index) {
-                    v section = videoss[0];
-                    return GestureDetector(child: Container(
-                      margin: EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 2,
-                            blurRadius: 5,
-                            offset: Offset(0, 3),
-                          ),
-                        ],
-                      ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            flex: 1,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                /////////////////////////////////
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment
-                                      .spaceBetween,
-
-                                  children: [
-                                    GestureDetector(
-                                      onTap: () {
-                                        // Implement save functionality here
-                                      },
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Icon(Icons.bookmark_border_outlined,
-                                          size: 25, // Adjust the size of the icon as needed
-                                          color: Color(0xFF8A8A8A),
+                child: Column(
+                  children: videoss.map((section) {
+                    return GestureDetector(
+                      child: Container(
+                        margin: EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 2,
+                              blurRadius: 5,
+                              offset: Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  /////////////////////////////////
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          // Implement save functionality here
+                                        },
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Icon(
+                                            Icons.bookmark_border_outlined,
+                                            size: 25, // Adjust the size of the icon as needed
+                                            color: Color(0xFF6C6A6A),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    SizedBox(width: 10),
-                                    // Adding some space between the image and text
-                                    Text(
-                                      section.name,
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w400,
-                                        color: Colors.black,
-                                        fontFamily: 'Cairo',
+                                      SizedBox(width: 10),
+                                      // Adding some space between the image and text
+                                      Text(
+                                        section.name,
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400,
+                                          color: Color(0xFF3F3F3F),
+                                          fontFamily: 'Cairo',
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-
-                                SizedBox(height: 8),
-                                Text(
-                                  section.subtitle,
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.black,
-                                    fontFamily: 'Cairo',
+                                    ],
                                   ),
-                                  textAlign: TextAlign.end,
-                                ),
-                                SizedBox(height: 8),
-                              ],
+
+                                  SizedBox(height: 8),
+                                  Text(
+                                    section.subtitle,
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.black,
+                                      fontFamily: 'Cairo',
+                                    ),
+                                    textAlign: TextAlign.end,
+                                  ),
+                                  SizedBox(height: 8),
+                                ],
+                              ),
                             ),
-                          ),
-                          SizedBox(width: 8),
-                          Expanded(
-                            flex: 1,
-                            child: VideoWidget(videoUrl: section.vurl),
-                          ),
-                          // SizedBox(width: 8),
-                        ],
+                            SizedBox(width: 8),
+                            SizedBox(
+                              width: 130,
+                              height: 100,
+                              // Adjust this value to change the width of the video
+                              child: VideoWidget(
+                                videoUrl: section.vurl,
+                              ),
+                            ),
+                            // SizedBox(width: 8),
+                          ],
+                        ),
                       ),
-                    ),);
-                  },
+                    );
+                  }).toList(),
                 ),
               ),
+              SizedBox(height: 1,),
+              Container(
+                height: 120, // Adjust this value to change the height of the content
+
+                child: Column(
+                  children: videoss.map((section) {
+                    return GestureDetector(
+                      child: Container(
+                        margin: EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 2,
+                              blurRadius: 5,
+                              offset: Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  /////////////////////////////////
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          // Implement save functionality here
+                                        },
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Icon(
+                                            Icons.bookmark_border_outlined,
+                                            size: 25, // Adjust the size of the icon as needed
+                                            color: Color(0xFF6C6A6A),
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(width: 10),
+                                      // Adding some space between the image and text
+                                      Text(
+                                        section.name,
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400,
+                                          color: Color(0xFF3F3F3F),
+                                          fontFamily: 'Cairo',
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+
+                                  SizedBox(height: 8),
+                                  Text(
+                                    section.subtitle,
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.black,
+                                      fontFamily: 'Cairo',
+                                    ),
+                                    textAlign: TextAlign.end,
+                                  ),
+                                  SizedBox(height: 8),
+                                ],
+                              ),
+                            ),
+                            SizedBox(width: 8),
+                            SizedBox(
+                              width: 130,
+                              height: 100,
+                              // Adjust this value to change the width of the video
+                              child: VideoWidget(
+                                videoUrl: section.vurl,
+                              ),
+                            ),
+                            // SizedBox(width: 8),
+                          ],
+                        ),
+                      ),
+                    );
+                  }).toList(),
+                ),
+              ),
+              SizedBox(height: 5,),
+              Container(
+                height: 120, // Adjust this value to change the height of the content
+
+                child: Column(
+                  children: videoss.map((section) {
+                    return GestureDetector(
+                      child: Container(
+                        margin: EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 2,
+                              blurRadius: 5,
+                              offset: Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  /////////////////////////////////
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          // Implement save functionality here
+                                        },
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Icon(
+                                            Icons.bookmark_border_outlined,
+                                            size: 25, // Adjust the size of the icon as needed
+                                            color: Color(0xFF6C6A6A),
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(width: 10),
+                                      // Adding some space between the image and text
+                                      Text(
+                                        section.name,
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400,
+                                          color: Color(0xFF3F3F3F),
+                                          fontFamily: 'Cairo',
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+
+                                  SizedBox(height: 8),
+                                  Text(
+                                    section.subtitle,
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.black,
+                                      fontFamily: 'Cairo',
+                                    ),
+                                    textAlign: TextAlign.end,
+                                  ),
+                                  SizedBox(height: 8),
+                                ],
+                              ),
+                            ),
+                            SizedBox(width: 8),
+                            SizedBox(
+                              width: 130,
+                              height: 100,
+                              // Adjust this value to change the width of the video
+                              child: VideoWidget(
+                                videoUrl: section.vurl,
+                              ),
+                            ),
+                            // SizedBox(width: 8),
+                          ],
+                        ),
+                      ),
+                    );
+                  }).toList(),
+                ),
+              ),
+              SizedBox(height: 5,),
+
             ],
           ),
         ),
@@ -480,7 +673,11 @@ class _ClassPageState extends State<ClassPage> {
           width: 359,
           height: 66.22,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
+
             color: Colors.white,
             boxShadow: [
               BoxShadow(

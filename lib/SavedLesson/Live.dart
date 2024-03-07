@@ -288,7 +288,11 @@ class LiveState extends State<Live> {
           width: 359,
           height: 66.22,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
+
             color: Colors.white,
             boxShadow: [
               BoxShadow(

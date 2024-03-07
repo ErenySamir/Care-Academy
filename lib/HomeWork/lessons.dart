@@ -509,7 +509,11 @@ class LessonsState extends State<Lessons> {
           width: 359,
           height: 66.22,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
+
             color: Colors.white,
             boxShadow: [
               BoxShadow(
@@ -543,7 +547,9 @@ class LessonsState extends State<Lessons> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Image.asset(
-                          'assets/images/name.png',
+                          'assets/images/user.png',
+                          color: Color(0xFF6C6A6A),
+
                         ),
                       ),
                       SizedBox(height: 3),
@@ -579,8 +585,9 @@ class LessonsState extends State<Lessons> {
                         decoration: BoxDecoration(
                           shape: BoxShape.rectangle,
                         ),
-                        child: Image.asset(
-                          'assets/images/fluent_live-20-regular.png',
+                        child:Icon(Icons.online_prediction_outlined,
+                          // size: 22, // Adjust the size of the icon as needed
+                          color:Color(0xFF6C6A6A),
                         ),
                       ),
                       SizedBox(height: 3),
@@ -616,8 +623,9 @@ class LessonsState extends State<Lessons> {
                         decoration: BoxDecoration(
                           shape: BoxShape.rectangle,
                         ),
-                        child: Image.asset(
-                          'assets/images/BookBookmark1.png',
+                        child: Icon(Icons.collections_bookmark_outlined,
+                          // size: 22, // Adjust the size of the icon as needed
+                          color:Color(0xFF6C6A6A),
                         ),
                       ),
                       SizedBox(height: 3),
@@ -674,6 +682,7 @@ class LessonsState extends State<Lessons> {
             ],
           ),
         )
+
     );
   }
 }

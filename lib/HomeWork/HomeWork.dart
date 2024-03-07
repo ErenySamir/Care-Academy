@@ -37,11 +37,11 @@ class HomeWorkState extends State<HomeWork> {
           title: Padding(
               padding: const EdgeInsets.only(top: 28.0, right: 44),
               child: Center(
-                child: Text("الواجبات",
-                    style: TextStyle( fontFamily: 'Cairo',
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,)),
-              )),
+            child: Text("الواجبات",
+                style: TextStyle( fontFamily: 'Cairo',
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,)),
+          )),
 
         ),
         backgroundColor: CupertinoColors.white,
@@ -63,7 +63,7 @@ class HomeWorkState extends State<HomeWork> {
                   padding: const EdgeInsets.only(right: 30.0, left: 30,top: 20),
                   child: Center(
                     child: Container(
-                      width: 350,
+                     // width: 350,
                       height: 70,
                       padding: const EdgeInsets.all(14),
                       decoration: BoxDecoration(
@@ -125,7 +125,7 @@ class HomeWorkState extends State<HomeWork> {
                   padding: const EdgeInsets.only(right: 30.0, left: 30),
                   child: Center(
                     child: Container(
-                      width: 350,
+                     // width: 350,
                       height: 70,
                       padding: const EdgeInsets.all(14),
                       decoration: BoxDecoration(
@@ -194,7 +194,7 @@ class HomeWorkState extends State<HomeWork> {
                   padding: const EdgeInsets.only(right: 30.0, left: 30),
                   child: Center(
                     child: Container(
-                      width: 350,
+                     // width: 350,
                       height: 70,
                       padding: const EdgeInsets.all(14),
                       decoration: BoxDecoration(
@@ -263,7 +263,7 @@ class HomeWorkState extends State<HomeWork> {
                   padding: const EdgeInsets.only(right: 30.0, left: 30),
                   child: Center(
                     child: Container(
-                      width: 350,
+                     // width: 350,
                       height: 70,
                       padding: const EdgeInsets.all(14),
                       decoration: BoxDecoration(
@@ -369,8 +369,6 @@ class HomeWorkState extends State<HomeWork> {
                         ),
                         child: Image.asset(
                           'assets/images/user.png',
-                          color: Color(0xFF6C6A6A),
-
                         ),
                       ),
                       SizedBox(height: 3),
@@ -406,9 +404,8 @@ class HomeWorkState extends State<HomeWork> {
                         decoration: BoxDecoration(
                           shape: BoxShape.rectangle,
                         ),
-                        child:Icon(Icons.online_prediction_outlined,
-                          // size: 22, // Adjust the size of the icon as needed
-                          color:Color(0xFF6C6A6A),
+                        child: Image.asset(
+                          'assets/images/fluent_live-20-regular.png',
                         ),
                       ),
                       SizedBox(height: 3),
@@ -444,9 +441,8 @@ class HomeWorkState extends State<HomeWork> {
                         decoration: BoxDecoration(
                           shape: BoxShape.rectangle,
                         ),
-                        child: Icon(Icons.collections_bookmark_outlined,
-                          // size: 22, // Adjust the size of the icon as needed
-                          color:Color(0xFF6C6A6A),
+                        child: Image.asset(
+                          'assets/images/BookBookmark1.png',
                         ),
                       ),
                       SizedBox(height: 3),

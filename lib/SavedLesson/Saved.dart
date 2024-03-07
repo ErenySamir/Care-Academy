@@ -53,423 +53,427 @@ class SavedState extends State<Saved> {
                   child: Text("المشاهده لاحقاً        ",
                       style: TextStyle(
                         fontFamily: 'Cairo',
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,)),
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,)),
                 ),
               )),
 
         ),
         backgroundColor: CupertinoColors.white,
         body: LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
+            builder: (BuildContext context, BoxConstraints constraints) {
 
-        return SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center, // Center the column vertically
-            children: <Widget>[
-              SizedBox(width: 8.0),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center, // Center the row horizontally
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(top: 22.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center, // Center the row horizontally
-                      children: <Widget>[
-                        SizedBox(width: 8),
-                        Container(
-                          width: constraints.maxWidth/2.1,
-                          height: 217.71,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
-
-                            // borderRadius: BorderRadius.only(
-                            //   topLeft: Radius.circular(20),
-                            //   topRight: Radius.circular(20),
-                            // ),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                spreadRadius: 2,
-                                blurRadius: 5,
-                                offset: Offset(0, 3),
-                              ),
-                            ],),
-                          child: TextButton(
-                            onPressed: () {},
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
+              return SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center, // Center the column vertically
+                    children: <Widget>[
+                      SizedBox(width: 8.0),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center, // Center the row horizontally
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.only(top: 22.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center, // Center the row horizontally
                               children: <Widget>[
-                                SizedBox(height: 10),
+                                SizedBox(width: 8),
                                 Container(
                                   width: constraints.maxWidth/2.1,
-                                  height: 114.32,
+                                  height: 217.71,
                                   decoration: BoxDecoration(
-                                    shape: BoxShape.rectangle,
-                                  ),
-                                  child: Image.asset(
-                                    'assets/images/save.png',
-                                  ),
-                                ),
-                                Text(
-                                  textAlign: TextAlign.end,
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(20),
 
-                                  "الفيزياء الحديثة",
-                                  style: TextStyle(
-                                    fontFamily: 'Cairo',
-
-                                    color: Colors.black,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                Text(
-                                  "ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ....",
-                                  textDirection: _getTextDirection(" ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ...."),
-                                  style: TextStyle(
-                                    fontFamily: 'Cairo',
-
-                                    color: Colors.black,
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Text(
-                                          "52647",
-                                          style: TextStyle(color: Colors.black, fontSize: 9,
-                                            fontFamily: 'Cairo',
+                                    // borderRadius: BorderRadius.only(
+                                    //   topLeft: Radius.circular(20),
+                                    //   topRight: Radius.circular(20),
+                                    // ),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.5),
+                                        spreadRadius: 2,
+                                        blurRadius: 5,
+                                        offset: Offset(0, 3),
+                                      ),
+                                    ],),
+                                  child: TextButton(
+                                    onPressed: () {},
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.end,
+                                      children: <Widget>[
+                                        SizedBox(height: 10),
+                                        Container(
+                                          width: constraints.maxWidth/2.1,
+                                          height: 114.32,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.rectangle,
+                                          ),
+                                          child: Image.asset(
+                                            'assets/images/save.png',
                                           ),
                                         ),
-                                        Icon(Icons.remove_red_eye_sharp,
-                                            color: Colors.blueAccent, size: 11.7),
-                                        SizedBox(height: 2),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
                                         Text(
-                                          "4.8",
-                                          style: TextStyle(color: Colors.black, fontSize: 9,
+                                          textAlign: TextAlign.end,
+
+                                          "الفيزياء الحديثة",
+                                          style: TextStyle(
                                             fontFamily: 'Cairo',
+
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                         ),
-                                        Icon(Icons.star,
-                                            color: Colors.amber, size: 11.7),
-                                        SizedBox(height: 2),
+                                        Text(
+                                          "ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ....",
+                                          textDirection: _getTextDirection(" ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ...."),
+                                          style: TextStyle(
+                                            fontFamily: 'Cairo',
+
+                                            color: Colors.black,
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                        ),
+                                        Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Row(
+                                              children: [
+                                                Text(
+                                                  "52647",
+                                                  style: TextStyle(color: Colors.black, fontSize: 9,
+                                                    fontFamily: 'Cairo',
+                                                  ),
+                                                ),
+                                                Icon(Icons.remove_red_eye_sharp,
+                                                    color: Colors.blueAccent, size: 11.7),
+                                                SizedBox(height: 2),
+                                              ],
+                                            ),
+                                            Row(
+                                              children: [
+                                                Text(
+                                                  "4.8",
+                                                  style: TextStyle(color: Colors.black, fontSize: 9,
+                                                    fontFamily: 'Cairo',
+                                                  ),
+                                                ),
+                                                Icon(Icons.star,
+                                                    color: Colors.amber, size: 11.7),
+                                                SizedBox(height: 2),
+                                              ],
+                                            ),
+                                          ],
+                                        )
                                       ],
                                     ),
-                                  ],
-                                )
+                                  ),
+                                ),
+                                SizedBox(width: 8),
+                                Container(
+                                  width: constraints.maxWidth/2.1,
+                                  height: 217.71,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(20),
+
+                                    // borderRadius: BorderRadius.only(
+                                    //   topLeft: Radius.circular(20),
+                                    //   topRight: Radius.circular(20),
+                                    // ),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.5),
+                                        spreadRadius: 2,
+                                        blurRadius: 5,
+                                        offset: Offset(0, 3),
+                                      ),
+                                    ],),
+                                  child: TextButton(
+                                    onPressed: () {},
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.end,
+                                      children: <Widget>[
+                                        SizedBox(height: 10),
+                                        Container(
+                                          width: constraints.maxWidth/2.1,
+                                          height: 114.32,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.rectangle,
+                                          ),
+                                          child: Image.asset(
+                                            'assets/images/save.png',
+                                          ),
+                                        ),
+                                        Text(
+                                          "الفيزياء الحديثة",
+                                          style: TextStyle(
+                                            fontFamily: 'Cairo',
+
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        Text(
+                                          "ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ....",
+                                          textDirection: _getTextDirection(" ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ...."),
+                                          style: TextStyle(
+                                            fontFamily: 'Cairo',
+
+                                            color: Colors.black,
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                        ),
+                                        Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Row(
+                                              children: [
+                                                Text(
+                                                  "52647",
+                                                  style: TextStyle(color: Colors.black, fontSize: 9,
+                                                    fontFamily: 'Cairo',
+                                                  ),
+                                                ),
+                                                Icon(Icons.remove_red_eye_sharp,
+                                                    color: Colors.blueAccent, size: 11.7),
+                                                SizedBox(height:2),
+                                              ],
+                                            ),
+                                            Row(
+                                              children: [
+                                                Text(
+                                                  "4.8",
+                                                  style: TextStyle(color: Colors.black, fontSize: 9,
+                                                    fontFamily: 'Cairo',
+                                                  ),
+                                                ),
+                                                Icon(Icons.star,
+                                                    color: Colors.amber, size: 11.7),
+                                                SizedBox(height: 2),
+                                              ],
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
                               ],
                             ),
                           ),
-                        ),
-                        SizedBox(width: 8),
-                        Container(
-                          width: constraints.maxWidth/2.1,
-                          height: 217.71,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
 
-                            // borderRadius: BorderRadius.only(
-                            //   topLeft: Radius.circular(20),
-                            //   topRight: Radius.circular(20),
-                            // ),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                spreadRadius: 2,
-                                blurRadius: 5,
-                                offset: Offset(0, 3),
-                              ),
-                            ],),
-                          child: TextButton(
-                            onPressed: () {},
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
+                          SizedBox(height: 8),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 18.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center, // Center the row horizontally
                               children: <Widget>[
-                                SizedBox(height: 10),
                                 Container(
                                   width: constraints.maxWidth/2.1,
-                                  height: 114.32,
+                                  height: 217.71,
                                   decoration: BoxDecoration(
-                                    shape: BoxShape.rectangle,
-                                  ),
-                                  child: Image.asset(
-                                    'assets/images/save.png',
-                                  ),
-                                ),
-                                Text(
-                                  "الفيزياء الحديثة",
-                                  style: TextStyle(
-                                    fontFamily: 'Cairo',
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(20),
 
-                                    color: Colors.black,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                Text(
-                                  "ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ....",
-                                  textDirection: _getTextDirection(" ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ...."),
-                                  style: TextStyle(
-                                    fontFamily: 'Cairo',
-
-                                    color: Colors.black,
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Text(
-                                          "52647",
-                                          style: TextStyle(color: Colors.black, fontSize: 9,
-                                            fontFamily: 'Cairo',
+                                    // borderRadius: BorderRadius.only(
+                                    //   topLeft: Radius.circular(20),
+                                    //   topRight: Radius.circular(20),
+                                    // ),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.5),
+                                        spreadRadius: 2,
+                                        blurRadius: 5,
+                                        offset: Offset(0, 3),
+                                      ),
+                                    ],),
+                                  child: TextButton(
+                                    onPressed: () {},
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.end,
+                                      children: <Widget>[
+                                        SizedBox(height: 10),
+                                        Container(
+                                          width: constraints.maxWidth/2.1,
+                                          height: 114.32,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.rectangle,
+                                          ),
+                                          child: Image.asset(
+                                            'assets/images/save.png',
                                           ),
                                         ),
-                                        Icon(Icons.remove_red_eye_sharp,
-                                            color: Colors.blueAccent, size: 11.7),
-                                        SizedBox(height:2),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
                                         Text(
-                                          "4.8",
-                                          style: TextStyle(color: Colors.black, fontSize: 9,
+                                          "الفيزياء الحديثة",
+                                          style: TextStyle(
                                             fontFamily: 'Cairo',
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                         ),
-                                        Icon(Icons.star,
-                                            color: Colors.amber, size: 11.7),
-                                        SizedBox(height: 2),
+                                        Text(
+                                          "ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ....",
+                                          textDirection: _getTextDirection(" ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ...."),
+                                          style: TextStyle(
+                                            fontFamily: 'Cairo',
+
+                                            color: Colors.black,
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                        ),
+                                        Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Row(
+                                              children: [
+                                                Text(
+                                                  "52647",
+                                                  style: TextStyle(color: Colors.black, fontSize: 9,
+                                                    fontFamily: 'Cairo',
+                                                  ),
+                                                ),
+                                                Icon(Icons.remove_red_eye_sharp,
+                                                    color: Colors.blueAccent, size: 11.7),
+                                                SizedBox(height: 2),
+                                              ],
+                                            ),
+                                            Row(
+                                              children: [
+                                                Text(
+                                                  "4.8",
+                                                  style: TextStyle(color: Colors.black, fontSize: 9,
+                                                    fontFamily: 'Cairo',
+                                                  ),
+                                                ),
+                                                Icon(Icons.star,
+                                                    color: Colors.amber, size: 11.7),
+                                                SizedBox(height: 2),
+                                              ],
+                                            ),
+                                          ],
+                                        )
                                       ],
                                     ),
-                                  ],
-                                )
+                                  ),
+                                ),
+                                SizedBox(width: 8),
+                                Container(
+                                  width: constraints.maxWidth/2.1,
+                                  height: 217.71,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(20),
+
+                                    // borderRadius: BorderRadius.only(
+                                    //   topLeft: Radius.circular(20),
+                                    //   topRight: Radius.circular(20),
+                                    // ),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.5),
+                                        spreadRadius: 2,
+                                        blurRadius: 5,
+                                        offset: Offset(0, 3),
+                                      ),
+                                    ],),
+                                  child: TextButton(
+                                    onPressed: () {},
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.end,
+                                      children: <Widget>[
+                                        SizedBox(height: 10),
+                                        Container(
+                                          width: constraints.maxWidth/2.1,
+                                          height: 114.32,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.rectangle,
+                                          ),
+                                          child: Image.asset(
+                                            'assets/images/save.png',
+                                          ),
+                                        ),
+                                        Text(
+                                          textAlign: TextAlign.end,
+
+                                          "الفيزياء الحديثة",
+                                          style: TextStyle(
+                                            fontFamily: 'Cairo',
+
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        Text(
+                                          "ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ....",
+                                          textDirection: _getTextDirection(" ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ...."),
+                                          style: TextStyle(
+                                            fontFamily: 'Cairo',
+
+                                            color: Colors.black,
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                        ),
+                                        Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Row(
+                                              children: [
+                                                Text(
+                                                  "52647",
+                                                  style: TextStyle(color: Colors.black, fontSize: 9,
+                                                    fontFamily: 'Cairo',
+                                                  ),
+                                                ),
+                                                Icon(Icons.remove_red_eye_sharp,
+                                                    color: Colors.blueAccent, size: 11.7),
+                                                SizedBox(height: 2),
+                                              ],
+                                            ),
+                                            Row(
+                                              children: [
+                                                Text(
+                                                  "4.8",
+                                                  style: TextStyle(color: Colors.black, fontSize: 9,
+                                                    fontFamily: 'Cairo',
+                                                  ),
+                                                ),
+                                                Icon(Icons.star,
+                                                    color: Colors.amber, size: 11.7),
+                                                SizedBox(height: 2),
+                                              ],
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
                               ],
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  SizedBox(height: 8),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 18.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center, // Center the row horizontally
-                      children: <Widget>[
-                        Container(
-                          width: constraints.maxWidth/2.1,
-                          height: 217.71,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
-
-                            // borderRadius: BorderRadius.only(
-                            //   topLeft: Radius.circular(20),
-                            //   topRight: Radius.circular(20),
-                            // ),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                spreadRadius: 2,
-                                blurRadius: 5,
-                                offset: Offset(0, 3),
-                              ),
-                            ],),
-                          child: TextButton(
-                            onPressed: () {},
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: <Widget>[
-                                SizedBox(height: 10),
-                                Container(
-                                  width: constraints.maxWidth/2.1,
-                                  height: 114.32,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.rectangle,
-                                  ),
-                                  child: Image.asset(
-                                    'assets/images/save.png',
-                                  ),
-                                ),
-                                Text(
-                                  "الفيزياء الحديثة",
-                                  style: TextStyle(
-                                    fontFamily: 'Cairo',
-                                    color: Colors.black,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                Text(
-                                  "ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ....",
-                                  textDirection: _getTextDirection(" ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ...."),
-                                  style: TextStyle(
-                                    fontFamily: 'Cairo',
-
-                                    color: Colors.black,
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Text(
-                                          "52647",
-                                          style: TextStyle(color: Colors.black, fontSize: 9,
-                                            fontFamily: 'Cairo',
-                                          ),
-                                        ),
-                                        Icon(Icons.remove_red_eye_sharp,
-                                            color: Colors.blueAccent, size: 11.7),
-                                        SizedBox(height: 2),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Text(
-                                          "4.8",
-                                          style: TextStyle(color: Colors.black, fontSize: 9,
-                                            fontFamily: 'Cairo',
-                                          ),
-                                        ),
-                                        Icon(Icons.star,
-                                            color: Colors.amber, size: 11.7),
-                                        SizedBox(height: 2),
-                                      ],
-                                    ),
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: 8),
-                        Container(
-                          width: constraints.maxWidth/2.1,
-                          height: 217.71,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
-
-                            // borderRadius: BorderRadius.only(
-                            //   topLeft: Radius.circular(20),
-                            //   topRight: Radius.circular(20),
-                            // ),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                spreadRadius: 2,
-                                blurRadius: 5,
-                                offset: Offset(0, 3),
-                              ),
-                            ],),
-                          child: TextButton(
-                            onPressed: () {},
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: <Widget>[
-                                SizedBox(height: 10),
-                                Container(
-                                  width: constraints.maxWidth/2.1,
-                                  height: 114.32,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.rectangle,
-                                  ),
-                                  child: Image.asset(
-                                    'assets/images/save.png',
-                                  ),
-                                ),
-                                Text(
-                                  textAlign: TextAlign.end,
-
-                                  "الفيزياء الحديثة",
-                                  style: TextStyle(
-                                    fontFamily: 'Cairo',
-
-                                    color: Colors.black,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                Text(
-                                  "ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ....",
-                                  textDirection: _getTextDirection(" ندرس بها الاسس الحديثة فى ماده الفيزياء و القوانين ...."),
-                                  style: TextStyle(
-                                    fontFamily: 'Cairo',
-
-                                    color: Colors.black,
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Text(
-                                          "52647",
-                                          style: TextStyle(color: Colors.black, fontSize: 9,
-                                            fontFamily: 'Cairo',
-                                          ),
-                                        ),
-                                        Icon(Icons.remove_red_eye_sharp,
-                                            color: Colors.blueAccent, size: 11.7),
-                                        SizedBox(height: 2),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Text(
-                                          "4.8",
-                                          style: TextStyle(color: Colors.black, fontSize: 9,
-                                            fontFamily: 'Cairo',
-                                          ),
-                                        ),
-                                        Icon(Icons.star,
-                                            color: Colors.amber, size: 11.7),
-                                        SizedBox(height: 2),
-                                      ],
-                                    ),
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ));
-        }),
+                        ],
+                      ),
+                    ],
+                  ));
+            }),
 
         bottomNavigationBar: Container(
           width: 359,
           height: 66.22,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
+
             color: Colors.white,
             boxShadow: [
               BoxShadow(
@@ -504,6 +508,8 @@ class SavedState extends State<Saved> {
                         ),
                         child: Image.asset(
                           'assets/images/user.png',
+                          color: Color(0xFF6C6A6A),
+
                         ),
                       ),
                       SizedBox(height: 3),
@@ -539,8 +545,9 @@ class SavedState extends State<Saved> {
                         decoration: BoxDecoration(
                           shape: BoxShape.rectangle,
                         ),
-                        child: Image.asset(
-                          'assets/images/fluent_live-20-regular.png',
+                        child:Icon(Icons.online_prediction_outlined,
+                          // size: 22, // Adjust the size of the icon as needed
+                          color:Color(0xFF6C6A6A),
                         ),
                       ),
                       SizedBox(height: 3),
@@ -576,8 +583,9 @@ class SavedState extends State<Saved> {
                         decoration: BoxDecoration(
                           shape: BoxShape.rectangle,
                         ),
-                        child: Image.asset(
-                          'assets/images/BookBookmark1.png',
+                        child: Icon(Icons.collections_bookmark_outlined,
+                          // size: 22, // Adjust the size of the icon as needed
+                          color:Color(0xFF6C6A6A),
                         ),
                       ),
                       SizedBox(height: 3),

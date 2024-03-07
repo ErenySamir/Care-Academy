@@ -277,7 +277,6 @@ class OTPState extends State<OTP> {
                                 value = value.substring(0, 1);
                                 // Clear the text field
                                 _controller[2].clear();
-
                               }
                               else  if (value.isNotEmpty ) {
                                 // Remove all characters except the first digit
@@ -297,7 +296,6 @@ class OTPState extends State<OTP> {
                         ),
                       ),
                       //******************************************************************
-
                       Padding(
                         padding: const EdgeInsets.all(5.0),
                         child: Container(
@@ -335,7 +333,6 @@ class OTPState extends State<OTP> {
                                 value = value.substring(0, 1);
                                 // Clear the text field
                                 _controller[3].clear();
-
                               }
                               else  if (value.isNotEmpty ) {
                                 // Remove all characters except the first digit
@@ -448,7 +445,7 @@ class OTPState extends State<OTP> {
               ),
               Padding(
                 padding:
-                    const EdgeInsets.only(top: 38.0, left: 31.46, right: 31.46),
+                    const EdgeInsets.only(top: 38.0, left: 31.46, right: 31.46,bottom: 29),
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: Center(

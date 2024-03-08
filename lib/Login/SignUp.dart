@@ -10,6 +10,9 @@ class SignUp extends StatefulWidget {
 }
 
 class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
+  bool showList = false;
+  String selectedValue = '';
+
   late AnimationController animationController;
   late Animation<double> animation;
   final List<FocusNode> _focusNodes = [
@@ -19,7 +22,6 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
     FocusNode(),
     FocusNode(),
   ];
-  String? selectedValue;
 
   @override
   void initState() {
@@ -95,7 +97,7 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                child: SizedBox(
                  height: MediaQuery.of(context).orientation ==
                               Orientation.portrait
-                          ? MediaQuery.of(context).size.height / 1.33
+                          ? MediaQuery.of(context).size.height / 1.38
                           : MediaQuery.of(context).size.height / 1.7,
                       child: SingleChildScrollView(
                     child: Column(
@@ -190,6 +192,7 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                                 padding:
                                                     const EdgeInsets.only(right: 15.0),
                                                 child: TextField(
+                                                  cursorColor: Colors.blueAccent,
                                                   keyboardType: TextInputType.text,
                                                   textAlign: TextAlign.right,
                                                   textInputAction: TextInputAction.next,
@@ -264,6 +267,8 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                                   keyboardType:
                                                       TextInputType.emailAddress,
                                                   textAlign: TextAlign.right,
+                                                  cursorColor: Colors.blueAccent,
+
                                                   textInputAction: TextInputAction.next,
                                                   decoration: InputDecoration(
                                                     hintText: 'البريد الألكترونى',
@@ -325,6 +330,7 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                                 padding:
                                                     const EdgeInsets.only(right: 15.0),
                                                 child: TextField(
+                                                  cursorColor: Colors.blueAccent,
 
                                                   inputFormatters: [
                                                     LengthLimitingTextInputFormatter(12),
@@ -376,128 +382,110 @@ class SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                       ),
                                      ),
 
-                                    Container(
-                                      height: 52.82,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10.0),
-                                        shape: BoxShape.rectangle,
-                                        color: Color(0xFFF6F4FE),
-                                      ),
-                                      alignment: Alignment.centerLeft,
-                                      child: LayoutBuilder(
-                                        builder: (BuildContext context, BoxConstraints constraints) {
-                                          double iconPadding;
-                                          double schoolIconMargin;
-
-                                          if (MediaQuery.of(context).orientation == Orientation.portrait) {
-                                            // Portrait orientation
-                                            iconPadding = constraints.maxWidth * 0.2; // Adjust this value as needed
-                                            schoolIconMargin = constraints.maxWidth * 0.03; // Adjust this value as needed
-
-                                          } else {
-                                            // Landscape orientation
-                                            iconPadding = constraints.maxWidth * 0.8; // Adjust this value as needed
-                                            schoolIconMargin = constraints.maxWidth * 0.2; // Adjust this value as needed
-                                          }
-
-                                          return Expanded(
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Stack(
+                                        children: [
+                                          Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(10.0),
+                                              shape: BoxShape.rectangle,
+                                              color: Color(0xFFF6F4FE),
+                                            ),
                                             child: Row(
                                               mainAxisAlignment: MainAxisAlignment.end,
                                               children: [
-                                                SizedBox(width: 8.0),
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    setState(() {
+                                                      showList = !showList; // Toggle the visibility of the list
+                                                    });
+                                                  },
+                                                  child: Container(
+                                                    color: Colors.white10,
+                                                    margin: EdgeInsets.only(right: 20.0, left: 20),
+                                                    // Adjust margin from right
+                                                    child: Icon(
+                                                      Icons.keyboard_arrow_down,
+                                                      color: Colors.grey.shade900,
+                                                      size: 26,
+                                                    ),
+                                                  ),
+                                                ),
                                                 Expanded(
-                                                  child: Stack(
-                                                    alignment: Alignment.center,
-                                                    children: [
-
-                                                      Padding(
-                                                        padding: EdgeInsets.only(left: schoolIconMargin ),
-                                                        child: DropdownButtonFormField<String>(
-                                                          icon: Icon(
-                                                            Icons.arrow_drop_down,
-                                                            size: 1,
-                                                            color: Color(0xFFF6F4FE),
+                                                  flex: 1,
+                                                  child: Container(
+                                                    child: Padding(
+                                                      padding: const EdgeInsets.only(right: 15.0),
+                                                      child: TextFormField(
+                                                        readOnly: true, // Make the TextFormField read-only
+                                                        keyboardType: TextInputType.text,
+                                                        textAlign: TextAlign.right,
+                                                        textInputAction: TextInputAction.done,
+                                                        // Set action button
+                                                        decoration: InputDecoration(
+                                                          hintText: selectedValue!.isNotEmpty
+                                                              ? selectedValue
+                                                              : 'الصف الدراسى',
+                                                          hintStyle: TextStyle(
+                                                            fontFamily: 'Cairo',
+                                                            color: Colors.grey,
                                                           ),
-                                                          value: selectedValue,
-                                                          items: <String>[
-                                                            'Grade 1',
-                                                            'Grade 2',
-                                                            'Grade 3',
-                                                            'Grade 4',
-                                                            'Grade 5'
-                                                          ].map((String value) {
-                                                            return DropdownMenuItem<String>(
-                                                              child: Row(
-                                                                mainAxisAlignment: MainAxisAlignment.end,
-                                                                children: [
-                                                                  Row(
-                                                                    mainAxisAlignment: MainAxisAlignment.end,
-                                                                    children: [
-                                                                      SizedBox(width: MediaQuery.of(context).size.width / 250.1),
-                                                                      Padding(
-                                                                        padding: const EdgeInsets.only(left: 1.0),
-                                                                        child: Text(
-                                                                          value,
-                                                                          textAlign: TextAlign.left,
-                                                                        )
-                                                                      ),
-                                                                    ],
-                                                                  ),
-
-                                                                ],
-                                                              ),
-                                                              value: value,
-                                                            );
-                                                          }).toList(),
-                                                          onChanged: (String? newValue) {
-                                                            setState(() {
-                                                              selectedValue = newValue;
-                                                            });
-                                                          },
-                                                          decoration: InputDecoration(
-                                                            hintText: 'الصف الدراسي ',
-                                                            hintStyle: TextStyle(
-                                                              fontFamily: 'Cairo',
-                                                              color: Colors.grey,
-
-                                                            ),
-                                                            isDense: true,
-                                                            border: InputBorder.none,
-                                                            icon: Padding(
-                                                              padding: EdgeInsets.only(right: MediaQuery.of(context).size.width / 3.1,
-                                                              left: MediaQuery.of(context).size.width / 950.1),
-                                                              child: Icon(
-                                                                Icons.keyboard_arrow_down_sharp,
-                                                                color: Colors.grey.shade900,
-                                                                size: 25,
-                                                              ),
-                                                            ),
-                                                          ),
+                                                          border: InputBorder.none,
                                                         ),
                                                       ),
-
-                                                      Padding(
-                                                        padding: const EdgeInsets.only(right: 18.0),
-                                                        child: Row(
-                                                          mainAxisAlignment: MainAxisAlignment.end,
-                                                          children: [
-                                                            Positioned(
-                                                              right: schoolIconMargin,
-                                                              child: Icon(
-                                                                Icons.school_outlined,
-                                                                color: Colors.grey.shade400,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                Container(
+                                                  margin: EdgeInsets.only(right: 20.0),
+                                                  // Adjust margin from right
+                                                  child: Icon(
+                                                    Icons.school_outlined,
+                                                    color: Colors.grey.shade400,
+                                                    size: 21,
                                                   ),
                                                 ),
                                               ],
                                             ),
-                                          );
-                                        },
+                                          ),SizedBox(height: 10,),
+                                          if (showList)
+                                            Container(
+                                              width: 200, // Adjust the width as needed
+                                              child: Card(
+                                                elevation: 2,
+                                                child: ListView(shrinkWrap: true, children: [
+                                                  ListTile(
+                                                    title: Text('الصف الاول'),
+                                                    onTap: () {
+                                                      setState(() {
+                                                        selectedValue = 'الصف الاول';
+                                                        showList = false;
+                                                      });
+                                                    },
+                                                  ),
+                                                  ListTile(
+                                                    title: Text('الصف الثانى'),
+                                                    onTap: () {
+                                                      setState(() {
+                                                        selectedValue = 'الصف الثانى';
+                                                        showList = false;
+                                                      });
+                                                    },
+                                                  ),
+                                                  ListTile(
+                                                    title: Text('الصف الثالث'),
+                                                    onTap: () {
+                                                      setState(() {
+                                                        selectedValue = 'الصف الثالث';
+                                                        showList = false;
+                                                      });
+                                                    },
+                                                  ),
+                                                ]),
+                                              ),
+                                            ),
+                                        ],
                                       ),
                                     ),
                                     SingleChildScrollView(

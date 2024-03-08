@@ -143,6 +143,7 @@ class OTPState extends State<OTP> {
                             ),
                           ),
                           child: TextField(
+                            cursorColor: Colors.blueAccent,
                             textAlign: TextAlign.center,
                             keyboardType: TextInputType.number,
                             inputFormatters: <TextInputFormatter>[
@@ -198,6 +199,7 @@ class OTPState extends State<OTP> {
                             ),
                           ),
                           child: TextField(
+                            cursorColor: Colors.blueAccent,
                             textAlign: TextAlign.center,
                             keyboardType: TextInputType.number,
                             inputFormatters: <TextInputFormatter>[
@@ -254,6 +256,7 @@ class OTPState extends State<OTP> {
                             ),
                           ),
                           child: TextField(
+                            cursorColor: Colors.blueAccent,
                             textAlign: TextAlign.center,
                             keyboardType: TextInputType.number,
                             inputFormatters: <TextInputFormatter>[
@@ -310,6 +313,7 @@ class OTPState extends State<OTP> {
                             ),
                           ),
                           child: TextField(
+                            cursorColor: Colors.blueAccent,
                             textAlign: TextAlign.center,
                             keyboardType: TextInputType.number,
                             inputFormatters: <TextInputFormatter>[
@@ -365,6 +369,7 @@ class OTPState extends State<OTP> {
                             ),
                           ),
                           child: TextField(
+                            cursorColor: Colors.blueAccent,
                             textAlign: TextAlign.center,
                             keyboardType: TextInputType.number,
                             inputFormatters: <TextInputFormatter>[

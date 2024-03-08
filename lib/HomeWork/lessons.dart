@@ -77,7 +77,7 @@ class LessonsState extends State<Lessons> {
                       children: <Widget>[
                         SizedBox(width: 8),
                         Padding(
-                          padding: const EdgeInsets.only(top: 15.0),
+                          padding: const EdgeInsets.only(top: 12.0,right: 8,left: 2),
                           child: Container(
                             width: 155.08,
                             height: 154.78,
@@ -87,7 +87,7 @@ class LessonsState extends State<Lessons> {
 
                               // borderRadius: BorderRadius.only(
                               //   topLeft: Radius.circular(20),
-                              //   topRight: Radius.circular(20),
+                              //   topRight: Radius.circular(20),,
                               // ),
                               boxShadow: [
                                 BoxShadow(
@@ -145,7 +145,7 @@ class LessonsState extends State<Lessons> {
                         ),
                         SizedBox(width: 8),
                         Padding(
-                          padding: const EdgeInsets.only(top: 15.0),
+                          padding: const EdgeInsets.only(top: 12.0,left: 8),
                           child: Container(
                             width: 155.08,
                             height: 154.78,
@@ -220,7 +220,7 @@ class LessonsState extends State<Lessons> {
                       children: <Widget>[
                         SizedBox(width: 8),
                         Padding(
-                          padding: const EdgeInsets.only(top: 15.0),
+                          padding: const EdgeInsets.only(top: 12.0,right: 8,left: 2),
                           child: Container(
                             width: 155.08,
                             height: 154.78,
@@ -288,7 +288,7 @@ class LessonsState extends State<Lessons> {
                         ),
                         SizedBox(width: 8),
                         Padding(
-                          padding: const EdgeInsets.only(top: 15.0),
+                          padding: const EdgeInsets.only(top: 12.0,left: 8),
                           child: Container(
                             width: 155.08,
                             height: 154.78,
@@ -363,7 +363,7 @@ class LessonsState extends State<Lessons> {
                       children: <Widget>[
                         SizedBox(width: 8),
                         Padding(
-                          padding: const EdgeInsets.only(top: 15.0),
+                          padding: const EdgeInsets.only(top: 12.0,right: 8,left: 2),
                           child: Container(
                             width: 155.08,
                             height: 154.78,
@@ -431,14 +431,13 @@ class LessonsState extends State<Lessons> {
                         ),
                         SizedBox(width: 8),
                         Padding(
-                          padding: const EdgeInsets.only(top: 15.0),
+                          padding: const EdgeInsets.only(top: 12.0,left: 8),
                           child: Container(
                             width: 155.08,
                             height: 154.78,
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(20),
-
                               // borderRadius: BorderRadius.only(
                               //   topLeft: Radius.circular(20),
                               //   topRight: Radius.circular(20),
@@ -509,11 +508,7 @@ class LessonsState extends State<Lessons> {
           width: 359,
           height: 66.22,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20),
-              topRight: Radius.circular(20),
-            ),
-
+            borderRadius: BorderRadius.circular(20),
             color: Colors.white,
             boxShadow: [
               BoxShadow(
@@ -547,9 +542,7 @@ class LessonsState extends State<Lessons> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Image.asset(
-                          'assets/images/user.png',
-                          color: Color(0xFF6C6A6A),
-
+                          'assets/images/name.png',
                         ),
                       ),
                       SizedBox(height: 3),
@@ -585,9 +578,8 @@ class LessonsState extends State<Lessons> {
                         decoration: BoxDecoration(
                           shape: BoxShape.rectangle,
                         ),
-                        child:Icon(Icons.online_prediction_outlined,
-                          // size: 22, // Adjust the size of the icon as needed
-                          color:Color(0xFF6C6A6A),
+                        child: Image.asset(
+                          'assets/images/fluent_live-20-regular.png',
                         ),
                       ),
                       SizedBox(height: 3),
@@ -623,9 +615,8 @@ class LessonsState extends State<Lessons> {
                         decoration: BoxDecoration(
                           shape: BoxShape.rectangle,
                         ),
-                        child: Icon(Icons.collections_bookmark_outlined,
-                          // size: 22, // Adjust the size of the icon as needed
-                          color:Color(0xFF6C6A6A),
+                        child: Image.asset(
+                          'assets/images/BookBookmark1.png',
                         ),
                       ),
                       SizedBox(height: 3),
@@ -682,7 +673,6 @@ class LessonsState extends State<Lessons> {
             ],
           ),
         )
-
     );
   }
 }

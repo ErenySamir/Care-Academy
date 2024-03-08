@@ -183,6 +183,8 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                                                     LengthLimitingTextInputFormatter(
                                                         12),
                                                   ],
+                                                  cursorColor: Colors.blueAccent,
+
                                                   textInputAction: TextInputAction.done,//to hide number when finished                                                   keyboardType:
                                                   keyboardType:
                                                       TextInputType.number,

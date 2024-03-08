@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../HomeWork/lessons.dart';
@@ -5,6 +6,7 @@ import '../SavedLesson/Live.dart';
 import 'Home.dart';
 import 'classpage.dart';
 import 'menu.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 // Define a model class for sections
 class Section {
@@ -16,6 +18,7 @@ class Section {
 }
 
 class Home extends StatefulWidget {
+
   @override
   State<Home> createState() {
     return HomeState();
@@ -27,6 +30,17 @@ class HomeState extends State<Home> {
 
 // Calculate the height of the search box container
   final double searchBoxHeight = 200.0; // Adjust the height as needed
+  late Future<void> _initVideoFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    _initVideoFuture = _initializeVideo();
+  }
+
+  Future<void> _initializeVideo() async {
+    // Perform video initialization here
+  }
   // Dummy list of sections
   List<Section> sections = [
     Section(
@@ -187,7 +201,7 @@ class HomeState extends State<Home> {
                                                           fontFamily: 'Cairo',
                                                         ),
                                                       ),
-                                                      SizedBox(height: 8),
+                                                      SizedBox(height: 13),
                                                       SizedBox(
                                                         width: 105, // Set the width as per your requirement
                                                         height: 30, // Set the height as per your requirement
@@ -261,46 +275,73 @@ class HomeState extends State<Home> {
                                   ),
                                   SizedBox(height: 10),
                                   // Add some space between the two containers
-                                  Container(
-                                    margin: EdgeInsets.all(10),
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+
                                     child: Container(
+                                      height: 70.82,
                                       decoration: BoxDecoration(
-                                        border: Border.all(
-                                          color: Color(0xFF008DC9),
-                                          width: 0.84,
-                                        ),
-                                        borderRadius: BorderRadius.circular(8),
+                                        borderRadius: BorderRadius.circular(10.0),
+                                        shape: BoxShape.rectangle,
+                                        color: Colors.white,
                                       ),
+                                      alignment: Alignment.centerRight,
                                       child: Row(
                                         mainAxisAlignment: MainAxisAlignment.end,
-                                        crossAxisAlignment: CrossAxisAlignment.end,
                                         children: [
-                                          Container(
-                                            width: 200,
-                                            child: TextField(
-                                              decoration: InputDecoration(
-                                                hintText: 'البحث عن اسم الدرس أو الفيديو',
-                                                hintStyle: TextStyle(
-                                                  color: Color(0xFF008DC9),
-                                                  fontSize: 15,
-                                                  fontFamily: 'Cairo',
+                                          Expanded(
+                                            flex: 1,
+                                            child: Container(
+                                              child: Padding(
+                                                padding: const EdgeInsets.all(8.0),
+                                                child: Container(
+                                                  width: 200,
+                                                  decoration: BoxDecoration(
+                                                    border: Border.all(
+                                                      color: Color(0xFF008DC9),
+                                                      width: 0.84,
+                                                    ),
+                                                    borderRadius: BorderRadius.circular(8),
+                                                  ),
+
+                                                    child: Row(
+                                                      children: [
+                                                        Expanded(
+                                                          child: TextFormField(
+                                                            keyboardType: TextInputType.text,
+                                                            textAlign: TextAlign.right,
+                                                            textInputAction: TextInputAction.next,
+                                                            cursorColor: Color(0xFF008DC9),
+
+                                                            // Change cursor color when focused
+                                                            decoration: InputDecoration(
+                                                              hintText: 'البحث عن اسم الدرس أو الفيديو',
+                                                              hintStyle: TextStyle(
+                                                                color: Color(0xFF008DC9),
+                                                                fontSize: 15,
+                                                                fontFamily: 'Cairo',
+                                                              ),
+                                                              border: InputBorder.none,
+                                                            ),
+                                                            onEditingComplete: () {
+                                                              FocusScope.of(context).nextFocus();
+                                                            },
+                                                          ),
+                                                        ),
+                                                        Container(
+                                                          margin: EdgeInsets.only(right: 20.0,left: 15.0),
+                                                          child: Image.asset(
+                                                            'assets/images/search.png',
+                                                            width: 30,
+                                                            height: 30,
+                                                            color: Color(0xFF008DC9),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+
                                                 ),
-                                                border: InputBorder.none,
                                               ),
-                                              style: TextStyle(
-                                                color: Color(0xFF008DC9),
-                                                fontFamily: 'Cairo',
-                                              ),
-                                            ),
-                                          ),
-                                          SizedBox(width: 5),
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Image.asset(
-                                              'assets/images/search.png',
-                                              width: 30,
-                                              height: 30,
-                                              color: Color(0xFF008DC9),
                                             ),
                                           ),
                                         ],
@@ -312,14 +353,14 @@ class HomeState extends State<Home> {
 
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      "الوحدات",
-                                      style: TextStyle(
-                                        fontSize: 13.92,
-                                        fontWeight: FontWeight.w700,
-                                        color: Colors.black,
-                                        fontFamily: 'Cairo',
-                                      ),
+                                  child: Text(
+                                          'الوحدات',
+                                          style: TextStyle(
+                                            fontSize: 13.92,
+                                            fontWeight: FontWeight.w700,
+                                            color: Colors.black,
+                                            fontFamily: 'Cairo',
+                                          ),
                                     ),
                                   ),
 
@@ -421,31 +462,30 @@ class HomeState extends State<Home> {
                                     ),
                                   ),
                                   GestureDetector(
-                                    onTap: () {
+                                    onTap: () async {
+                                      await _initVideoFuture;
                                       Navigator.push(
                                         context,
-                                        MaterialPageRoute(builder: (context) => ClassPage()),
+                                        MaterialPageRoute(
+                                          builder: (context) => ClassPage(
+                                            initVideoFuture: _initVideoFuture,
+                                          ),
+                                        ),
                                       );
                                     },
                                     child: SizedBox(
                                       height: 270,
-                                      // Set a fixed height for the SingleChildScrollView
                                       child: SingleChildScrollView(
                                         scrollDirection: Axis.horizontal,
                                         reverse: true,
-                                        child:
-                                        Row(
+                                        child: Row(
                                           children: sections2.map((section) {
                                             return Container(
                                               margin: EdgeInsets.all(10),
-                                              width: 200, // Adjusted width
+                                              width: 200,
                                               decoration: BoxDecoration(
                                                 color: Colors.white,
-                                                borderRadius: BorderRadius.only(
-                                                    topLeft: Radius.circular(20),
-                                                    topRight: Radius.circular(20),
-                                                    bottomLeft: Radius.circular(20),
-                                                    bottomRight: Radius.circular(20)),
+                                                borderRadius: BorderRadius.circular(20),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     color: Colors.grey.withOpacity(0.5),
@@ -467,14 +507,12 @@ class HomeState extends State<Home> {
                                                       child: Image.asset(
                                                         section.imageurl,
                                                         width: double.infinity,
-                                                        // Take all available width
                                                         fit: BoxFit.cover,
                                                       ),
                                                     ),
                                                     SizedBox(height: 8),
                                                     Column(
-                                                      crossAxisAlignment:
-                                                      CrossAxisAlignment.end,
+                                                      crossAxisAlignment: CrossAxisAlignment.end,
                                                       children: [
                                                         Text(
                                                           section.name,
@@ -493,21 +531,16 @@ class HomeState extends State<Home> {
                                                             color: Colors.black,
                                                             fontFamily: 'Cairo',
                                                           ),
-                                                          textAlign: TextAlign
-                                                              .end, // Align text from right to left
+                                                          textAlign: TextAlign.end,
                                                         ),
                                                         SizedBox(height: 8),
                                                         Row(
-                                                          mainAxisAlignment:
-                                                          MainAxisAlignment.spaceBetween,
-                                                          // Align row to the start and end
+                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                           children: [
                                                             Row(
                                                               children: [
-                                                                // Add space between icon and number
                                                                 Text(
                                                                   '52647',
-                                                                  // Replace with the actual number of views
                                                                   style: TextStyle(
                                                                     fontSize: 9.83,
                                                                     color: Colors.black,
@@ -515,17 +548,13 @@ class HomeState extends State<Home> {
                                                                   ),
                                                                 ),
                                                                 SizedBox(width: 4),
-                                                                Icon(Icons.remove_red_eye,
-                                                                    size: 10,
-                                                                    color: Color(0xFF008DC9)),
-                                                                // Video icon
+                                                                Icon(Icons.remove_red_eye, size: 10, color: Color(0xFF008DC9)),
                                                               ],
                                                             ),
                                                             Row(
                                                               children: [
                                                                 Text(
                                                                   '4.8',
-                                                                  // Replace with the actual rating number
                                                                   style: TextStyle(
                                                                     fontSize: 9.83,
                                                                     color: Colors.black,
@@ -533,11 +562,7 @@ class HomeState extends State<Home> {
                                                                   ),
                                                                 ),
                                                                 SizedBox(width: 4),
-                                                                // Add space between number and icon
-                                                                Icon(Icons.star,
-                                                                    color: Color(0xFFFF9900),
-                                                                    size: 10),
-                                                                // Star icon
+                                                                Icon(Icons.star, color: Color(0xFFFF9900), size: 10),
                                                               ],
                                                             ),
                                                           ],
@@ -553,6 +578,7 @@ class HomeState extends State<Home> {
                                       ),
                                     ),
                                   ),
+
 
                                   SizedBox(height: 16),
                                   Padding(
@@ -589,7 +615,7 @@ class HomeState extends State<Home> {
                                     onTap: () {
                                       Navigator.push(
                                         context,
-                                        MaterialPageRoute(builder: (context) => ClassPage()),
+                                        MaterialPageRoute(builder: (context) => ClassPage(initVideoFuture: _initVideoFuture,)),
                                       );
                                     },
                                     child: SizedBox(
@@ -754,11 +780,7 @@ class HomeState extends State<Home> {
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Center(
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        // Center the column vertically
-                                        children: <Widget>[
-                                          Column(
+                                      child:  Column(
                                             crossAxisAlignment: CrossAxisAlignment.center,
                                             // Center the row horizontally
                                             children: <Widget>[
@@ -783,8 +805,8 @@ class HomeState extends State<Home> {
                                                           ),
                                                         ],
                                                       ),
-                                                      child: TextButton(
-                                                        onPressed: () {},
+                                                      child:  Padding(
+                                                        padding: const EdgeInsets.all(8.0),
                                                         child: Column(
                                                           crossAxisAlignment: CrossAxisAlignment.end,
                                                           children: <Widget>[
@@ -797,6 +819,7 @@ class HomeState extends State<Home> {
                                                               child: Image.asset(
                                                                 'assets/images/save.png',
                                                               ),
+
                                                             ),
                                                             SizedBox(height: 4,),
 
@@ -813,6 +836,7 @@ class HomeState extends State<Home> {
                                                             SizedBox(height: 8,),
                                                             Text(
                                                               "ندرس بها الاسس الحديثة فى مادة الفيزياء والقوانين",
+
                                                               style: TextStyle(
                                                                 fontFamily: 'Cairo',
                                                                 color: Colors.black,
@@ -862,6 +886,7 @@ class HomeState extends State<Home> {
                                                       ),
                                                     ),
                                                   ),
+
                                                   SizedBox(width: 8),
                                                   Expanded(
                                                     child: Container(
@@ -879,13 +904,13 @@ class HomeState extends State<Home> {
                                                           ),
                                                         ],
                                                       ),
-                                                      child: TextButton(
-                                                        onPressed: () {},
+                                                      child:  Padding(
+                                                        padding: const EdgeInsets.all(8.0),
                                                         child: Column(
                                                           crossAxisAlignment: CrossAxisAlignment.end,
                                                           children: <Widget>[
                                                             Container(
-                                                              width: 154.67,
+                                                              width: 180.12,
                                                               height: 114.32,
                                                               decoration: BoxDecoration(
                                                                 shape: BoxShape.rectangle,
@@ -984,8 +1009,107 @@ class HomeState extends State<Home> {
                                                           ),
                                                         ],
                                                       ),
-                                                      child: TextButton(
-                                                        onPressed: () {},
+                                                      child:  Padding(
+                                                        padding: const EdgeInsets.all(8.0),
+                                                        child: Column(
+                                                            crossAxisAlignment: CrossAxisAlignment.end,
+                                                            children: <Widget>[
+                                                              Container(
+                                                                width: 180.12,
+                                                                height: 114.32,
+                                                                decoration: BoxDecoration(
+                                                                  shape: BoxShape.rectangle,
+                                                                ),
+                                                                child: Image.asset(
+                                                                  'assets/images/save.png',
+                                                                ),
+
+                                                              ),
+                                                              SizedBox(height: 4,),
+
+                                                              Text(
+                                                                "الفيزياء الحديثة",
+                                                                style: TextStyle(
+                                                                  fontFamily: 'Cairo',
+                                                                  color: Colors.black,
+                                                                  fontSize: 14.74,
+                                                                  fontWeight: FontWeight.bold,
+                                                                ),
+                                                                textAlign: TextAlign.end,
+                                                              ),
+                                                              SizedBox(height: 8,),
+                                                              Text(
+                                                                "ندرس بها الاسس الحديثة فى مادة الفيزياء والقوانين",
+
+                                                                style: TextStyle(
+                                                                  fontFamily: 'Cairo',
+                                                                  color: Colors.black,
+                                                                  fontSize: 9.36,
+                                                                  fontWeight: FontWeight.normal,
+                                                                ),
+                                                                textAlign: TextAlign.end,
+                                                              ),
+                                                              SizedBox(height: 8,),
+                                                              Row(
+                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                children: [
+                                                                  Row(
+                                                                    children: [
+                                                                      Text(
+                                                                        "52647",
+                                                                        style: TextStyle(
+                                                                          color: Colors.black,
+                                                                          fontSize: 9,
+                                                                          fontFamily: 'Cairo',
+                                                                        ),
+                                                                      ),
+                                                                      Icon(Icons.remove_red_eye_sharp,
+                                                                          color: Color(0xFF008DC9), size: 11.7),
+                                                                      SizedBox(height: 2),
+                                                                    ],
+                                                                  ),
+                                                                  Row(
+                                                                    children: [
+                                                                      Text(
+                                                                        "4.8",
+                                                                        style: TextStyle(
+                                                                          color: Colors.black,
+                                                                          fontSize: 9,
+                                                                          fontFamily: 'Cairo',
+                                                                        ),
+                                                                      ),
+                                                                      Icon(Icons.star,
+                                                                          color: Color(0xFFFF9900), size: 11.7),
+                                                                      SizedBox(height: 2),
+                                                                    ],
+                                                                  ),
+                                                                ],
+                                                              )
+                                                            ],
+                                                          ),
+                                                      ),
+                                                      ),
+                                                    ),
+
+                                                  SizedBox(width: 8),
+                                                  Expanded(
+                                                    child: Container(
+                                                      width: constraints.maxWidth / 2.1,
+                                                      height: 217.71,
+                                                      decoration: BoxDecoration(
+                                                        color: Colors.white,
+                                                        borderRadius: BorderRadius.circular(20),
+                                                        boxShadow: [
+                                                          BoxShadow(
+                                                            color: Colors.grey.withOpacity(0.5),
+                                                            spreadRadius: 2,
+                                                            blurRadius: 5,
+                                                            offset: Offset(0, 3),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      child:  Padding(
+                                                        padding: const EdgeInsets.all(8.0),
                                                         child: Column(
                                                           crossAxisAlignment: CrossAxisAlignment.end,
                                                           children: <Widget>[
@@ -1065,111 +1189,12 @@ class HomeState extends State<Home> {
                                                       ),
                                                     ),
                                                   ),
-                                                  SizedBox(width: 8),
-                                                  Expanded(
-                                                    child: Container(
-                                                      width: constraints.maxWidth / 2.1,
-                                                      height: 217.71,
-                                                      decoration: BoxDecoration(
-                                                        color: Colors.white,
-                                                        borderRadius: BorderRadius.circular(20),
-                                                        boxShadow: [
-                                                          BoxShadow(
-                                                            color: Colors.grey.withOpacity(0.5),
-                                                            spreadRadius: 2,
-                                                            blurRadius: 5,
-                                                            offset: Offset(0, 3),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      child: TextButton(
-                                                        onPressed: () {},
-                                                        child: Column(
-                                                          crossAxisAlignment: CrossAxisAlignment.end,
-                                                          children: <Widget>[
-                                                            Container(
-                                                              width: 160.67,
-                                                              height: 114.32,
-                                                              decoration: BoxDecoration(
-                                                                shape: BoxShape.rectangle,
-                                                              ),
-                                                              child: Image.asset(
-                                                                'assets/images/save.png',
-                                                              ),
-                                                            ),
-                                                            SizedBox(height: 4,),
-
-                                                            Text(
-                                                              "الفيزياء الحديثة",
-                                                              style: TextStyle(
-                                                                fontFamily: 'Cairo',
-                                                                color: Colors.black,
-                                                                fontSize: 14.74,
-                                                                fontWeight: FontWeight.bold,
-                                                              ),
-                                                              textAlign: TextAlign.end,
-                                                            ),
-                                                            SizedBox(height: 8,),
-                                                            Text(
-                                                              "ندرس بها الاسس الحديثة فى مادة الفيزياء والقوانين",
-
-                                                              style: TextStyle(
-                                                                fontFamily: 'Cairo',
-                                                                color: Colors.black,
-                                                                fontSize: 9.36,
-                                                                fontWeight: FontWeight.normal,
-                                                              ),
-                                                              textAlign: TextAlign.end,
-                                                            ),
-                                                            SizedBox(height: 8,),
-                                                            Row(
-                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                              children: [
-                                                                Row(
-                                                                  children: [
-                                                                    Text(
-                                                                      "52647",
-                                                                      style: TextStyle(
-                                                                        color: Colors.black,
-                                                                        fontSize: 9,
-                                                                        fontFamily: 'Cairo',
-                                                                      ),
-                                                                    ),
-                                                                    Icon(Icons.remove_red_eye_sharp,
-                                                                        color: Color(0xFF008DC9), size: 11.7),
-                                                                    SizedBox(height: 2),
-                                                                  ],
-                                                                ),
-                                                                Row(
-                                                                  children: [
-                                                                    Text(
-                                                                      "4.8",
-                                                                      style: TextStyle(
-                                                                        color: Colors.black,
-                                                                        fontSize: 9,
-                                                                        fontFamily: 'Cairo',
-                                                                      ),
-                                                                    ),
-                                                                    Icon(Icons.star,
-                                                                        color: Color(0xFFFF9900), size: 11.7),
-                                                                    SizedBox(height: 2),
-                                                                  ],
-                                                                ),
-                                                              ],
-                                                            )
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
                                                 ],
                                               ),
 
 
                                             ],
                                           ),
-                                        ],
-                                      ),
 
                                     ),
                                   ),
@@ -1178,186 +1203,188 @@ class HomeState extends State<Home> {
                             ),
                           );}
                     ),
-                    bottomNavigationBar: Container(
-                      width: 359,
-                      height: 66.22,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20),
-                        ),
 
-                        color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 3,
-                            blurRadius: 7,
-                            offset: Offset(0, 3),
-                          ),
-                        ],
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => menu()),
-                                );
-                              });
-                            },
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(vertical: 5),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    width: 25,
-                                    height: 25,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.rectangle,
-                                    ),
-                                    child: Image.asset(
-                                      'assets/images/user.png',
-                                      color: Color(0xFF6C6A6A),
-
-                                    ),
-                                  ),
-                                  SizedBox(height: 3),
-                                  Text(
-                                    "ملفى",
-                                    style: TextStyle(
-                                      fontFamily: 'Cairo',
-                                      fontWeight: FontWeight.normal,
-                                      color: Colors.black,
-                                      fontSize: 10.90,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => Live()),
-                                );
-                              });
-                            },
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(vertical: 5),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    width: 25,
-                                    height: 25,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.rectangle,
-                                    ),
-                                    child:Icon(Icons.online_prediction_outlined,
-                                      // size: 22, // Adjust the size of the icon as needed
-                                      color:Color(0xFF6C6A6A),
-                                    ),
-                                  ),
-                                  SizedBox(height: 3),
-                                  Text(
-                                    "مباشر",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 10.90,
-                                      fontFamily: 'Cairo',
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => Lessons()),
-                                );
-                              });
-                            },
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(vertical: 5),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    width: 25,
-                                    height: 25,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.rectangle,
-                                    ),
-                                    child: Icon(Icons.collections_bookmark_outlined,
-                                      // size: 22, // Adjust the size of the icon as needed
-                                      color:Color(0xFF6C6A6A),
-                                    ),
-                                  ),
-                                  SizedBox(height: 3),
-                                  Text(
-                                    "الوحدات",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 10.90,
-                                      fontFamily: 'Cairo',
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => Home()),
-                                );
-                              });
-                            },
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(vertical: 5),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    width: 25,
-                                    height: 25,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.rectangle,
-                                    ),
-                                    child: Image.asset(
-                                      'assets/images/HouseSimple.png',
-                                    ),
-                                  ),
-                                  SizedBox(height: 3),
-                                  Text(
-                                    "الرئيسية",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 10.90,
-                                      fontFamily: 'Cairo',
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    )
                 ));
           }),
+        bottomNavigationBar: Container(
+          width: 359,
+          height: 66.22,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
 
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 3,
+                blurRadius: 7,
+                offset: Offset(0, 3),
+              ),
+            ],
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => menu()),
+                    );
+                  });
+                },
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 5),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 25,
+                        height: 25,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.rectangle,
+                        ),
+                        child: Image.asset(
+                          'assets/images/user.png',
+                          color: Color(0xFF6C6A6A),
+
+                        ),
+                      ),
+                      SizedBox(height: 3),
+                      Text(
+                        "ملفى",
+                        style: TextStyle(
+                          fontFamily: 'Cairo',
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black,
+                          fontSize: 10.90,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Live()),
+                    );
+                  });
+                },
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 5),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 25,
+                        height: 25,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.rectangle,
+                        ),
+                        child:Icon(Icons.online_prediction_outlined,
+                          // size: 22, // Adjust the size of the icon as needed
+                          color:Color(0xFF6C6A6A),
+                        ),
+                      ),
+                      SizedBox(height: 3),
+                      Text(
+                        "مباشر",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 10.90,
+                          fontFamily: 'Cairo',
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Lessons()),
+                    );
+                  });
+                },
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 5),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 25,
+                        height: 25,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.rectangle,
+                        ),
+                        child: Icon(Icons.collections_bookmark_outlined,
+                          // size: 22, // Adjust the size of the icon as needed
+                          color:Color(0xFF6C6A6A),
+                        ),
+                      ),
+                      SizedBox(height: 3),
+                      Text(
+                        "الوحدات",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 10.90,
+                          fontFamily: 'Cairo',
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              InkWell(
+                // onTap: () {
+                //   setState(() {
+                //     Navigator.push(
+                //       context,
+                //       MaterialPageRoute(builder: (context) => Home()),
+                //     );
+                //   });
+                // },
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 5),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 25,
+                        height: 25,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.rectangle,
+
+                        ),
+                        child: Image.asset(
+                          'assets/images/HouseSimple.png',
+                          color:Color(0xFF008DC9) ,
+                        ),
+                      ),
+                      SizedBox(height: 3),
+                      Text(
+                        "الرئيسية",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 10.90,
+                          fontFamily: 'Cairo',
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        )
 
     );
 

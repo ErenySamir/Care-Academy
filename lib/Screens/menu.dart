@@ -586,14 +586,14 @@ class menuState extends State<menu>{
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               InkWell(
-                onTap: () {
-                  setState(() {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => menu()),
-                    );
-                  });
-                },
+                // onTap: () {
+                //   setState(() {
+                //     Navigator.push(
+                //       context,
+                //       MaterialPageRoute(builder: (context) => menu()),
+                //     );
+                //   });
+                // },
                 child: Padding(
                   padding: EdgeInsets.symmetric(vertical: 5),
                   child: Column(
@@ -606,7 +606,8 @@ class menuState extends State<menu>{
                         ),
                         child: Image.asset(
                           'assets/images/user.png',
-                          color: Color(0xFF6C6A6A),
+                          color:Color(0xFF008DC9) ,
+
 
                         ),
                       ),

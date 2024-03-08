@@ -1,26 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
-
 class VideoWidget extends StatefulWidget {
   final String videoUrl;
+  final Duration? initialPosition;
 
-  VideoWidget({required this.videoUrl});
+  VideoWidget({required this.videoUrl, this.initialPosition});
 
   @override
   _VideoWidgetState createState() => _VideoWidgetState();
 }
+
 class _VideoWidgetState extends State<VideoWidget> {
   late VideoPlayerController _controller;
   late bool isPlaying;
+  Duration? _currentPosition; // Save the current position here
 
   @override
   void initState() {
     super.initState();
     _controller = VideoPlayerController.asset(widget.videoUrl)
       ..initialize().then((_) {
-        setState(() {});
+        setState(() {
+          if (widget.initialPosition != null) {
+            _controller.seekTo(widget.initialPosition!);
+            _currentPosition = widget.initialPosition; // Update the current position
+          }
+        });
       });
     isPlaying = false;
+    _controller.addListener(() {
+      if (_controller.value.position != _currentPosition) {
+        setState(() {
+          _currentPosition = _controller.value.position; // Update the current position
+        });
+      }
+    });
   }
 
   @override
@@ -37,7 +51,8 @@ class _VideoWidgetState extends State<VideoWidget> {
           if (_controller.value.isPlaying) {
             _controller.pause();
             isPlaying = false;
-          } else {
+          }
+          else {
             _controller.play();
             isPlaying = true;
           }

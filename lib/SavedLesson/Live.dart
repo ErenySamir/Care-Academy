@@ -346,14 +346,14 @@ class LiveState extends State<Live> {
                 ),
               ),
               InkWell(
-                onTap: () {
-                  setState(() {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Live()),
-                    );
-                  });
-                },
+                // onTap: () {
+                //   setState(() {
+                //     Navigator.push(
+                //       context,
+                //       MaterialPageRoute(builder: (context) => Live()),
+                //     );
+                //   });
+                // },
                 child: Padding(
                   padding: EdgeInsets.symmetric(vertical: 5),
                   child: Column(
@@ -366,7 +366,8 @@ class LiveState extends State<Live> {
                         ),
                         child:Icon(Icons.online_prediction_outlined,
                           // size: 22, // Adjust the size of the icon as needed
-                          color:Color(0xFF6C6A6A),
+                          color:Color(0xFF008DC9) ,
+
                         ),
                       ),
                       SizedBox(height: 3),

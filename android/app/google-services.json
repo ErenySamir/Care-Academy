@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "274911957689",
+    "project_id": "fir-firstproject-80449",
+    "storage_bucket": "fir-firstproject-80449.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:274911957689:android:328b9db906ebf0cca28168",
+        "android_client_info": {
+          "package_name": "com.example.careacademy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLtEsb65CmBprbBPSMM1KBX2lzhbr8GvU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
